@@ -1,0 +1,6 @@
+framework module Pods_Drive2StudyApp {
+  umbrella header "Pods-Drive2StudyApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
