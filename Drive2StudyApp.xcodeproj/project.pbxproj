@@ -10,6 +10,9 @@
 		04BA0E6033F84BB069474CC4 /* Pods_Drive2StudyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8946BBC88DD5E41363A32E /* Pods_Drive2StudyAppUITests.framework */; };
 		09EF0B9C918191338935C452 /* Pods_Drive2StudyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */; };
 		78B815CAE7E52B22FE942A2E /* Pods_Drive2StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */; };
+		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
+		D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */; };
+		D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C81FEEBB8400606D0C /* RegisterController.swift */; };
 		D16823381FEE712200A1527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823371FEE712200A1527E /* AppDelegate.swift */; };
 		D168233A1FEE712200A1527E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823391FEE712200A1527E /* ViewController.swift */; };
 		D168233D1FEE712200A1527E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D168233B1FEE712200A1527E /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		9E9E1C431F4087AE269F177A /* Pods-Drive2StudyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDFDBE8DC1245FAB9079C09 /* Pods-Drive2StudyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordController.swift; sourceTree = "<group>"; };
+		D13F03C81FEEBB8400606D0C /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D16823341FEE712200A1527E /* Drive2StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive2StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16823371FEE712200A1527E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16823391FEE712200A1527E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D13F03C71FEEB47F00606D0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D16823391FEE712200A1527E /* ViewController.swift */,
+				D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */,
+				D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */,
+				D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */,
+				D13F03C81FEEBB8400606D0C /* RegisterController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D168232B1FEE712200A1527E = {
 			isa = PBXGroup;
 			children = (
@@ -128,13 +146,12 @@
 		D16823361FEE712200A1527E /* Drive2StudyApp */ = {
 			isa = PBXGroup;
 			children = (
+				D13F03C71FEEB47F00606D0C /* Controllers */,
 				D16823371FEE712200A1527E /* AppDelegate.swift */,
-				D16823391FEE712200A1527E /* ViewController.swift */,
 				D168233B1FEE712200A1527E /* Main.storyboard */,
 				D168233E1FEE712200A1527E /* Assets.xcassets */,
 				D16823401FEE712200A1527E /* LaunchScreen.storyboard */,
 				D16823431FEE712200A1527E /* Info.plist */,
-				D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */,
 				D16823671FEE72EE00A1527E /* GoogleService-Info.plist */,
 			);
 			path = Drive2StudyApp;
@@ -467,7 +484,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */,
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
+				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
+				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
 				D16823381FEE712200A1527E /* AppDelegate.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
 			);

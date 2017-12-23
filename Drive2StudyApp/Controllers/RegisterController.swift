@@ -1,5 +1,5 @@
 //
-//  SigninWithEmailContoller.swift
+//  RegisterController.swift
 //  Drive2StudyApp
 //
 //  Created by IdoD on 23/12/2017.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SigninWithEmailContoller: UIViewController {
+class RegisterController: UIViewController {
 
-    @IBOutlet weak var bla: UILabel!
+    var userEmail:String = ""
+    @IBOutlet weak var UserEmailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UserEmailLabel.text = userEmail
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +24,10 @@ class SigninWithEmailContoller: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func notYourEmailPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
