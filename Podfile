@@ -6,6 +6,9 @@ target 'Drive2StudyApp' do
   use_frameworks!
 
   # Pods for Drive2StudyApp
+	source 'https://github.com/CocoaPods/Specs.git'
+	pod 'GoogleMaps'
+	pod 'GooglePlaces'
 	pod 'Firebase/Core'
 
   target 'Drive2StudyAppTests' do
