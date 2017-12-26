@@ -15,6 +15,8 @@
 		47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */; };
 		47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74171FF2B0810040F2C2 /* RideViewController.swift */; };
 		78B815CAE7E52B22FE942A2E /* Pods_Drive2StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */; };
+		D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */; };
+		D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */; };
 		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
 		D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */; };
 		D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C81FEEBB8400606D0C /* RegisterController.swift */; };
@@ -59,6 +61,8 @@
 		9E9E1C431F4087AE269F177A /* Pods-Drive2StudyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDFDBE8DC1245FAB9079C09 /* Pods-Drive2StudyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordController.swift; sourceTree = "<group>"; };
 		D13F03C81FEEBB8400606D0C /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				47B95A3B1FF188B300C4569D /* ChatViewController.swift */,
 				47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */,
 				47ED74171FF2B0810040F2C2 /* RideViewController.swift */,
+				D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */,
+				D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -507,8 +513,10 @@
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
 				47B95A3C1FF188B300C4569D /* ChatViewController.swift in Sources */,
 				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,
+				D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */,
 				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
 				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
+				D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */,
 				47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */,
 				D16823381FEE712200A1527E /* AppDelegate.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,

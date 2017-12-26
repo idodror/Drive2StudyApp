@@ -8,17 +8,46 @@
 
 import UIKit
 
+// To apply background color on stack view
+public extension UIView {
+    public func pin(to view: UIView) {
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+}
+
 class MainTabScreenController: UIViewController {
     
     var childControllersNames = [
         "MapViewController",
         "DriveViewController",
         "RideViewController",
-        "ChatViewController"]
+        "ChatViewController",
+        "ProfileNavigation"]
     
     var childControllers = Array<UIViewController>()
 
     @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet private weak var topStackView: UIStackView!
+    
+    // background to UIView
+    private lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    // set the background to a specific UIView
+    private func pinBackground(_ view: UIView, to stackView: UIStackView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        stackView.insertSubview(view, at: 0)
+        view.pin(to: stackView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +57,7 @@ class MainTabScreenController: UIViewController {
             addChildViewController(vc)
         }
         self.viewContainer.addSubview(childControllers[0].view)
-        
-        // Do any additional setup after loading the view.
+        pinBackground(backgroundView, to: topStackView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,7 +88,11 @@ class MainTabScreenController: UIViewController {
     
     @IBAction func ChatButtonPressed(_ sender: UIButton) {
         self.viewContainer.addSubview(childControllers[3].view)
+        
     }
     
-
+    @IBAction func ProfileViewButtonPressed(_ sender: UIButton) {
+        self.viewContainer.addSubview(childControllers[4].view)
+    }
+    
 }
