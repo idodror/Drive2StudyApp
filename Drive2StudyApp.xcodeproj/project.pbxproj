@@ -11,9 +11,9 @@
 		09EF0B9C918191338935C452 /* Pods_Drive2StudyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */; };
 		47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A331FF1794000C4569D /* MainTabScreenController.swift */; };
 		47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A351FF187FE00C4569D /* MapViewController.swift */; };
-		47B95A381FF1887400C4569D /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A371FF1887400C4569D /* DriveViewController.swift */; };
-		47B95A3A1FF1888500C4569D /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A391FF1888500C4569D /* RideViewController.swift */; };
 		47B95A3C1FF188B300C4569D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A3B1FF188B300C4569D /* ChatViewController.swift */; };
+		47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */; };
+		47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74171FF2B0810040F2C2 /* RideViewController.swift */; };
 		78B815CAE7E52B22FE942A2E /* Pods_Drive2StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */; };
 		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
 		D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */; };
@@ -50,9 +50,9 @@
 		1802073A40FDBBAD2E893C0A /* Pods-Drive2StudyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppUITests/Pods-Drive2StudyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		47B95A331FF1794000C4569D /* MainTabScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabScreenController.swift; sourceTree = "<group>"; };
 		47B95A351FF187FE00C4569D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		47B95A371FF1887400C4569D /* DriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
-		47B95A391FF1888500C4569D /* RideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
 		47B95A3B1FF188B300C4569D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
+		47ED74171FF2B0810040F2C2 /* RideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
 		61EF2AAF4CC80559A2E28DBE /* Pods-Drive2StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B4260F51E196179156591B2 /* Pods-Drive2StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		8CDFD535662E3BA42561B8D5 /* Pods-Drive2StudyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppUITests/Pods-Drive2StudyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,9 +129,9 @@
 				D13F03C81FEEBB8400606D0C /* RegisterController.swift */,
 				47B95A331FF1794000C4569D /* MainTabScreenController.swift */,
 				47B95A351FF187FE00C4569D /* MapViewController.swift */,
-				47B95A371FF1887400C4569D /* DriveViewController.swift */,
-				47B95A391FF1888500C4569D /* RideViewController.swift */,
 				47B95A3B1FF188B300C4569D /* ChatViewController.swift */,
+				47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */,
+				47ED74171FF2B0810040F2C2 /* RideViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -506,14 +506,14 @@
 				D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */,
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
 				47B95A3C1FF188B300C4569D /* ChatViewController.swift in Sources */,
-				47B95A381FF1887400C4569D /* DriveViewController.swift in Sources */,
+				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,
 				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
 				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
 				47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */,
-				47B95A3A1FF1888500C4569D /* RideViewController.swift in Sources */,
 				D16823381FEE712200A1527E /* AppDelegate.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
 				47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */,
+				47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

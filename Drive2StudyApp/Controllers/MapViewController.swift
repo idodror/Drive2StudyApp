@@ -25,16 +25,30 @@ class MapViewController: UIViewController {
     override func loadView() {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: 31.768319, longitude: 35.21371, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 32.090882, longitude: 34.774359, zoom: 14.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 31.768319, longitude: 35.21371)
-        marker.title = "Jerusalem"
-        marker.snippet = "Israel"
-        marker.map = mapView
+        // Creates markers for the map
+        let myLatitude=32.090882
+        let myLongtitude=34.774359
+        let myMarker = GMSMarker()
+        myMarker.position = CLLocationCoordinate2D(latitude: myLatitude, longitude: myLongtitude)
+        myMarker.map = mapView
+        
+        let carLatitude=32.096642
+        let carLongtitude=34.773158
+        let carMarker = GMSMarker()
+        carMarker.position = CLLocationCoordinate2D(latitude: carLatitude, longitude: carLongtitude)
+        carMarker.icon = UIImage(named:"carMarker")
+        carMarker.map = mapView
+        
+        let studentLatitude=32.075477
+        let studentLongtitude=34.775730
+        let studentMarker = GMSMarker()
+        studentMarker.position = CLLocationCoordinate2D(latitude: studentLatitude, longitude: studentLongtitude)
+        studentMarker.icon = UIImage(named:"studentMarker")
+        studentMarker.map = mapView
     }
     
 
