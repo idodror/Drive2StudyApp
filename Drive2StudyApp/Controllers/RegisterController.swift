@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UITextFieldDelegate {
 
     var userEmail:String = ""
     @IBOutlet weak var UserEmailLabel: UILabel!
@@ -16,7 +16,6 @@ class RegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserEmailLabel.text = userEmail
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,14 +27,10 @@ class RegisterController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func joinButtonPressed(_ sender: UIButton) {
+        // Check if the register succeeded
+        
+        // if correct
+        performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)
     }
-    */
-
 }

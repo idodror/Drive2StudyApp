@@ -20,6 +20,7 @@
 		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
 		D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */; };
 		D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C81FEEBB8400606D0C /* RegisterController.swift */; };
+		D149CC511FF40D8E006F57C1 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149CC501FF40D8E006F57C1 /* Student.swift */; };
 		D16823381FEE712200A1527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823371FEE712200A1527E /* AppDelegate.swift */; };
 		D168233A1FEE712200A1527E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823391FEE712200A1527E /* ViewController.swift */; };
 		D168233D1FEE712200A1527E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D168233B1FEE712200A1527E /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordController.swift; sourceTree = "<group>"; };
 		D13F03C81FEEBB8400606D0C /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		D149CC501FF40D8E006F57C1 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		D16823341FEE712200A1527E /* Drive2StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive2StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16823371FEE712200A1527E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16823391FEE712200A1527E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D149CC4F1FF40D69006F57C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D149CC501FF40D8E006F57C1 /* Student.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D168232B1FEE712200A1527E = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		D16823361FEE712200A1527E /* Drive2StudyApp */ = {
 			isa = PBXGroup;
 			children = (
+				D149CC4F1FF40D69006F57C1 /* Model */,
 				D13F03C71FEEB47F00606D0C /* Controllers */,
 				D16823371FEE712200A1527E /* AppDelegate.swift */,
 				D168233B1FEE712200A1527E /* Main.storyboard */,
@@ -390,12 +401,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +529,7 @@
 				47B95A3C1FF188B300C4569D /* ChatViewController.swift in Sources */,
 				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,
 				D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */,
+				D149CC511FF40D8E006F57C1 /* Student.swift in Sources */,
 				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
 				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
 				D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */,
