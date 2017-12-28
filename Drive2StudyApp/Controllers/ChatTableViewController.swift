@@ -1,17 +1,15 @@
 //
-//  RideViewController.swift
+//  ChatTableViewController.swift
 //  Drive2StudyApp
 //
-//  Created by delver on 26.12.2017.
+//  Created by admin on 28/12/2017.
 //  Copyright © 2017 IdoD. All rights reserved.
 //
 
 import UIKit
 
-class RideViewController: UITableViewController {
+class ChatTableViewController: UITableViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +36,7 @@ class RideViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-    
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -93,7 +91,5 @@ class RideViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func AddButtonPressed(_ sender: UIButton) {
-    }
-    
+
 }
