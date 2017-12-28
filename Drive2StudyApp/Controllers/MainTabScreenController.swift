@@ -26,7 +26,7 @@ class MainTabScreenController: UIViewController {
         "MapViewController",
         "DriveViewController",
         "RideViewController",
-        "ChatViewController",
+        "ChatNavigation",
         "ProfileNavigation"]
     
     var childControllers = Array<UIViewController>()

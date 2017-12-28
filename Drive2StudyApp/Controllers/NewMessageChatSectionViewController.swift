@@ -38,10 +38,7 @@ class NewMessageChatSectionViewController: UIViewController {
     }
     */
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        
-        self.dismiss(animated: true) {
-            //DB
-        }
+        navigationController?.popViewController(animated: true)
     }
     
 }
