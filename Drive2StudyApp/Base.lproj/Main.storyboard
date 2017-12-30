@@ -414,6 +414,9 @@
                                             <constraint firstAttribute="width" constant="40" id="gK4-NN-iO3"/>
                                         </constraints>
                                         <state key="normal" image="connectionsBlack"/>
+                                        <connections>
+                                            <action selector="connectionButtonPressed:" destination="hjp-LM-6ia" eventType="touchUpInside" id="Z56-4D-Vwr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFy-9G-zq8" userLabel="Signout Button">
                                         <rect key="frame" x="370" y="0.0" width="44" height="40"/>
@@ -661,6 +664,7 @@
                                     <connections>
                                         <action selector="AddButtonPressed:" destination="Atm-EA-daU" eventType="touchUpInside" id="oWu-15-Y4g"/>
                                         <action selector="addDrivePressed:" destination="Q9K-Nw-BvR" eventType="touchUpInside" id="oUT-2f-Ru2"/>
+                                        <segue destination="HiY-in-WXk" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="E7b-yV-HrL"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -829,7 +833,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZDo-yO-5br">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="Upc-X6-WOm">
+                        <barButtonItem key="rightBarButtonItem" image="AddLogo" id="Upc-X6-WOm">
                             <connections>
                                 <segue destination="uJe-Jz-px3" kind="show" id="eyQ-CF-ahg"/>
                             </connections>
@@ -1241,7 +1245,7 @@
         <!--Connections Table View Controller-->
         <scene sceneID="QFK-Fw-AHj">
             <objects>
-                <tableViewController id="GNG-ve-lWy" customClass="ConnectionsTableViewController" customModule="Drive2StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConnectionViewController" id="GNG-ve-lWy" customClass="ConnectionsTableViewController" customModule="Drive2StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcU-KD-ogG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1534,6 +1538,7 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pOX-ok-a3m"/>
         <segue reference="gRH-1l-Dls"/>
     </inferredMetricsTieBreakers>
 </document>

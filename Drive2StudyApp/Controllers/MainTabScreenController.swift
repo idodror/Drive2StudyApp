@@ -27,7 +27,8 @@ class MainTabScreenController: UIViewController {
         "DriveViewController",
         "RideViewController",
         "ChatNavigation",
-        "ProfileNavigation"]
+        "ProfileNavigation",
+        "ConnectionViewController"]
     
     var childControllers = Array<UIViewController>()
 
@@ -95,4 +96,8 @@ class MainTabScreenController: UIViewController {
         self.viewContainer.addSubview(childControllers[4].view)
     }
     
+    @IBAction func connectionButtonPressed(_ sender: Any) {
+        self.viewContainer.addSubview(childControllers[5].view)
+
+    }
 }
