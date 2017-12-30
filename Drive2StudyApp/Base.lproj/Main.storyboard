@@ -591,7 +591,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqO-Ho-rHK" userLabel="Popup" customClass="DesignableView" customModule="Drive2StudyApp" customModuleProvider="target">
                                     <rect key="frame" x="87" y="193" width="240" height="240"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Would you like to add yourself into the drivers list? Please fill in an adress if you would like other location than yours." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bDz-Kh-CF8">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Would you like to add yourself into the drivers list? Please fill in an address if you would like other location than yours." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bDz-Kh-CF8">
                                             <rect key="frame" x="0.0" y="27" width="240" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -634,7 +634,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0Q-U1-8au" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KfS-XA-JiP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3267" y="-161"/>
+            <point key="canvasLocation" x="3354" y="-205"/>
         </scene>
         <!--Ride View Controller-->
         <scene sceneID="KCT-y9-qA2">
@@ -670,10 +670,6 @@
                             </subviews>
                             <color key="backgroundColor" red="0.78393322229999995" green="0.7841141224" blue="0.80920869110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" id="WXp-b8-zlH">
-                            <rect key="frame" x="0.0" y="141" width="414" height="466"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="67Q-7m-0XD">
                                 <rect key="frame" x="0.0" y="91" width="414" height="50"/>
@@ -1246,47 +1242,7 @@
         <scene sceneID="QFK-Fw-AHj">
             <objects>
                 <tableViewController storyboardIdentifier="ConnectionViewController" id="GNG-ve-lWy" customClass="ConnectionsTableViewController" customModule="Drive2StudyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcU-KD-ogG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" id="6WQ-uO-zE5">
-                            <rect key="frame" x="0.0" y="78" width="414" height="626"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Pva-Pd-W1p">
-                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pva-Pd-W1p" id="nwr-y3-rtx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AvatarBigPicture" translatesAutoresizingMaskIntoConstraints="NO" id="gM7-GT-rSE">
-                                            <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOF-I8-odK">
-                                            <rect key="frame" x="76" y="14" width="101" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxH-oV-TTl">
-                                            <rect key="frame" x="330" y="10" width="83" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="EXIT-Icon-App-29x29"/>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GNG-ve-lWy" id="QVo-3N-DNc"/>
-                            <outlet property="delegate" destination="GNG-ve-lWy" id="bhq-00-Luu"/>
-                        </connections>
-                    </tableView>
+                    <size key="freeformSize" width="414" height="626"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ysr-dj-MZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
