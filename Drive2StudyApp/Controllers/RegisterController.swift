@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var phoneLabel: UITextField!
+    @IBOutlet weak var lNameLabel: UITextField!
+    @IBOutlet weak var fNameLabel: UITextField!
     var userEmail:String = ""
     @IBOutlet weak var UserEmailLabel: UILabel!
     
@@ -28,9 +31,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
-        // Check if the register succeeded
         
-        // if correct
+        Model.instance.addStudent(st: Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: ""))
         performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)
     }
 }

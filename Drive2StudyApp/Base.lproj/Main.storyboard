@@ -230,6 +230,9 @@
                     </view>
                     <connections>
                         <outlet property="UserEmailLabel" destination="N4X-lR-QXh" id="N3e-G2-Dsr"/>
+                        <outlet property="fNameLabel" destination="0Mc-t5-oO7" id="4cQ-dc-NOt"/>
+                        <outlet property="lNameLabel" destination="SLg-Ol-4wJ" id="3Ah-qr-OL6"/>
+                        <outlet property="phoneLabel" destination="RsZ-7c-Xt1" id="yp4-jl-bFz"/>
                         <segue destination="hjp-LM-6ia" kind="presentation" identifier="moveToAppAfterRegister" id="gRH-1l-Dls"/>
                     </connections>
                 </viewController>
@@ -963,23 +966,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-hZ-KyM">
-                                <rect key="frame" x="70" y="500" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Drive" backgroundImage="GreenButtonBackground">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnP-Pc-tU6">
-                                <rect key="frame" x="262" y="500" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="envelope"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNB-Z8-Ms7">
-                                <rect key="frame" x="169" y="500" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ride" backgroundImage="GreenButtonBackground"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

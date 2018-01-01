@@ -9,10 +9,12 @@ target 'Drive2StudyApp' do
 	source 'https://github.com/CocoaPods/Specs.git'
 	pod 'GoogleMaps'
 	pod 'GooglePlaces'
-    	pod 'Firebase/Core'
-    	pod 'Firebase/Database'
-    	pod 'Firebase/Auth'
-    	pod 'Firebase/Storage'
+        pod 'Firebase/Core'
+        pod 'Firebase/Database'
+        pod 'Firebase/Auth'
+        pod 'Firebase/Storage'
+
+
 
   target 'Drive2StudyAppTests' do
     inherit! :search_paths

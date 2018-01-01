@@ -15,32 +15,38 @@ class Student {
     var phoneNumber: String
     var study: String
     var daysInCollege = Array(repeating: 0, count: 7)
-    
+    var lastUpdate:Date?
+
     init(userName: String, fName: String, lName: String, phoneNumber: String, study: String) {
         self.userName = userName
         self.fName = fName
         self.lName = lName
         self.phoneNumber = phoneNumber
         self.study = study
+        
     }
     
-    init(fromJson:[String:Any]){
-        userName = fromJson["userName"] as! String
-        fName = fromJson["fName"] as! String
-        lName = fromJson["lName"] as! String
-        phoneNumber = fromJson["phoneNumber"] as! String
-        study = fromJson["study"] as! String
-        daysInCollege = fromJson["daysInCollege"] as! [Int]
+    init(json:Dictionary<String,Any>){
+        userName = json["userName"] as! String
+        fName = json["fName"] as! String
+        lName = json["lName"] as! String
+        phoneNumber = json["phoneNumber"] as! String
+        study = json["study"] as! String
+        daysInCollege = json["daysInCollege"] as! [Int]
+        if let ts = json["lastUpdate"] as? Double{
+            self.lastUpdate = Date.fromFirebase(ts)
+        }
     }
     
-    func toJson()->[String:Any]{
-        var json = [String:Any]()
+    func toFirebase() -> Dictionary<String,Any> {
+        var json = Dictionary<String,Any>()
         json["userName"] = userName
         json["fName"] = fName
         json["lName"] = lName
         json["phoneNumber"] = phoneNumber
         json["study"] = study
         json["daysInCollege"] = daysInCollege
+        json["lastUpdate"] = " " //TBD!!!!!!!! timestamp from DB
         return json
     }
     
