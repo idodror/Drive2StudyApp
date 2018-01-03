@@ -15,15 +15,16 @@ class Student {
     var phoneNumber: String
     var study: String
     var daysInCollege = Array(repeating: 0, count: 7)
+    var password: String
     var lastUpdate:Date?
 
-    init(userName: String, fName: String, lName: String, phoneNumber: String, study: String) {
+    init(userName: String, fName: String, lName: String, phoneNumber: String, study: String, password: String) {
         self.userName = userName
         self.fName = fName
         self.lName = lName
         self.phoneNumber = phoneNumber
         self.study = study
-        
+        self.password = password
     }
     
     init(json:Dictionary<String,Any>){
@@ -33,6 +34,7 @@ class Student {
         phoneNumber = json["phoneNumber"] as! String
         study = json["study"] as! String
         daysInCollege = json["daysInCollege"] as! [Int]
+        password = json["password"] as! String
         if let ts = json["lastUpdate"] as? Double{
             self.lastUpdate = Date.fromFirebase(ts)
         }
@@ -46,7 +48,8 @@ class Student {
         json["phoneNumber"] = phoneNumber
         json["study"] = study
         json["daysInCollege"] = daysInCollege
-        json["lastUpdate"] = " " //TBD!!!!!!!! timestamp from DB
+        json["password"] = password
+        json["lastUpdate"] = 10 //TBD!!!!!!!! timestamp from DB
         return json
     }
     

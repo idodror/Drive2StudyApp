@@ -39,10 +39,21 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate {
 
     @IBAction func continueWithEmailPressed(_ sender: UIButton) {
         let text = UserEmailLabel.text!
-        if text == "Email Address" {
-            performSegue(withIdentifier: "moveToRegisterPage", sender: Any?.self)
-        } else {
+        Model.instance.getStudentById(id: text) { (student) in
+            if (student != nil) {
+                // save to sqlite
+                self.goToNextPage(isRegisterd: "true")
+            } else {
+                self.goToNextPage(isRegisterd: "false")
+            }
+        }
+    }
+    
+    func goToNextPage(isRegisterd: String) {
+        if (isRegisterd == "true") {
             performSegue(withIdentifier: "moveToSignInPage", sender: Any?.self)
+        } else {
+            performSegue(withIdentifier: "moveToRegisterPage", sender: Any?.self)
         }
     }
     

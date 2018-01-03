@@ -232,6 +232,7 @@
                         <outlet property="UserEmailLabel" destination="N4X-lR-QXh" id="N3e-G2-Dsr"/>
                         <outlet property="fNameLabel" destination="0Mc-t5-oO7" id="4cQ-dc-NOt"/>
                         <outlet property="lNameLabel" destination="SLg-Ol-4wJ" id="3Ah-qr-OL6"/>
+                        <outlet property="passwordLabel" destination="sq5-5e-Wyv" id="dth-gH-IKM"/>
                         <outlet property="phoneLabel" destination="RsZ-7c-Xt1" id="yp4-jl-bFz"/>
                         <segue destination="hjp-LM-6ia" kind="presentation" identifier="moveToAppAfterRegister" id="gRH-1l-Dls"/>
                     </connections>

@@ -15,6 +15,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fNameLabel: UITextField!
     var userEmail:String = ""
     @IBOutlet weak var UserEmailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
         
-        Model.instance.addStudent(st: Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: ""))
+        Model.instance.addStudent(st: Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: "", password: passwordLabel.text!))
         performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)
     }
 }

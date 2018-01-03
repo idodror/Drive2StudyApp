@@ -1,9 +1,9 @@
 //
 //  LastUpdateTable.swift
-//  TestFb
+//  Drive2StudyApp
 //
-//  Created by Eliav Menachi on 28/12/2016.
-//  Copyright © 2016 menachi. All rights reserved.
+//  Created by IdoD on 31/12/2018.
+//  Copyright © 2017 IdoD. All rights reserved.
 //
 
 import Foundation

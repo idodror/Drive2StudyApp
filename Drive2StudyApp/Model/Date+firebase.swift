@@ -1,9 +1,9 @@
 //
 //  Date+firebase.swift
-//  TestFb
+//  Drive2StudyApp
 //
-//  Created by Eliav Menachi on 27/12/2017.
-//  Copyright © 2017 menachi. All rights reserved.
+//  Created by IdoD on 31/12/2018.
+//  Copyright © 2017 IdoD. All rights reserved.
 //
 
 import Foundation
