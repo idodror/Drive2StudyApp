@@ -30,13 +30,27 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData();
+    }
+    
+    func loadData() {
         firstNameLabel.text = Model.studentCurrent.fName
         lastNameLabel.text = Model.studentCurrent.lName
         phoneNumberLabel.text = Model.studentCurrent.phoneNumber
         //userAvatar.image = Model.studentCurrent.image //get image by url!
         iStudyLabel.text = Model.studentCurrent.study
-        //days
-        
+        setDaysSwitchStatus()
+    }
+    
+    func setDaysSwitchStatus() {
+        var days = Model.studentCurrent.daysInCollege
+        if days[0] == 1 { sundaySwitch.isOn = true }
+        if days[1] == 1 { mondaySwitch.isOn = true }
+        if days[2] == 1 { thuesdaySwitch.isOn = true }
+        if days[3] == 1 { wednesdaySwitch.isOn = true }
+        if days[4] == 1 { thursdaySwitch.isOn = true }
+        if days[5] == 1 { fridaySwitch.isOn = true }
+        if days[6] == 1 { saturdaySwitch.isOn = true }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,12 +59,34 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        Model.studentCurrent.fName = firstNameLabel.text!
+        Model.studentCurrent.lName = lastNameLabel.text!
+        Model.studentCurrent.phoneNumber = phoneNumberLabel.text!
+        Model.studentCurrent.study = iStudyLabel.text!
+        saveDaysInCollegeNewStatus()
+        
         if let image = self.selectedImage{
             Model.instance.saveImage(image: image, name:self.firstNameLabel.text!){(url) in
                 self.imageUrl = url
             }
         }
+        
+        // to update the data in firebase and in the sqlite db
+        Model.instance.addStudent(st: Model.studentCurrent)
+        
         navigationController?.popViewController(animated: true)
+    }
+    
+    func saveDaysInCollegeNewStatus() {
+        var days = Model.studentCurrent.daysInCollege
+        if sundaySwitch.isOn { days[0] = 1 } else { days[0] = 0 }
+        if mondaySwitch.isOn { days[1] = 1 } else { days[1] = 0 }
+        if thuesdaySwitch.isOn { days[2] = 1 } else { days[2] = 0 }
+        if wednesdaySwitch.isOn { days[3] = 1 } else { days[3] = 0 }
+        if thursdaySwitch.isOn { days[4] = 1 } else { days[4] = 0 }
+        if fridaySwitch.isOn { days[5] = 1 } else { days[5] = 0 }
+        if saturdaySwitch.isOn { days[6] = 1 } else { days[6] = 0 }
+        Model.studentCurrent.daysInCollege = days
     }
 
     @IBAction func changeProfilPictureButtonPressed(_ sender: UIButton) {
@@ -60,7 +96,7 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
-        }else{
+        } else {
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self

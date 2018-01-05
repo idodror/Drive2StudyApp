@@ -16,17 +16,23 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadData()
+    }
+    
+    func loadData() {
         userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
         studyLabel.text = Model.studentCurrent.study
         var list = Model.studentCurrent.daysInCollege
-        list[6]=1; //debug
-        daysLabel.text = " "
+        daysLabel.text = ""
         for i in 0..<list.count{
             if list[i]==1{
                 daysLabel.text?+=getDay(i) + "\n"
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     func getDay(_ day: Int) -> String{

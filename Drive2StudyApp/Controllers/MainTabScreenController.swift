@@ -58,9 +58,12 @@ class MainTabScreenController: UIViewController {
             childControllers.append(vc)
             addChildViewController(vc)
         }
-        userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
         self.viewContainer.addSubview(childControllers[0].view)
         pinBackground(backgroundView, to: topStackView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
     }
     
     override func viewDidLayoutSubviews() {

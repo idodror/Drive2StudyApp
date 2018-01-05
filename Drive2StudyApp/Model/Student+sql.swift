@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension Student{
+extension Student {
     static let ST_TABLE = "STUDENTS"
     static let ST_USERNAME = "USERNAME"
     static let ST_FNAME = "FNAME"

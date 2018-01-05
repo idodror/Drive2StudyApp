@@ -10,6 +10,9 @@ import UIKit
 
 class ChooseLocationViewController: UIViewController {
     
+    @IBOutlet weak var LocationLabel: UITextField!
+    var type:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,5 +21,10 @@ class ChooseLocationViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func AddButtonPressed(_ sender: UIButton) {
+        let dr = DriveRide(userName: Model.studentCurrent.userName, fromWhere: LocationLabel.text!, type: type)
+        Model.instance.addNewDriveRide(dr: dr)
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

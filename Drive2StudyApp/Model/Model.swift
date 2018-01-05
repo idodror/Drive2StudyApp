@@ -30,15 +30,17 @@ class ModelNotificationBase<T>{
 }
 
 class ModelNotification{
-    static let StudentList = ModelNotificationBase<[Student]>(name: "StudentListNotificatio")
-    static let Student = ModelNotificationBase<Student>(name: "StudentNotificatio")
+    static let StudentList = ModelNotificationBase<[Student]>(name: "StudentListNotification")
+    static let Student = ModelNotificationBase<Student>(name: "StudentNotification")
+    static let DriveList = ModelNotificationBase<[DriveRide]>(name: "DriveListNotification")
+    static let RideList = ModelNotificationBase<[DriveRide]>(name: "RideListNotification")
     
     static func removeObserver(observer:Any){
         NotificationCenter.default.removeObserver(observer)
     }
 }
 
-class Model{
+class Model {
     static let instance = Model()
     static var studentCurrent = Student()
     
@@ -190,5 +192,11 @@ class Model{
     private func getImageFromFile(name:String)->UIImage?{
         let filename = getDocumentsDirectory().appendingPathComponent(name)
         return UIImage(contentsOfFile:filename.path)
+    }
+    
+    func addNewDriveRide(dr: DriveRide) {
+        DriveRideModelFirebase.addNewDrive(dr: dr) { (error) in
+            // 
+        }
     }
 }

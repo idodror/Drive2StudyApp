@@ -43,7 +43,9 @@ class Student {
         self.lName = st.lName
         self.phoneNumber = st.phoneNumber
         self.study = st.study
+        self.daysInCollege = st.daysInCollege
         self.password = st.password
+        self.lastUpdate = st.lastUpdate
     }
     
     init(json:Dictionary<String,Any>){
@@ -68,7 +70,7 @@ class Student {
         json["study"] = study
         json["daysInCollege"] = daysInCollege
         json["password"] = password
-        json["lastUpdate"] = Date().toFirebase()//TBD!!!!!!!! timestamp from DB
+        json["lastUpdate"] = Date().toFirebase()
         return json
     }
     

@@ -12,7 +12,6 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-
 class ModelFirebase{
     
     static func addStudent(st:Student, completionBlock:@escaping (Error?)->Void){

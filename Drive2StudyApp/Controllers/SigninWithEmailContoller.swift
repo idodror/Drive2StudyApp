@@ -23,8 +23,15 @@ class SigninWithEmailContoller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserEmailLabel.text = userEmail
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Model.studentCurrent.userName == "" {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        UserEmailLabel.text = userEmail
     }
 
     override func didReceiveMemoryWarning() {

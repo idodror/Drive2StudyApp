@@ -41,6 +41,9 @@
 		D16823581FEE712300A1527E /* Drive2StudyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823571FEE712300A1527E /* Drive2StudyAppUITests.swift */; };
 		D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */; };
 		D16823681FEE72EE00A1527E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823671FEE72EE00A1527E /* GoogleService-Info.plist */; };
+		D1FF9E69200026680075773C /* DriveRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E68200026680075773C /* DriveRide.swift */; };
+		D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6A2000289E0075773C /* DriveRideModel.swift */; };
+		D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		D16823591FEE712300A1527E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithEmailContoller.swift; sourceTree = "<group>"; };
 		D16823671FEE72EE00A1527E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1FF9E68200026680075773C /* DriveRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRide.swift; sourceTree = "<group>"; };
+		D1FF9E6A2000289E0075773C /* DriveRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModel.swift; sourceTree = "<group>"; };
+		D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModelFirebase.swift; sourceTree = "<group>"; };
 		DA8946BBC88DD5E41363A32E /* Pods_Drive2StudyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,6 +196,9 @@
 				47F2127A1FFF848C0066C8C7 /* ModelSql.swift */,
 				47F2127C1FFF84940066C8C7 /* Student+sql.swift */,
 				D149CC501FF40D8E006F57C1 /* Student.swift */,
+				D1FF9E68200026680075773C /* DriveRide.swift */,
+				D1FF9E6A2000289E0075773C /* DriveRideModel.swift */,
+				D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -582,9 +591,11 @@
 				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
 				D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */,
 				47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */,
+				D1FF9E69200026680075773C /* DriveRide.swift in Sources */,
 				D16823381FEE712200A1527E /* AppDelegate.swift in Sources */,
 				47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
+				D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */,
 				47F212791FFF84550066C8C7 /* ModelFirebase.swift in Sources */,
 				47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */,
 				84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */,
@@ -592,6 +603,7 @@
 				84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */,
 				47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */,
 				84B78AEE1FF552A90068C051 /* DesignableView.swift in Sources */,
+				D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

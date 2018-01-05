@@ -12,8 +12,6 @@ class DriveViewController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +20,11 @@ class DriveViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destViewController = segue.destination as! ChooseLocationViewController
+        destViewController.type = "d"
     }
 
     override func didReceiveMemoryWarning() {
