@@ -40,7 +40,7 @@ class ModelNotification{
 
 class Model{
     static let instance = Model()
-    
+    static var studentCurrent = Student()
     
     lazy private var modelSql:ModelSql? = ModelSql()
     
@@ -56,6 +56,11 @@ class Model{
         ModelFirebase.addStudent(st: st){(error) in
             //st.addStudentToLocalDb(database: self.modelSql?.database)
         }
+        st.addStudentToLocalDb(database: self.modelSql?.database)
+    }
+    
+    func addNewStudentToLocalDB(st:Student){
+        st.addStudentToLocalDb(database: self.modelSql?.database)
     }
     
     func getStudentById(id:String, callback:@escaping (Student?)->Void){

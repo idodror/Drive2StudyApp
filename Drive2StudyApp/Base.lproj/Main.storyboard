@@ -14,7 +14,7 @@
         <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Drive2StudyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootAppView" id="BYZ-38-t0r" customClass="ViewController" customModule="Drive2StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eva-gA-0Zu">
+                                <rect key="frame" x="89" y="409" width="236" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -99,6 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Main Menu" id="Rea-C2-ijz"/>
                     <connections>
+                        <outlet property="InvalidEmailLabel" destination="eva-gA-0Zu" id="AMD-aq-piM"/>
                         <outlet property="UserEmailLabel" destination="z4g-p1-TxT" id="KGt-Uk-9I7"/>
                         <segue destination="coZ-7d-H5z" kind="show" identifier="moveToRegisterPage" id="DFC-VB-xa6"/>
                         <segue destination="1wz-FP-BIW" kind="show" identifier="moveToSignInPage" id="GuS-yQ-roH"/>
@@ -106,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="117.39130434782609" y="118.20652173913044"/>
         </scene>
         <!--Register-->
         <scene sceneID="D1P-GL-r4D">
@@ -300,6 +308,13 @@
                                     <action selector="signInButtonPressed:" destination="1wz-FP-BIW" eventType="touchUpInside" id="NTQ-Vi-Cqk"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong password, try again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kb-dH-zJv">
+                                <rect key="frame" x="109" y="342" width="196" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -332,13 +347,15 @@
                         <viewLayoutGuide key="safeArea" id="seR-sS-kbx"/>
                     </view>
                     <connections>
+                        <outlet property="PasswordLabel" destination="aUM-ns-GCz" id="8oh-gV-jZE"/>
                         <outlet property="UserEmailLabel" destination="mag-r2-dKx" id="FLo-yV-If2"/>
+                        <outlet property="WrongPassLabel" destination="5kb-dH-zJv" id="lE7-2l-P82"/>
                         <segue destination="hjp-LM-6ia" kind="presentation" identifier="moveToAppAfterSignIn" id="csd-u8-g2n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-d0-CE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="462"/>
+            <point key="canvasLocation" x="901.44927536231887" y="461.41304347826093"/>
         </scene>
         <!--Main Tab Screen Controller-->
         <scene sceneID="7Qv-qk-ipx">
@@ -425,6 +442,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFy-9G-zq8" userLabel="Signout Button">
                                         <rect key="frame" x="370" y="0.0" width="44" height="40"/>
                                         <state key="normal" image="signout"/>
+                                        <connections>
+                                            <action selector="SignoutButtonPressed:" destination="hjp-LM-6ia" eventType="touchUpInside" id="yQL-gj-7q7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1482,6 +1502,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pOX-ok-a3m"/>
-        <segue reference="gRH-1l-Dls"/>
+        <segue reference="csd-u8-g2n"/>
     </inferredMetricsTieBreakers>
 </document>

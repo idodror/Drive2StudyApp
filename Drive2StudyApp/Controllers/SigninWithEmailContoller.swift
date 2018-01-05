@@ -15,8 +15,11 @@ protocol SigninWithEmailControllerDelegate {
 class SigninWithEmailContoller: UIViewController {
 
     var userEmail:String = ""
+    var password:String = ""
     var delegate: SigninWithEmailControllerDelegate?
     @IBOutlet weak var UserEmailLabel: UILabel!
+    @IBOutlet weak var PasswordLabel: UITextField!
+    @IBOutlet weak var WrongPassLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +39,13 @@ class SigninWithEmailContoller: UIViewController {
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         // Check if the password is correct
-        
-        // if correct
-        // if correct
-        performSegue(withIdentifier: "moveToAppAfterSignIn", sender: (Any).self)
+        password = PasswordLabel.text!
+        if password == Model.studentCurrent.password {
+         performSegue(withIdentifier: "moveToAppAfterSignIn", sender: (Any).self)
+        }
+        else {
+            WrongPassLabel!.isHidden = false
+        }
     }
 
 }

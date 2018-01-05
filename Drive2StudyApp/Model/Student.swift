@@ -17,6 +17,15 @@ class Student {
     var daysInCollege = Array(repeating: 0, count: 7)
     var password: String
     var lastUpdate:Date?
+    
+    init() {
+        self.userName = ""
+        self.fName = ""
+        self.lName = ""
+        self.phoneNumber = ""
+        self.study = ""
+        self.password = ""
+    }
 
     init(userName: String, fName: String, lName: String, phoneNumber: String, study: String, password: String) {
         self.userName = userName
@@ -25,6 +34,16 @@ class Student {
         self.phoneNumber = phoneNumber
         self.study = study
         self.password = password
+    }
+    
+    // copy ctor
+    init(st: Student) {
+        self.userName = st.userName
+        self.fName = st.fName
+        self.lName = st.lName
+        self.phoneNumber = st.phoneNumber
+        self.study = st.study
+        self.password = st.password
     }
     
     init(json:Dictionary<String,Any>){
@@ -49,7 +68,7 @@ class Student {
         json["study"] = study
         json["daysInCollege"] = daysInCollege
         json["password"] = password
-        json["lastUpdate"] = 10 //TBD!!!!!!!! timestamp from DB
+        json["lastUpdate"] = Date().toFirebase()//TBD!!!!!!!! timestamp from DB
         return json
     }
     

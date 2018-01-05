@@ -32,8 +32,9 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
-        
-        Model.instance.addStudent(st: Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: "", password: passwordLabel.text!))
+        let st = Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: "", password: passwordLabel.text!)
+        Model.instance.addStudent(st: Student(st: st))
+        Model.studentCurrent = Student(st: st)
         performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)
     }
 }

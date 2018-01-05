@@ -89,7 +89,6 @@ class MainTabScreenController: UIViewController {
     
     @IBAction func ChatButtonPressed(_ sender: UIButton) {
         self.viewContainer.addSubview(childControllers[3].view)
-        
     }
     
     @IBAction func ProfileViewButtonPressed(_ sender: UIButton) {
@@ -98,6 +97,10 @@ class MainTabScreenController: UIViewController {
     
     @IBAction func connectionButtonPressed(_ sender: Any) {
         self.viewContainer.addSubview(childControllers[5].view)
-
+    }
+    
+    @IBAction func SignoutButtonPressed(_ sender: UIButton) {
+        Model.studentCurrent = Student()
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, SigninWithEmailControllerDelegate {
 
     @IBOutlet weak var UserEmailLabel: UITextField!
+    @IBOutlet weak var InvalidEmailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,25 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate {
 
     @IBAction func continueWithEmailPressed(_ sender: UIButton) {
         let text = UserEmailLabel.text!
-        Model.instance.getStudentById(id: text) { (student) in
-            if (student != nil) {
-                // save to sqlite
-                self.goToNextPage(isRegisterd: "true")
+        if text != "" {
+            if text.contains("@") {
+                Model.instance.getStudentById(id: text) { (student) in
+                    if (student != nil) {
+                        // save to sqlite
+                        Model.instance.addNewStudentToLocalDB(st: student!)
+                        Model.studentCurrent = Student(st: student!)
+                        self.goToNextPage(isRegisterd: "true")
+                    } else {
+                        self.goToNextPage(isRegisterd: "false")
+                    }
+                }
             } else {
-                self.goToNextPage(isRegisterd: "false")
+                InvalidEmailLabel!.text = "Email should contain @"
+                InvalidEmailLabel!.isHidden = false
             }
+        } else {
+            InvalidEmailLabel!.text = "Email can't be empty"
+            InvalidEmailLabel!.isHidden = false
         }
     }
     
