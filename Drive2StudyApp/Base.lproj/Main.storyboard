@@ -54,7 +54,7 @@
                                     <action selector="continueWithEmailPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="05d-NJ-O9h"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" borderStyle="roundedRect" placeholder="Email Address" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4g-p1-TxT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4g-p1-TxT">
                                 <rect key="frame" x="89" y="432" width="236" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -471,6 +471,7 @@
                     <connections>
                         <outlet property="mapButton" destination="dfk-8v-EUJ" id="AYh-0x-E7h"/>
                         <outlet property="topStackView" destination="WSY-u1-of4" id="umR-5u-olk"/>
+                        <outlet property="userNameLabel" destination="no0-Lx-wLH" id="BSS-px-Zkf"/>
                         <outlet property="viewContainer" destination="1RM-Lw-1aD" id="VLt-Rf-4g9"/>
                     </connections>
                 </viewController>
@@ -978,8 +979,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="days from db" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m0-iZ-FPk">
-                                <rect key="frame" x="185" y="440" width="200" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="days from db" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m0-iZ-FPk">
+                                <rect key="frame" x="185" y="440" width="200" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="b9Y-YZ-L1o"/>
                                 </constraints>
@@ -1015,6 +1016,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="dnh-DC-UDb"/>
                     <size key="freeformSize" width="414" height="626"/>
+                    <connections>
+                        <outlet property="daysLabel" destination="8m0-iZ-FPk" id="Ywi-UQ-8KU"/>
+                        <outlet property="studyLabel" destination="vls-QX-JGr" id="5ul-hi-U64"/>
+                        <outlet property="userNameLabel" destination="Cwl-g7-8ar" id="3ba-CX-TDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPW-yq-L02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1065,6 +1071,9 @@
                                 <rect key="frame" x="130" y="255" width="154" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Change profile picture"/>
+                                <connections>
+                                    <action selector="changeProfilPictureButtonPressed:" destination="w1N-cJ-O64" eventType="touchUpInside" id="CUw-oT-l4D"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-WX-h1l">
                                 <rect key="frame" x="100" y="289" width="214" height="30"/>
@@ -1240,6 +1249,20 @@
                         <viewLayoutGuide key="safeArea" id="2Aq-lp-LIf"/>
                     </view>
                     <size key="freeformSize" width="414" height="626"/>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="bKu-WX-h1l" id="f65-tJ-XWS"/>
+                        <outlet property="fridaySwitch" destination="aqK-eq-BO3" id="YLA-HQ-lzv"/>
+                        <outlet property="iStudyLabel" destination="fTv-cX-eGg" id="V3r-Im-6Ob"/>
+                        <outlet property="lastNameLabel" destination="q8k-OO-y5f" id="w5x-0Y-53M"/>
+                        <outlet property="mondaySwitch" destination="UJQ-86-VAE" id="DTZ-gH-neJ"/>
+                        <outlet property="phoneNumberLabel" destination="hoJ-su-ECZ" id="XvF-wJ-lZV"/>
+                        <outlet property="saturdaySwitch" destination="Xk3-af-dua" id="ucT-QY-DIQ"/>
+                        <outlet property="sundaySwitch" destination="s9g-Ze-ZEC" id="zDc-6q-eWD"/>
+                        <outlet property="thuesdaySwitch" destination="f6T-Rc-pLb" id="7xe-MX-EQ8"/>
+                        <outlet property="thursdaySwitch" destination="mi4-N4-4n3" id="TpS-lU-jHE"/>
+                        <outlet property="userAvatar" destination="rHF-cJ-xNh" id="7dg-Nx-Mbo"/>
+                        <outlet property="wednesdaySwitch" destination="SQL-Ln-aEC" id="wRf-6R-zuc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWD-mj-es7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

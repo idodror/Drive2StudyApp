@@ -10,10 +10,44 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var studyLabel: UILabel!
+    @IBOutlet weak var daysLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
+        studyLabel.text = Model.studentCurrent.study
+        var list = Model.studentCurrent.daysInCollege
+        list[6]=1; //debug
+        daysLabel.text = " "
+        for i in 0..<list.count{
+            if list[i]==1{
+                daysLabel.text?+=getDay(i) + "\n"
+            }
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func getDay(_ day: Int) -> String{
+        switch day {
+        case 0:
+            return "Sunday"
+        case 1:
+            return "Monday"
+        case 2:
+            return "Tuesday"
+        case 3:
+            return "Wednesday"
+        case 4:
+            return "Thursday"
+        case 5:
+            return "Friday"
+        case 6:
+            return "Saturday"
+        default:
+            return "NA"
+        }
     }
 
     override func didReceiveMemoryWarning() {

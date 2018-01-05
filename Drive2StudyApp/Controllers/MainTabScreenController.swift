@@ -35,6 +35,7 @@ class MainTabScreenController: UIViewController {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet private weak var topStackView: UIStackView!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     // background to UIView
     private lazy var backgroundView: UIView = {
@@ -57,6 +58,7 @@ class MainTabScreenController: UIViewController {
             childControllers.append(vc)
             addChildViewController(vc)
         }
+        userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
         self.viewContainer.addSubview(childControllers[0].view)
         pinBackground(backgroundView, to: topStackView)
     }
