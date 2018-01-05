@@ -15,11 +15,11 @@
 		47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */; };
 		47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74171FF2B0810040F2C2 /* RideViewController.swift */; };
 		47F212721FFAC6390066C8C7 /* LastUpdateTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2126C1FFAC6380066C8C7 /* LastUpdateTable.swift */; };
-		47F212731FFAC6390066C8C7 /* Student+sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2126D1FFAC6380066C8C7 /* Student+sql.swift */; };
 		47F212741FFAC6390066C8C7 /* Date+firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2126E1FFAC6380066C8C7 /* Date+firebase.swift */; };
-		47F212751FFAC6390066C8C7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2126F1FFAC6390066C8C7 /* Model.swift */; };
-		47F212761FFAC6390066C8C7 /* ModelSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F212701FFAC6390066C8C7 /* ModelSql.swift */; };
-		47F212771FFAC6390066C8C7 /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F212711FFAC6390066C8C7 /* ModelFirebase.swift */; };
+		47F212791FFF84550066C8C7 /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F212781FFF84550066C8C7 /* ModelFirebase.swift */; };
+		47F2127B1FFF848C0066C8C7 /* ModelSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2127A1FFF848C0066C8C7 /* ModelSql.swift */; };
+		47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2127C1FFF84940066C8C7 /* Student+sql.swift */; };
+		47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2127E1FFF84A80066C8C7 /* Model.swift */; };
 		78B815CAE7E52B22FE942A2E /* Pods_Drive2StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */; };
 		84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE41FF533140068C051 /* ChatTableViewController.swift */; };
 		84B78AE71FF53DE50068C051 /* ConnectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE61FF53DE50068C051 /* ConnectionsTableViewController.swift */; };
@@ -69,11 +69,11 @@
 		47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
 		47ED74171FF2B0810040F2C2 /* RideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
 		47F2126C1FFAC6380066C8C7 /* LastUpdateTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastUpdateTable.swift; sourceTree = "<group>"; };
-		47F2126D1FFAC6380066C8C7 /* Student+sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+sql.swift"; path = "../../../../Downloads/TestFb/TestFb/Student+sql.swift"; sourceTree = "<group>"; };
 		47F2126E1FFAC6380066C8C7 /* Date+firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+firebase.swift"; sourceTree = "<group>"; };
-		47F2126F1FFAC6390066C8C7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../../../../Downloads/TestFb/TestFb/Model.swift; sourceTree = "<group>"; };
-		47F212701FFAC6390066C8C7 /* ModelSql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelSql.swift; path = ../../../../Downloads/TestFb/TestFb/ModelSql.swift; sourceTree = "<group>"; };
-		47F212711FFAC6390066C8C7 /* ModelFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelFirebase.swift; path = ../../../../Downloads/TestFb/TestFb/ModelFirebase.swift; sourceTree = "<group>"; };
+		47F212781FFF84550066C8C7 /* ModelFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
+		47F2127A1FFF848C0066C8C7 /* ModelSql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSql.swift; sourceTree = "<group>"; };
+		47F2127C1FFF84940066C8C7 /* Student+sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Student+sql.swift"; sourceTree = "<group>"; };
+		47F2127E1FFF84A80066C8C7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		61EF2AAF4CC80559A2E28DBE /* Pods-Drive2StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B4260F51E196179156591B2 /* Pods-Drive2StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		84B78AE41FF533140068C051 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
@@ -185,10 +185,10 @@
 			children = (
 				47F2126E1FFAC6380066C8C7 /* Date+firebase.swift */,
 				47F2126C1FFAC6380066C8C7 /* LastUpdateTable.swift */,
-				47F2126F1FFAC6390066C8C7 /* Model.swift */,
-				47F212711FFAC6390066C8C7 /* ModelFirebase.swift */,
-				47F212701FFAC6390066C8C7 /* ModelSql.swift */,
-				47F2126D1FFAC6380066C8C7 /* Student+sql.swift */,
+				47F2127E1FFF84A80066C8C7 /* Model.swift */,
+				47F212781FFF84550066C8C7 /* ModelFirebase.swift */,
+				47F2127A1FFF848C0066C8C7 /* ModelSql.swift */,
+				47F2127C1FFF84940066C8C7 /* Student+sql.swift */,
 				D149CC501FF40D8E006F57C1 /* Student.swift */,
 			);
 			path = Model;
@@ -571,7 +571,6 @@
 				D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */,
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
 				84B78AE71FF53DE50068C051 /* ConnectionsTableViewController.swift in Sources */,
-				47F212761FFAC6390066C8C7 /* ModelSql.swift in Sources */,
 				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,
 				D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */,
 				D149CC511FF40D8E006F57C1 /* Student.swift in Sources */,
@@ -579,18 +578,19 @@
 				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
 				84B78AE91FF540310068C051 /* NewMessageChatSectionViewController.swift in Sources */,
 				47F212741FFAC6390066C8C7 /* Date+firebase.swift in Sources */,
+				47F2127B1FFF848C0066C8C7 /* ModelSql.swift in Sources */,
 				D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */,
 				D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */,
 				47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */,
 				D16823381FEE712200A1527E /* AppDelegate.swift in Sources */,
+				47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
-				47F212771FFAC6390066C8C7 /* ModelFirebase.swift in Sources */,
+				47F212791FFF84550066C8C7 /* ModelFirebase.swift in Sources */,
 				47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */,
 				84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */,
 				47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */,
 				84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */,
-				47F212751FFAC6390066C8C7 /* Model.swift in Sources */,
-				47F212731FFAC6390066C8C7 /* Student+sql.swift in Sources */,
+				47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */,
 				84B78AEE1FF552A90068C051 /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

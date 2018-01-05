@@ -1,49 +1,68 @@
 //
 //  Student+sql.swift
-//  SqliteDemo_6_12
+//  Drive2StudyApp
 //
-//  Created by Eliav Menachi on 06/12/2017.
-//  Copyright © 2017 menachi. All rights reserved.
+//  Created by IdoD on 31/12/2018.
+//  Copyright © 2017 IdoD. All rights reserved.
 //
 
 import Foundation
 
 
 extension Student{
-    static let STUDENT_TABLE = "STUDENTS"
-    static let STID = "STID"
-    static let NAME = "NAME"
-    static let PHONE = "PHONE"
+    static let ST_TABLE = "STUDENTS"
+    static let ST_ID = "ST_ID"
+    static let ST_NAME = "NAME"
+    static let ST_IMAGE_URL = "IMAGE_URL"
+    static let ST_LAST_UPDATE = "ST_LAST_UPDATE"
     
-    static func createTable(toDB database:OpaquePointer?)->Bool{
+    
+    static func createTable(database:OpaquePointer?)->Bool{
         var errormsg: UnsafeMutablePointer<Int8>? = nil
-        let res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS " + STUDENT_TABLE + " (" +
-            STID + " TEXT PRIMARY KEY, " +
-            NAME + " TEXT, " +
-            PHONE + " TEXT)", nil, nil, &errormsg)
+        
+        let res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS " + ST_TABLE + " ( " + ST_ID + " TEXT PRIMARY KEY, "
+            + ST_NAME + " TEXT, "
+            + ST_IMAGE_URL + " TEXT, "
+            + ST_LAST_UPDATE + " DOUBLE)", nil, nil, &errormsg);
         if(res != 0){
             print("error creating table");
             return false
         }
+        
         return true
     }
     
-    static func addNewStudent(toDB database:OpaquePointer?, student:Student){
+    func addStudentToLocalDb(database:OpaquePointer?){
         var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO " +
-            STUDENT_TABLE + " ( " +
-            STID + ", " +
-            NAME + ", " +
-            PHONE + " ) VALUES (?,?,?);",-1,
-            &sqlite3_stmt,nil) == SQLITE_OK){
+        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO " + Student.ST_TABLE
+            + "(" + Student.ST_ID + ","
+            + Student.ST_NAME + ","
+            + Student.ST_IMAGE_URL + ","
+            + Student.ST_LAST_UPDATE + ") VALUES (?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
             
-            let id = student.userName.cString(using: .utf8)
-            let name = student.fName.cString(using: .utf8)
-            let phone = student.lName.cString(using: .utf8)
+            let userName = self.userName.cString(using: .utf8)
+            let fName = self.fName.cString(using: .utf8)
+            /*var imageUrl = "".cString(using: .utf8)
+             if self.imageUrl != nil {
+             imageUrl = self.imageUrl!.cString(using: .utf8)
+             }*/
+            let lName = self.lName.cString(using: .utf8)
+            let phoneNumber = self.phoneNumber.cString(using: .utf8)
+            let study = self.study.cString(using: .utf8)
+            let password = self.password.cString(using: .utf8)
             
-            sqlite3_bind_text(sqlite3_stmt, 1, id,-1,nil);
-            sqlite3_bind_text(sqlite3_stmt, 2, name,-1,nil);
-            sqlite3_bind_text(sqlite3_stmt, 3, phone,-1,nil);
+            
+            sqlite3_bind_text(sqlite3_stmt, 1, userName,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 2, fName,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 3, lName,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 4, phoneNumber,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 5, study,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 6, password,-1,nil);
+            
+            if (lastUpdate == nil){
+                lastUpdate = Date()
+            }
+            sqlite3_bind_double(sqlite3_stmt, 4, lastUpdate!.toFirebase());
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
                 print("new row added succefully")
@@ -51,57 +70,33 @@ extension Student{
         }
         sqlite3_finalize(sqlite3_stmt)
     }
-
-    static func getAllStudents(fromDB database:OpaquePointer?)->[Student]{
+    
+    static func getAllStudentsFromLocalDb(database:OpaquePointer?)->[Student]{
         var students = [Student]()
         var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"SELECT * from " +
-            STUDENT_TABLE + ";",-1,&sqlite3_stmt,nil) == SQLITE_OK){
+        if (sqlite3_prepare_v2(database,"SELECT * from STUDENTS;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
             while(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
-                let userName  = String(cString:sqlite3_column_text(sqlite3_stmt,0))
-                let fName  = String(cString:sqlite3_column_text(sqlite3_stmt,1))
-                let lName  = String(cString:sqlite3_column_text(sqlite3_stmt,2))
+                //need to change the sqlite3_column_text
+                let userName =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,0))
+                let fName =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
+                let lName =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
+                let phoneNumber =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
+                let study =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
+                let password = String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
                 
-                students.append(Student(userName: userName, fName: fName, lName: lName, phoneNumber: "b", study: "b"))
+                var imageUrl =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,2))
+                let update =  Double(sqlite3_column_double(sqlite3_stmt,3))
+                //print("read from filter st: \(stId) \(name) \(imageUrl)")
+                if (imageUrl != nil && imageUrl == ""){
+                    imageUrl = nil
+                }
+                let student = Student(userName: userName!, fName: fName!, lName: lName!, phoneNumber: phoneNumber!, study: study!, password: password!)
+                student.lastUpdate = Date.fromFirebase(update)
+                students.append(student)
             }
         }
         sqlite3_finalize(sqlite3_stmt)
         return students
     }
     
-    static func getStudent(fromDB database:OpaquePointer?, withId stId:String)->Student?{
-        var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"SELECT * from " +
-            STUDENT_TABLE + " where " +
-            STID + " = ?;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
-            
-            sqlite3_bind_text(sqlite3_stmt, 1, stId.cString(using: .utf8),-1,nil);
-
-            if(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
-                let userName  = String(cString:sqlite3_column_text(sqlite3_stmt,0))
-                let fName  = String(cString:sqlite3_column_text(sqlite3_stmt,1))
-                let lName  = String(cString:sqlite3_column_text(sqlite3_stmt,2))
-                
-                return Student(userName: userName, fName: fName, lName: lName, phoneNumber: "b", study: "b")
-            }
-        }
-        sqlite3_finalize(sqlite3_stmt)
-        return nil
-    }
-    
-    static func deleteStudent(fromDB database:OpaquePointer?, withId stId:String){
-        var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"delete from " +
-            STUDENT_TABLE + " where " +
-            STID + " = ?;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
-            
-            sqlite3_bind_text(sqlite3_stmt, 1, stId.cString(using: .utf8),-1,nil);
-            
-            if(sqlite3_step(sqlite3_stmt) != SQLITE_DONE){
-                print ("failes executing deleteStudent")
-            }
-        }
-        sqlite3_finalize(sqlite3_stmt)
-    }
-
 }
