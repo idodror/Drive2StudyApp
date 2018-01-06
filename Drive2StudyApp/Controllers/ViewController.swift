@@ -38,6 +38,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    
     @IBAction func continueWithEmailPressed(_ sender: UIButton) {
         let text = UserEmailLabel.text!
         if text != "" {

@@ -27,12 +27,14 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func notYourEmailPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
-        let st = Student(userName: userEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: "", password: passwordLabel.text!)
+        let encodedUserEmail=userEmail.replacingOccurrences(of: ".", with: ",")
+        let st = Student(userName: encodedUserEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, phoneNumber: phoneLabel.text!, study: "", password: passwordLabel.text!)
         Model.instance.addStudent(st: Student(st: st))
         Model.studentCurrent = Student(st: st)
         performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)

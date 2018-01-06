@@ -107,5 +107,6 @@ class MainTabScreenController: UIViewController {
     @IBAction func SignoutButtonPressed(_ sender: UIButton) {
         Model.studentCurrent = Student()
         self.dismiss(animated: true, completion: nil)
+        
     }
 }

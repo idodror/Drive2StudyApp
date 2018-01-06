@@ -12,7 +12,7 @@ protocol SigninWithEmailControllerDelegate {
     
 }
 
-class SigninWithEmailContoller: UIViewController {
+class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelegate {
 
     var userEmail:String = ""
     var password:String = ""
@@ -30,8 +30,20 @@ class SigninWithEmailContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if Model.studentCurrent.userName == "" {
             self.navigationController?.popToRootViewController(animated: true)
+           
+            
         }
         UserEmailLabel.text = userEmail
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let text = Model.studentCurrent.phoneNumber
+        if segue.identifier == "moveToForgotPassword" {
+            let destViewController = segue.destination as! ForgotPasswordController
+            destViewController.userPhone = text
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,4 +67,9 @@ class SigninWithEmailContoller: UIViewController {
         }
     }
 
+    @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "moveToForgotPassword", sender: (Any).self)
+        
+    }
 }

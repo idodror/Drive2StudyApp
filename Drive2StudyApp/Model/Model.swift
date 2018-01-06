@@ -66,7 +66,8 @@ class Model {
     }
     
     func getStudentById(id:String, callback:@escaping (Student?)->Void){
-        ModelFirebase.getStudentById(id: id) { (st) in
+        let encodedID=id.replacingOccurrences(of: ".", with: ",")
+        ModelFirebase.getStudentById(id: encodedID) { (st) in
             if (st != nil) {
                 callback(st!)
             } else {

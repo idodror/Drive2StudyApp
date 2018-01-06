@@ -8,8 +8,16 @@
 
 import UIKit
 
-class ForgotPasswordController: UIViewController {
+protocol ForgotPasswordControllerDelegate {
+    
+}
 
+class ForgotPasswordController: UIViewController{
+    
+
+    var userPhone:String = ""
+    var delegate: ForgotPasswordControllerDelegate?
+    @IBOutlet weak var userPhoneLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +32,19 @@ class ForgotPasswordController: UIViewController {
     @IBAction func trySigninAgainPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+       userPhoneLabel.text = userPhone
+    }
+
+    @IBAction func SendNowButtonPressed(_ sender: UIButton) {
+        
+        
+    }
+    
+
     
     /*
     // MARK: - Navigation

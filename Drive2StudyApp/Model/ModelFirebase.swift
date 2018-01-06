@@ -23,7 +23,6 @@ class ModelFirebase {
     }
     
     static func getStudentById(id:String, callback:@escaping (Student?)->Void){
-        
         let ref = Database.database().reference().child("students").child(id)
         
         ref.observeSingleEvent(of: .value, with: {(snapshot) in
