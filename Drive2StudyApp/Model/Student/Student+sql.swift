@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension Student {
     static let ST_TABLE = "STUDENTS"
     static let ST_USERNAME = "USERNAME"
@@ -75,7 +74,7 @@ extension Student {
             sqlite3_bind_double(sqlite3_stmt, 7, lastUpdate!.toFirebase());
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
-                print("new row added succefully")
+                print("new row added succefully to students table")
             }
         }
         sqlite3_finalize(sqlite3_stmt)

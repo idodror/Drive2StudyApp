@@ -12,7 +12,7 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-class ModelFirebase{
+class ModelFirebase {
     
     static func addStudent(st:Student, completionBlock:@escaping (Error?)->Void){
         let ref = Database.database().reference().child("students").child(st.userName)
@@ -35,7 +35,7 @@ class ModelFirebase{
         })
     }
     
-    static func getAllStudents(_ lastUpdateDate:Date? , callback:@escaping ([Student])->Void){
+    static func getAllStudentsAndObserve(_ lastUpdateDate:Date? , callback:@escaping ([Student])->Void){
         print("FB: getAllStudents")
         let handler = {(snapshot:DataSnapshot) in
             var students = [Student]()
@@ -60,30 +60,7 @@ class ModelFirebase{
         }
     }
     
-    static func getAllStudentsAndObserve(_ lastUpdateDate:Date?, callback:@escaping ([Student])->Void){
-        print("FB: getAllStudentsAndObserve")
-        let handler = {(snapshot:DataSnapshot) in
-            var students = [Student]()
-            for child in snapshot.children.allObjects{
-                if let childData = child as? DataSnapshot{
-                    if let json = childData.value as? Dictionary<String,Any>{
-                        let st = Student(json: json)
-                        students.append(st)
-                    }
-                }
-            }
-            callback(students)
-        }
-        
-        let ref = Database.database().reference().child("students")
-        if (lastUpdateDate != nil){
-            print("q starting at:\(lastUpdateDate!) \(lastUpdateDate!.toFirebase())")
-            let fbQuery = ref.queryOrdered(byChild:"lastUpdate").queryStarting(atValue:lastUpdateDate!.toFirebase())
-            fbQuery.observe(DataEventType.value, with: handler)
-        }else{
-            ref.observe(DataEventType.value, with: handler)
-        }
-    }
+    
     static func clearObservers(){
         let ref = Database.database().reference().child("students")
         ref.removeAllObservers()
@@ -93,7 +70,7 @@ class ModelFirebase{
      "gs://drive2studyapp.appspot.com")*/
     //i cahnged the saveImageToFirebase method to static, so i insert the storageRef in static method
     
-    static func saveImageToFirebase(image:UIImage, name:(String), callback:@escaping (String?)->Void){
+    static func saveProfileImageToFirebase(image:UIImage, name:(String), callback:@escaping (String?)->Void){
         let storageRef = Storage.storage().reference(forURL:
             "gs://drive2studyapp.appspot.com/")
         

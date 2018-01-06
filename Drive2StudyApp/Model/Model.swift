@@ -83,7 +83,7 @@ class Model {
         let lastUpdateDate = LastUpdateTable.getLastUpdateDate(database: modelSql?.database, table: Student.ST_TABLE)
         
         // get all updated records from firebase
-        ModelFirebase.getAllStudents(lastUpdateDate, callback: { (students) in
+        ModelFirebase.getAllStudentsAndObserve(lastUpdateDate, callback: { (students) in
             //update the local db
             print("got \(students.count) new records from FB")
             var lastUpdate:Date?
@@ -147,7 +147,7 @@ class Model {
     
     func saveImage(image:UIImage, name:String, callback:@escaping (String?)->Void){
         //1. save image to Firebase
-        ModelFirebase.saveImageToFirebase(image: image, name: name, callback: {(url) in
+        ModelFirebase.saveProfileImageToFirebase(image: image, name: name, callback: {(url) in
             if (url != nil){
                 //2. save image localy
                 self.saveImageToFile(image: image, name: name)
@@ -195,8 +195,9 @@ class Model {
     }
     
     func addNewDriveRide(dr: DriveRide) {
-        DriveRideModelFirebase.addNewDrive(dr: dr) { (error) in
+        DriveRideModelFirebase.addNewDriveRide(dr: dr) { (error) in
             // 
         }
     }
+    
 }

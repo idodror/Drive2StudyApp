@@ -11,7 +11,7 @@ import UIKit
 
 class DriveRideModel {
     func addStudent(dr:DriveRide){
-        DriveRideModelFirebase.addNewDrive(dr: dr) { (error) in
+        DriveRideModelFirebase.addNewDriveRide(dr: dr) { (error) in
             //st.addStudentToLocalDb(database: self.modelSql?.database)
         }
         //st.addStudentToLocalDb(database: self.modelSql?.database)
