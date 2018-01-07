@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AccountKit
 
-class ViewController: UIViewController, SigninWithEmailControllerDelegate {
+
+class ViewController: UIViewController, SigninWithEmailControllerDelegate,AKFViewControllerDelegate{
 
     @IBOutlet weak var UserEmailLabel: UITextField!
     @IBOutlet weak var InvalidEmailLabel: UILabel!
