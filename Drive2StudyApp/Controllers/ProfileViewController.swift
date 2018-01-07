@@ -13,8 +13,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var studyLabel: UILabel!
     @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var userAvatar: UIImageView!
     
     override func viewDidLoad() {
+        ModelNotification.ImgURL.observe { (url) in
+            if /*Model.studentCurrent.imageUrl*/url != nil && /*Model.studentCurrent.imageUrl*/url != "" {
+                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                    self.userAvatar!.image = image
+                })
+            }
+        }
         super.viewDidLoad()
         self.loadData()
     }
@@ -33,6 +41,7 @@ class ProfileViewController: UIViewController {
                 daysLabel.text?+=getDay(i) + "\n"
             }
         }
+
     }
     
     func getDay(_ day: Int) -> String{

@@ -34,6 +34,7 @@ class ModelNotification{
     static let Student = ModelNotificationBase<Student>(name: "StudentNotification")
     static let DriveList = ModelNotificationBase<[DriveRide]>(name: "DriveListNotification")
     static let RideList = ModelNotificationBase<[DriveRide]>(name: "RideListNotification")
+    static let ImgURL = ModelNotificationBase<String>(name: "ImageUrl")
     
     static func removeObserver(observer:Any){
         NotificationCenter.default.removeObserver(observer)
@@ -59,6 +60,7 @@ class Model {
             //st.addStudentToLocalDb(database: self.modelSql?.database)
         }
         st.addStudentToLocalDb(database: self.modelSql?.database)
+        ModelNotification.ImgURL.post(data: st.imageUrl)
     }
     
     func addNewStudentToLocalDB(st:Student){

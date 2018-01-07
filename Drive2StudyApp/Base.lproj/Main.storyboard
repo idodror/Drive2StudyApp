@@ -1034,6 +1034,7 @@
                     <connections>
                         <outlet property="daysLabel" destination="8m0-iZ-FPk" id="Ywi-UQ-8KU"/>
                         <outlet property="studyLabel" destination="vls-QX-JGr" id="5ul-hi-U64"/>
+                        <outlet property="userAvatar" destination="IP6-Gp-uDk" id="agl-vr-RMR"/>
                         <outlet property="userNameLabel" destination="Cwl-g7-8ar" id="3ba-CX-TDR"/>
                     </connections>
                 </viewController>

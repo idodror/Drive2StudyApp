@@ -16,7 +16,9 @@ class Student {
     var study: String
     var daysInCollege = Array(repeating: 0, count: 7)
     var password: String
+    var imageUrl:String
     var lastUpdate:Date?
+    
     
     init() {
         self.userName = ""
@@ -25,15 +27,17 @@ class Student {
         self.phoneNumber = ""
         self.study = ""
         self.password = ""
+        self.imageUrl = ""
     }
 
-    init(userName: String, fName: String, lName: String, phoneNumber: String, study: String, password: String) {
+    init(userName: String, fName: String, lName: String, phoneNumber: String, study: String, password: String, imageUrl: String) {
         self.userName = userName
         self.fName = fName
         self.lName = lName
         self.phoneNumber = phoneNumber
         self.study = study
         self.password = password
+        self.imageUrl = imageUrl
     }
     
     // copy ctor
@@ -45,7 +49,9 @@ class Student {
         self.study = st.study
         self.daysInCollege = st.daysInCollege
         self.password = st.password
+        self.imageUrl = st.imageUrl
         self.lastUpdate = st.lastUpdate
+        
     }
     
     init(json:Dictionary<String,Any>){
@@ -56,6 +62,7 @@ class Student {
         study = json["study"] as! String
         daysInCollege = json["daysInCollege"] as! [Int]
         password = json["password"] as! String
+        imageUrl = json["imageUrl"] as! String
         if let ts = json["lastUpdate"] as? Double{
             self.lastUpdate = Date.fromFirebase(ts)
         }
@@ -70,6 +77,7 @@ class Student {
         json["study"] = study
         json["daysInCollege"] = daysInCollege
         json["password"] = password
+        json["imageUrl"] = imageUrl
         json["lastUpdate"] = Date().toFirebase()
         return json
     }
