@@ -15,11 +15,19 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     var userEmail:String = ""
     @IBOutlet weak var UserEmailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
+    @IBOutlet weak var studyLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Model.studentCurrent.userName == "" {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         UserEmailLabel.text = userEmail
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,7 +41,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
         let encodedUserEmail=userEmail.replacingOccurrences(of: ".", with: ",")
-        let st = Student(userName: encodedUserEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, study: "", password: passwordLabel.text!, imageUrl: "", LoginType: "RegularLogin") //register without image profile
+        let st = Student(userName: encodedUserEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, study: studyLabel.text!, password: passwordLabel.text!, imageUrl: "", LoginType: "RegularLogin") //register without image profile
         Model.instance.addStudent(st: Student(st: st))
         Model.studentCurrent = Student(st: st)
         performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)

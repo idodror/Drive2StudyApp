@@ -30,8 +30,6 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
     override func viewWillAppear(_ animated: Bool) {
         if Model.studentCurrent.userName == "" {
             self.navigationController?.popToRootViewController(animated: true)
-           
-            
         }
         UserEmailLabel.text = userEmail
     }

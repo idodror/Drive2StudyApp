@@ -98,6 +98,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,Logi
         if segue.identifier == "moveToRegisterPage" {
             let destViewController = segue.destination as! RegisterController
             destViewController.userEmail = text
+            Model.studentCurrent.userName = text
         }
 
     }

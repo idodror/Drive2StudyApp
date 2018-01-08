@@ -163,19 +163,21 @@ class Model {
     func getImage(urlStr:String, callback:@escaping (UIImage?)->Void){
         //1. try to get the image from local store
         let url = URL(string: urlStr)
-        let localImageName = url!.lastPathComponent
-        if let image = self.getImageFromFile(name: localImageName){
-            callback(image)
-        }else{
-            //2. get the image from Firebase
-            ModelFirebase.getImageFromFirebase(url: urlStr, callback: { (image) in
-                if (image != nil){
-                    //3. save the image localy
-                    self.saveImageToFile(image: image!, name: localImageName)
-                }
-                //4. return the image to the user
+        if url != nil {
+            let localImageName = url!.lastPathComponent
+            if let image = self.getImageFromFile(name: localImageName){
                 callback(image)
-            })
+            } else {
+                //2. get the image from Firebase
+                ModelFirebase.getImageFromFirebase(url: urlStr, callback: { (image) in
+                    if (image != nil){
+                        //3. save the image localy
+                        self.saveImageToFile(image: image!, name: localImageName)
+                    }
+                    //4. return the image to the user
+                    callback(image)
+                })
+            }
         }
     }
     
