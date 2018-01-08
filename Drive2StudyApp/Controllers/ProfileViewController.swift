@@ -23,6 +23,11 @@ class ProfileViewController: UIViewController {
                 })
             }
         }
+        
+        Model.instance.getImage(urlStr: Model.studentCurrent.imageUrl! , callback: { (image) in
+            self.userAvatar!.image = image
+        })
+        
         super.viewDidLoad()
         self.loadData()
     }

@@ -15,7 +15,7 @@ class Student {
     var study: String
     var daysInCollege = Array(repeating: 0, count: 7)
     var password: String
-    var imageUrl:String
+    var imageUrl:String?
     var LoginType: String
     var lastUpdate:Date?
     
@@ -30,7 +30,7 @@ class Student {
         self.LoginType = ""
     }
 
-    init(userName: String, fName: String, lName: String, study: String, password: String, imageUrl: String, LoginType: String) {
+    init(userName: String, fName: String, lName: String, study: String, password: String, imageUrl:String? = nil, LoginType: String) {
         self.userName = userName
         self.fName = fName
         self.lName = lName
@@ -61,7 +61,9 @@ class Student {
         study = json["study"] as! String
         daysInCollege = json["daysInCollege"] as! [Int]
         password = json["password"] as! String
-        imageUrl = json["imageUrl"] as! String
+        if let im = json["imageUrl"] as? String{
+            imageUrl = im
+        }
         LoginType = json["LoginType"] as! String
         if let ts = json["lastUpdate"] as? Double{
             self.lastUpdate = Date.fromFirebase(ts)
@@ -76,7 +78,9 @@ class Student {
         json["study"] = study
         json["daysInCollege"] = daysInCollege
         json["password"] = password
-        json["imageUrl"] = imageUrl
+        if (imageUrl != nil){
+            json["imageUrl"] = imageUrl!
+        }
         json["LoginType"] = LoginType
         json["lastUpdate"] = Date().toFirebase()
         return json

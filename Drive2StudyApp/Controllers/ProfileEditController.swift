@@ -23,7 +23,6 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var thursdaySwitch: UISwitch!
     @IBOutlet weak var fridaySwitch: UISwitch!
     @IBOutlet weak var saturdaySwitch: UISwitch!
-
     
     var imageUrl:String?
     var selectedImage:UIImage?
@@ -67,9 +66,12 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
             Model.instance.saveImage(image: image, name:"image:user:"+Model.studentCurrent.userName){(url) in
                 self.imageUrl = url
                 Model.studentCurrent.imageUrl = self.imageUrl! //save url to current Student
-                // to update the data in firebase and in the sqlite db
                 Model.instance.addStudent(st: Model.studentCurrent) //+imageUrl
             }
+        }
+        else {
+            // to update the data in firebase and in the sqlite db
+            Model.instance.addStudent(st: Model.studentCurrent) //
         }
         
         print("read from st: \(Model.studentCurrent.imageUrl)")

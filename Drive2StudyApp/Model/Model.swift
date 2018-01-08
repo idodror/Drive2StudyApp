@@ -60,7 +60,7 @@ class Model {
             //st.addStudentToLocalDb(database: self.modelSql?.database)
         }
         st.addStudentToLocalDb(database: self.modelSql?.database)
-        ModelNotification.ImgURL.post(data: st.imageUrl)
+        ModelNotification.ImgURL.post(data: st.imageUrl!)
     }
     
     func addNewStudentToLocalDB(st:Student){
