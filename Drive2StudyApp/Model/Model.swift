@@ -45,7 +45,7 @@ class Model {
     static let instance = Model()
     static var studentCurrent = Student()
     
-    lazy private var modelSql:ModelSql? = ModelSql()
+    lazy var modelSql:ModelSql? = ModelSql()
     
     private init(){
     }
@@ -197,12 +197,5 @@ class Model {
     private func getImageFromFile(name:String)->UIImage?{
         let filename = getDocumentsDirectory().appendingPathComponent(name)
         return UIImage(contentsOfFile:filename.path)
-    }
-    
-    func addNewDriveRide(dr: DriveRide) {
-        DriveRideModelFirebase.addNewDriveRide(dr: dr) { (error) in
-            // 
-        }
-    }
-    
+    }    
 }

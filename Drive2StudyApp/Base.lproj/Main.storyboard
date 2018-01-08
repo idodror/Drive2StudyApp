@@ -535,7 +535,7 @@
                             <color key="backgroundColor" red="0.78393322229385376" green="0.78411412239074707" blue="0.80920869112014771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="mBb-3M-9Zr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="driveRowCell" rowHeight="52" id="mBb-3M-9Zr" customClass="DriveRowCell" customModule="Drive2StudyApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="414" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mBb-3M-9Zr" id="V9a-hd-Sri">
@@ -581,6 +581,11 @@
                                         <constraint firstAttribute="bottom" secondItem="g14-bK-oHz" secondAttribute="bottom" constant="3" id="xWN-9Z-vAX"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fromWhereLabel" destination="g14-bK-oHz" id="qQN-vo-B3T"/>
+                                    <outlet property="profilePicture" destination="V9a-hd-Sri" id="T9M-Pi-03c"/>
+                                    <outlet property="userNameLabel" destination="72U-nD-kV2" id="idY-9J-xyn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -707,7 +712,6 @@
                                     <state key="normal" image="AddLogo"/>
                                     <connections>
                                         <action selector="AddButtonPressed:" destination="Atm-EA-daU" eventType="touchUpInside" id="oWu-15-Y4g"/>
-                                        <action selector="addDrivePressed:" destination="Q9K-Nw-BvR" eventType="touchUpInside" id="oUT-2f-Ru2"/>
                                         <segue destination="HiY-in-WXk" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="E7b-yV-HrL"/>
                                     </connections>
                                 </button>
@@ -1565,7 +1569,7 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E7b-yV-HrL"/>
+        <segue reference="pOX-ok-a3m"/>
         <segue reference="gRH-1l-Dls"/>
     </inferredMetricsTieBreakers>
 </document>

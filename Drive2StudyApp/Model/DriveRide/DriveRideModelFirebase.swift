@@ -50,9 +50,10 @@ class DriveRideModelFirebase {
             print("q starting at:\(lastUpdateDate!) \(lastUpdateDate!.toFirebase())")
             let fbQuery = ref.queryOrdered(byChild:"lastUpdate").queryStarting(atValue:lastUpdateDate!.toFirebase())
             fbQuery.observeSingleEvent(of: .value, with: handler)
-        }else{
+        } else {
             ref.observeSingleEvent(of: .value, with: handler)
         }
     }
     
 }
+

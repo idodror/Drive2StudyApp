@@ -15,7 +15,7 @@ extension DriveRide {
     static let DR_TYPE = "TYPE"
     static let DR_LAST_UPDATE = "DR_LAST_UPDATE"
     
-    private static func changeTableName(name: String) {
+    public static func changeTableName(name: String) {
         if name == "d" {
             DR_TABLE = "DRIVE"
         } else {
@@ -84,7 +84,7 @@ extension DriveRide {
                 let fromWhere =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
                 let type =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,2))
                 let update =  Double(sqlite3_column_double(sqlite3_stmt,3))
-
+                
                 let driveRide = DriveRide(userName: userName!, fromWhere: fromWhere!, type: type!)
                 driveRide.lastUpdate = Date.fromFirebase(update)
                 driverides.append(driveRide)

@@ -27,6 +27,7 @@
 		84B78AE91FF540310068C051 /* NewMessageChatSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE81FF540310068C051 /* NewMessageChatSectionViewController.swift */; };
 		84B78AEE1FF552A90068C051 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AED1FF552A90068C051 /* DesignableView.swift */; };
 		84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AEF1FF555480068C051 /* ChooseLocationViewController.swift */; };
+		D1202AE120041FE500A60841 /* DriveRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1202AE020041FE500A60841 /* DriveRowCell.swift */; };
 		D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */; };
 		D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */; };
 		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
@@ -90,6 +91,7 @@
 		9E9E1C431F4087AE269F177A /* Pods-Drive2StudyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDFDBE8DC1245FAB9079C09 /* Pods-Drive2StudyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1202AE020041FE500A60841 /* DriveRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRowCell.swift; sourceTree = "<group>"; };
 		D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				84B78AE61FF53DE50068C051 /* ConnectionsTableViewController.swift */,
 				84B78AE81FF540310068C051 /* NewMessageChatSectionViewController.swift */,
 				84B78AEF1FF555480068C051 /* ChooseLocationViewController.swift */,
+				D1202AE020041FE500A60841 /* DriveRowCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */,
 				84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */,
 				47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */,
+				D1202AE120041FE500A60841 /* DriveRowCell.swift in Sources */,
 				84B78AEE1FF552A90068C051 /* DesignableView.swift in Sources */,
 				D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */,
 			);

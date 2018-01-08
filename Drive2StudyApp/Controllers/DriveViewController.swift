@@ -9,20 +9,33 @@
 import UIKit
 
 class DriveViewController: UITableViewController {
+    
+    var selctedRow:Int?
+    var driveList = [DriveRide]()
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Model.instance.getAllDriveRideAndObserve(driveOrRideTable: "d")
+        ModelNotification.DriveList.observe { (list) in
+            if list != nil {
+                self.driveList = list!
+                self.tableView.reloadData()
+            }
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*        if (segue.identifier == "showDetails"){
+         let studentViewController:StudentDetailsViewController = segue.destination as! StudentDetailsViewController
+         let content = data[selctedRow!];
+         studentViewController.studentNameText = content
+         }*/
         let destViewController = segue.destination as! ChooseLocationViewController
         destViewController.type = "d"
     }
@@ -32,17 +45,30 @@ class DriveViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return driveList.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:DriveRowCell = tableView.dequeueReusableCell(withIdentifier: "driveRowCell", for: indexPath) as! DriveRowCell
+        
+        let content = driveList[indexPath.row]
+        
+        cell.userNameLabel.text = content.userName
+        cell.fromWhereLabel.text = content.fromWhere
+        return cell
+    }
+    
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print("row \(indexPath.row) was selected")
+        selctedRow = indexPath.row
+        //performSegue(withIdentifier: "showDetails", sender: self)
+    }
+    
     @IBAction func addButtonPressed(_ sender: UIButton) {
     }
     
