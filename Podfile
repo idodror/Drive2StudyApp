@@ -13,8 +13,8 @@ target 'Drive2StudyApp' do
         pod 'Firebase/Database'
         pod 'Firebase/Auth'
         pod 'Firebase/Storage'
-	pod ‘AccountKit’
-
+        pod 'FacebookCore'
+        pod 'FacebookLogin'
 
 
   target 'Drive2StudyAppTests' do

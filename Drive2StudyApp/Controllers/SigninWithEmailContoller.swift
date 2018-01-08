@@ -37,10 +37,10 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let text = Model.studentCurrent.phoneNumber
+        let text = Model.studentCurrent.userName
         if segue.identifier == "moveToForgotPassword" {
             let destViewController = segue.destination as! ForgotPasswordController
-            destViewController.userPhone = text
+            destViewController.userEmail = text
             
         }
         

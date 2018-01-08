@@ -12,7 +12,7 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBOutlet weak var firstNameLabel: UITextField!
     @IBOutlet weak var lastNameLabel: UITextField!
-    @IBOutlet weak var phoneNumberLabel: UITextField!
+
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var iStudyLabel: UITextField!
     
@@ -36,7 +36,6 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     func loadData() {
         firstNameLabel.text = Model.studentCurrent.fName
         lastNameLabel.text = Model.studentCurrent.lName
-        phoneNumberLabel.text = Model.studentCurrent.phoneNumber
         //userAvatar.image = Model.studentCurrent.image //get image by url!
         iStudyLabel.text = Model.studentCurrent.study
         setDaysSwitchStatus()
@@ -61,7 +60,6 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         Model.studentCurrent.fName = firstNameLabel.text!
         Model.studentCurrent.lName = lastNameLabel.text!
-        Model.studentCurrent.phoneNumber = phoneNumberLabel.text!
         Model.studentCurrent.study = iStudyLabel.text!
         saveDaysInCollegeNewStatus()
         

@@ -15,9 +15,9 @@ protocol ForgotPasswordControllerDelegate {
 class ForgotPasswordController: UIViewController{
     
 
-    var userPhone:String = ""
+    @IBOutlet weak var userEmailLabel: UILabel!
+    var userEmail:String = ""
     var delegate: ForgotPasswordControllerDelegate?
-    @IBOutlet weak var userPhoneLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +36,7 @@ class ForgotPasswordController: UIViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         
-       userPhoneLabel.text = userPhone
+       userEmailLabel.text = userEmail
     }
 
     @IBAction func SendNowButtonPressed(_ sender: UIButton) {

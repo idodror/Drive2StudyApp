@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04BA0E6033F84BB069474CC4 /* Pods_Drive2StudyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8946BBC88DD5E41363A32E /* Pods_Drive2StudyAppUITests.framework */; };
 		09EF0B9C918191338935C452 /* Pods_Drive2StudyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */; };
+		473F9B42200354BD00C1078A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823431FEE712200A1527E /* Info.plist */; };
 		4795CE1B1FFAA06600BB54FE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */; };
 		47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A331FF1794000C4569D /* MainTabScreenController.swift */; };
 		47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A351FF187FE00C4569D /* MapViewController.swift */; };
@@ -411,6 +412,7 @@
 				D16823421FEE712200A1527E /* LaunchScreen.storyboard in Resources */,
 				D16823681FEE72EE00A1527E /* GoogleService-Info.plist in Resources */,
 				D168233F1FEE712200A1527E /* Assets.xcassets in Resources */,
+				473F9B42200354BD00C1078A /* Info.plist in Resources */,
 				D168233D1FEE712200A1527E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +441,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp-resources.sh",
-				"${PODS_ROOT}/AccountKit/AccountKitStrings.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -474,6 +475,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -481,6 +487,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
