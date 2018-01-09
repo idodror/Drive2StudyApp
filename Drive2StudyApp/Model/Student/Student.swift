@@ -14,7 +14,6 @@ class Student {
     var lName: String
     var study: String
     var daysInCollege = Array(repeating: 0, count: 7)
-    var password: String
     var imageUrl:String?
     var LoginType: String
     var lastUpdate:Date?
@@ -25,17 +24,15 @@ class Student {
         self.fName = ""
         self.lName = ""
         self.study = ""
-        self.password = ""
         self.imageUrl = ""
         self.LoginType = ""
     }
 
-    init(userName: String, fName: String, lName: String, study: String, password: String, imageUrl:String? = nil, LoginType: String) {
+    init(userName: String, fName: String, lName: String, study: String, imageUrl:String? = nil, LoginType: String) {
         self.userName = userName
         self.fName = fName
         self.lName = lName
         self.study = study
-        self.password = password
         self.imageUrl = imageUrl
         self.LoginType = LoginType
     }
@@ -47,7 +44,6 @@ class Student {
         self.lName = st.lName
         self.study = st.study
         self.daysInCollege = st.daysInCollege
-        self.password = st.password
         self.imageUrl = st.imageUrl
         self.LoginType = st.LoginType
         self.lastUpdate = st.lastUpdate
@@ -60,7 +56,6 @@ class Student {
         lName = json["lName"] as! String
         study = json["study"] as! String
         daysInCollege = json["daysInCollege"] as! [Int]
-        password = json["password"] as! String
         if let im = json["imageUrl"] as? String{
             imageUrl = im
         }
@@ -77,7 +72,6 @@ class Student {
         json["lName"] = lName
         json["study"] = study
         json["daysInCollege"] = daysInCollege
-        json["password"] = password
         if (imageUrl != nil){
             json["imageUrl"] = imageUrl!
         }

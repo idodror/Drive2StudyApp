@@ -62,7 +62,6 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
          Auth.auth().signIn(withEmail: userEmail, password: password, completion: {(user,error) in
             if error == nil{
                 print("user signed in")
-                Model.studentCurrent.password = self.password
                 self.moveToNextPage(page: "moveToAppAfterSignIn")
             }
             else

@@ -77,7 +77,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,Logi
                     }
                     else{
                         let encodedUserEmail=email.replacingOccurrences(of: ".", with: ",")
-                        let st = Student(userName: encodedUserEmail, fName: data["first_name"]! as! String, lName: data["last_name"]! as! String, study: "", password: FBSDKAccessToken.current().tokenString, imageUrl: "", LoginType: "FB") //register without image profile
+                        let st = Student(userName: encodedUserEmail, fName: data["first_name"]! as! String, lName: data["last_name"]! as! String, study: "", imageUrl: "", LoginType: "FB") //register without image profile
                         Model.instance.addStudent(st: Student(st: st))
                         Model.studentCurrent = Student(st: st)
                     }
