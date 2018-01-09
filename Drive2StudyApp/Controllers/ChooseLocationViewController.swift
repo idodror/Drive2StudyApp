@@ -23,7 +23,7 @@ class ChooseLocationViewController: UIViewController {
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
         let dr = DriveRide(userName: Model.studentCurrent.userName, fromWhere: LocationLabel.text!, type: type)
-        Model.instance.addNewDriveRide(dr: dr)
+        DriveRideModel.addNewDriveRide(dr: dr)
         self.dismiss(animated: true, completion: nil)
     }
     

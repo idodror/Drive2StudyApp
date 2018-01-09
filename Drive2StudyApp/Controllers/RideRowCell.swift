@@ -1,14 +1,14 @@
 //
-//  DriveRowCell.swift
+//  RideRowCell.swift
 //  Drive2StudyApp
 //
-//  Created by IdoD on 08/01/2018.
+//  Created by IdoD on 09/01/2018.
 //  Copyright © 2018 IdoD. All rights reserved.
 //
 
 import UIKit
 
-class DriveRowCell: UITableViewCell {
+class RideRowCell: UITableViewCell {
 
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!

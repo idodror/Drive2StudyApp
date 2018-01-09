@@ -582,9 +582,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="fromWhereLabel" destination="g14-bK-oHz" id="qQN-vo-B3T"/>
-                                    <outlet property="profilePicture" destination="V9a-hd-Sri" id="T9M-Pi-03c"/>
-                                    <outlet property="userNameLabel" destination="72U-nD-kV2" id="idY-9J-xyn"/>
+                                    <outlet property="fromWhereLabel" destination="g14-bK-oHz" id="9m4-XO-yqL"/>
+                                    <outlet property="profilePicture" destination="aih-hM-rei" id="8i8-kh-lbT"/>
+                                    <outlet property="userNameLabel" destination="72U-nD-kV2" id="cPk-o9-7Re"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -719,7 +719,7 @@
                             <color key="backgroundColor" red="0.78393322229999995" green="0.7841141224" blue="0.80920869110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="67Q-7m-0XD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rideRowCell" rowHeight="50" id="67Q-7m-0XD" customClass="RideRowCell" customModule="Drive2StudyApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="91" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="67Q-7m-0XD" id="y7B-Dy-YUN">
@@ -764,6 +764,11 @@
                                         <constraint firstAttribute="trailing" secondItem="dxV-D4-tfO" secondAttribute="trailing" constant="10" id="xiR-mK-gZ5"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fromWhereLabel" destination="dxV-D4-tfO" id="htl-Ax-4tY"/>
+                                    <outlet property="profilePicture" destination="0tx-In-Mv8" id="ivV-Au-Ahn"/>
+                                    <outlet property="userNameLabel" destination="cco-9r-zoA" id="PjY-qI-ort"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1306,7 +1311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K89-2o-pF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="-775"/>
+            <point key="canvasLocation" x="2573.913043478261" y="-775.27173913043487"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QDV-mf-Vca">
@@ -1570,6 +1575,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pOX-ok-a3m"/>
-        <segue reference="gRH-1l-Dls"/>
+        <segue reference="pOT-gK-PwD"/>
     </inferredMetricsTieBreakers>
 </document>
