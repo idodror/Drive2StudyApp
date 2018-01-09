@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         ModelNotification.ImgURL.observe { (url) in
-            if /*Model.studentCurrent.imageUrl*/url != nil && /*Model.studentCurrent.imageUrl*/url != "" {
+            if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     self.userAvatar!.image = image
                 })
@@ -27,6 +27,11 @@ class ProfileViewController: UIViewController {
         Model.instance.getImage(urlStr: Model.studentCurrent.imageUrl! , callback: { (image) in
             self.userAvatar!.image = image
         })
+        
+        
+        self.userAvatar.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+        self.userAvatar.layer.cornerRadius = 2 * self.userAvatar.bounds.size.width
+        self.userAvatar.clipsToBounds = true
         
         super.viewDidLoad()
         self.loadData()

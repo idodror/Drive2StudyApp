@@ -22,6 +22,7 @@
 		47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2127C1FFF84940066C8C7 /* Student+sql.swift */; };
 		47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2127E1FFF84A80066C8C7 /* Model.swift */; };
 		78B815CAE7E52B22FE942A2E /* Pods_Drive2StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */; };
+		848774CE20055F79006EA25C /* CircleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848774CD20055F79006EA25C /* CircleObject.swift */; };
 		84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE41FF533140068C051 /* ChatTableViewController.swift */; };
 		84B78AE71FF53DE50068C051 /* ConnectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE61FF53DE50068C051 /* ConnectionsTableViewController.swift */; };
 		84B78AE91FF540310068C051 /* NewMessageChatSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AE81FF540310068C051 /* NewMessageChatSectionViewController.swift */; };
@@ -82,6 +83,7 @@
 		47F2127E1FFF84A80066C8C7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		61EF2AAF4CC80559A2E28DBE /* Pods-Drive2StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B4260F51E196179156591B2 /* Pods-Drive2StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyApp/Pods-Drive2StudyApp.release.xcconfig"; sourceTree = "<group>"; };
+		848774CD20055F79006EA25C /* CircleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleObject.swift; sourceTree = "<group>"; };
 		84B78AE41FF533140068C051 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		84B78AE61FF53DE50068C051 /* ConnectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewController.swift; sourceTree = "<group>"; };
 		84B78AE81FF540310068C051 /* NewMessageChatSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageChatSectionViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		84B78AEC1FF552600068C051 /* IBDesignables */ = {
 			isa = PBXGroup;
 			children = (
+				848774CD20055F79006EA25C /* CircleObject.swift */,
 				84B78AED1FF552A90068C051 /* DesignableView.swift */,
 			);
 			path = IBDesignables;
@@ -631,6 +634,7 @@
 				47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
 				D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */,
+				848774CE20055F79006EA25C /* CircleObject.swift in Sources */,
 				47F212791FFF84550066C8C7 /* ModelFirebase.swift in Sources */,
 				47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */,
 				84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */,

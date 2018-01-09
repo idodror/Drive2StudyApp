@@ -13,13 +13,14 @@ extension DriveRide {
     static let DR_USERNAME = "USERNAME"
     static let DR_FROM = "FROMWHERE"
     static let DR_TYPE = "TYPE"
+    static let ST_IMAGE_URL = "IMAGE_URL"
     static let DR_LAST_UPDATE = "DR_LAST_UPDATE"
     
     public static func changeTableName(name: String) {
         if name == "d" {
-            DR_TABLE = "DRIVE"
+            DR_TABLE = "DRIVE_FINAL"
         } else {
-            DR_TABLE = "RIDE"
+            DR_TABLE = "RIDE_FINAL"
         }
     }
     
@@ -32,6 +33,7 @@ extension DriveRide {
             + DR_USERNAME + " TEXT PRIMARY KEY, "
             + DR_FROM + " TEXT, "
             + DR_TYPE + " TEXT, "
+            + ST_IMAGE_URL + " TEXT, "
             + DR_LAST_UPDATE + " DOUBLE)", nil, nil, &errormsg);
         if(res != 0){
             print("error creating table");
@@ -51,20 +53,27 @@ extension DriveRide {
             + DriveRide.DR_USERNAME + ","
             + DriveRide.DR_FROM + ","
             + DriveRide.DR_TYPE + ","
-            + DriveRide.DR_LAST_UPDATE + ") VALUES (?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
+            + Student.ST_IMAGE_URL + ","
+            + DriveRide.DR_LAST_UPDATE + ") VALUES (?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
             
             let userName = self.userName.cString(using: .utf8)
             let fromWhere = self.fromWhere.cString(using: .utf8)
             let type = self.type.cString(using: .utf8)
+            var imageUrl = "".cString(using: .utf8)
+            if self.imageUrl != nil {
+                imageUrl = self.imageUrl!.cString(using: .utf8)
+            }
             
             sqlite3_bind_text(sqlite3_stmt, 1, userName,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 2, fromWhere,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 3, type,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 4, imageUrl,-1,nil);
+
             
             if (lastUpdate == nil){
                 lastUpdate = Date()
             }
-            sqlite3_bind_double(sqlite3_stmt, 4, lastUpdate!.toFirebase());
+            sqlite3_bind_double(sqlite3_stmt, 5, lastUpdate!.toFirebase());
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
                 print("new row added succefully to driveride table")
@@ -83,9 +92,13 @@ extension DriveRide {
                 let userName =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,0))
                 let fromWhere =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
                 let type =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,2))
-                let update =  Double(sqlite3_column_double(sqlite3_stmt,3))
+                var imageUrl = String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,3))
+                if (imageUrl != nil && imageUrl == ""){
+                    imageUrl = nil
+                }
+                let update =  Double(sqlite3_column_double(sqlite3_stmt,4))
                 
-                let driveRide = DriveRide(userName: userName!, fromWhere: fromWhere!, type: type!)
+                let driveRide = DriveRide(userName: userName!, fromWhere: fromWhere!, type: type!, imageUrl: imageUrl)
                 driveRide.lastUpdate = Date.fromFirebase(update)
                 driverides.append(driveRide)
             }

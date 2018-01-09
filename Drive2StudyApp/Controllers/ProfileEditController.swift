@@ -29,6 +29,13 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(Model.studentCurrent.imageUrl != nil){
+            Model.instance.getImage(urlStr: Model.studentCurrent.imageUrl! , callback: { (image) in
+                self.userAvatar.image = image
+                
+            })}
+        
         self.loadData();
     }
     

@@ -40,6 +40,7 @@ class MainTabScreenController: UIViewController {
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet private weak var topStackView: UIStackView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userAvatar: UIButton!
     
     // background to UIView
     private lazy var backgroundView: UIView = {
@@ -56,6 +57,19 @@ class MainTabScreenController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+
+        CircleObject.circleButton(object: userAvatar)
+
+        ModelNotification.ImgURL.observe { (url) in
+            if url != nil && url != "" {
+                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                    
+                    //self.userAvatar.setBackgroundImage(image, for: .highlighted)
+                    self.userAvatar.setImage(image, for: .normal)
+                })
+            }
+        }
         super.viewDidLoad()
         for vcn in childControllersNames{
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:vcn)
@@ -68,6 +82,13 @@ class MainTabScreenController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         userNameLabel.text = Model.studentCurrent.fName + " " + Model.studentCurrent.lName
+        
+        
+        if(Model.studentCurrent.imageUrl != nil){
+            Model.instance.getImage(urlStr: Model.studentCurrent.imageUrl! , callback: { (image) in
+                self.userAvatar.setImage(image, for: .normal)
+                
+            })}
     }
     
     override func viewDidLayoutSubviews() {

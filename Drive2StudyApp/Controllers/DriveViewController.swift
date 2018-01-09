@@ -17,6 +17,7 @@ class DriveViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "d")
         ModelNotification.DriveList.observe { (list) in
             if list != nil {
@@ -57,7 +58,14 @@ class DriveViewController: UITableViewController {
         
         cell.userNameLabel.text = content.userName
         cell.fromWhereLabel.text = content.fromWhere
+        if(content.imageUrl != nil){
+        Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
+            cell.profilePicture.image = image
+            
+        })}
+        
         return cell
+
     }
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

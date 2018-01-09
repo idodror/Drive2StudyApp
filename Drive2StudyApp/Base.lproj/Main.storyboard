@@ -476,6 +476,7 @@
                     <connections>
                         <outlet property="mapButton" destination="dfk-8v-EUJ" id="AYh-0x-E7h"/>
                         <outlet property="topStackView" destination="WSY-u1-of4" id="umR-5u-olk"/>
+                        <outlet property="userAvatar" destination="HzH-cn-uMs" id="HzV-Ca-UDg"/>
                         <outlet property="userNameLabel" destination="no0-Lx-wLH" id="BSS-px-Zkf"/>
                         <outlet property="viewContainer" destination="1RM-Lw-1aD" id="VLt-Rf-4g9"/>
                     </connections>
@@ -1573,7 +1574,7 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E7b-yV-HrL"/>
+        <segue reference="pOX-ok-a3m"/>
         <segue reference="csd-u8-g2n"/>
     </inferredMetricsTieBreakers>
 </document>
