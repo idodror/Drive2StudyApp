@@ -17,13 +17,14 @@ class DriveViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "d")
         ModelNotification.DriveList.observe { (list) in
             if list != nil {
                 self.driveList = list!
                 self.tableView.reloadData()
             }
         }
-        DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "d")
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

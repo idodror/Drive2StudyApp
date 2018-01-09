@@ -47,7 +47,7 @@ extension Student {
             + Student.ST_STUDY + ","
             + Student.ST_IMAGE_URL + ","
             + Student.ST_LOGIN + ","
-            + Student.ST_LAST_UPDATE + ") VALUES (?,?,?,?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
+            + Student.ST_LAST_UPDATE + ") VALUES (?,?,?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
             
             let userName = self.userName.cString(using: .utf8)
             let fName = self.fName.cString(using: .utf8)

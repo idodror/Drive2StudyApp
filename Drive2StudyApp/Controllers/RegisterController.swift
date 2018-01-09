@@ -42,13 +42,14 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
-        let encodedUserEmail=userEmail.replacingOccurrences(of: ".", with: ",")
-        let st = Student(userName: encodedUserEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, study: studyLabel.text!, imageUrl: "", LoginType: "RegularLogin") //register without image profile
-        Model.instance.addStudent(st: Student(st: st))
-        Model.studentCurrent = Student(st: st)
+       
         Auth.auth().createUser(withEmail: userEmail, password: passwordLabel.text!, completion: {(user,error) in
             if (error==nil){
                 print("user created successfully")
+                let encodedUserEmail = self.userEmail.replacingOccurrences(of: ".", with: ",")
+                let st = Student(userName: encodedUserEmail, fName: self.fNameLabel.text!, lName: self.lNameLabel.text!, study: self.studyLabel.text!, imageUrl: "", LoginType: "RegularLogin") //register without image profile
+                Model.instance.addStudent(st: Student(st: st))
+                Model.studentCurrent = Student(st: st)
                 self.moveToNextPage(string: "moveToAppAfterRegister")
             }
             else{
