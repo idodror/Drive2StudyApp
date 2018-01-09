@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisterController: UIViewController, UITextFieldDelegate {
 
@@ -44,6 +46,18 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let st = Student(userName: encodedUserEmail, fName: fNameLabel.text!, lName: lNameLabel.text!, study: studyLabel.text!, password: passwordLabel.text!, imageUrl: "", LoginType: "RegularLogin") //register without image profile
         Model.instance.addStudent(st: Student(st: st))
         Model.studentCurrent = Student(st: st)
-        performSegue(withIdentifier: "moveToAppAfterRegister", sender: (Any).self)
+        Auth.auth().createUser(withEmail: userEmail, password: passwordLabel.text!, completion: {(user,error) in
+            if (error==nil){
+                print("user created successfully")
+                self.moveToNextPage(string: "moveToAppAfterRegister")
+            }
+            else{
+                print("error creating new user")
+            }
+        })
+    }
+    
+    func moveToNextPage(string: String){
+        performSegue(withIdentifier: string , sender: (Any).self)
     }
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 protocol SigninWithEmailControllerDelegate {
     
@@ -35,7 +37,7 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let text = Model.studentCurrent.userName
+        let text = userEmail
         if segue.identifier == "moveToForgotPassword" {
             let destViewController = segue.destination as! ForgotPasswordController
             destViewController.userEmail = text
@@ -57,17 +59,27 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         // Check if the password is correct
         password = PasswordLabel.text!
-        if password == Model.studentCurrent.password {
-         performSegue(withIdentifier: "moveToAppAfterSignIn", sender: (Any).self)
+         Auth.auth().signIn(withEmail: userEmail, password: password, completion: {(user,error) in
+            if error == nil{
+                print("user signed in")
+                Model.studentCurrent.password = self.password
+                self.moveToNextPage(page: "moveToAppAfterSignIn")
+            }
+            else
+            {
+                print("error signing in")
+                self.WrongPassLabel!.isHidden = false
+            }
+         })
         }
-        else {
-            WrongPassLabel!.isHidden = false
-        }
-    }
 
     @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "moveToForgotPassword", sender: (Any).self)
+        self.moveToNextPage(page: "moveToForgotPassword")
         
+    }
+    
+    func moveToNextPage(page: String){
+        performSegue(withIdentifier: page, sender: (Any).self)
     }
 }

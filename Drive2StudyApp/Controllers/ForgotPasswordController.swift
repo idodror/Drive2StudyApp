@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol ForgotPasswordControllerDelegate {
     
@@ -14,8 +15,8 @@ protocol ForgotPasswordControllerDelegate {
 
 class ForgotPasswordController: UIViewController{
     
-
-    @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var UserEmailLabel: UILabel!
+    
     var userEmail:String = ""
     var delegate: ForgotPasswordControllerDelegate?
     override func viewDidLoad() {
@@ -36,24 +37,24 @@ class ForgotPasswordController: UIViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         
-       userEmailLabel.text = userEmail
+       UserEmailLabel.text = userEmail
     }
+
+    
+
 
     @IBAction func SendNowButtonPressed(_ sender: UIButton) {
-        
-        
+        Auth.auth().sendPasswordReset(withEmail: userEmail, completion:{(error) in
+            if error == nil{
+                print("An email was sent")
+            self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                print("error")
+            }
+        })
     }
     
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }

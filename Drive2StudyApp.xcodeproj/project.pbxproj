@@ -32,7 +32,6 @@
 		D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */; };
 		D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */; };
 		D13F03C41FEEA72400606D0C /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */; };
-		D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */; };
 		D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13F03C81FEEBB8400606D0C /* RegisterController.swift */; };
 		D149CC511FF40D8E006F57C1 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149CC501FF40D8E006F57C1 /* Student.swift */; };
 		D16823381FEE712200A1527E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823371FEE712200A1527E /* AppDelegate.swift */; };
@@ -97,7 +96,6 @@
 		D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D13E96221FF2D8F0000F5C34 /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
-		D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordController.swift; sourceTree = "<group>"; };
 		D13F03C81FEEBB8400606D0C /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D149CC501FF40D8E006F57C1 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		D16823341FEE712200A1527E /* Drive2StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive2StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +175,6 @@
 				D16823391FEE712200A1527E /* ViewController.swift */,
 				D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */,
 				D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */,
-				D13F03C51FEEB46C00606D0C /* CreateNewPasswordController.swift */,
 				D13F03C81FEEBB8400606D0C /* RegisterController.swift */,
 				47B95A331FF1794000C4569D /* MainTabScreenController.swift */,
 				47B95A351FF187FE00C4569D /* MapViewController.swift */,
@@ -614,7 +611,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D13F03C61FEEB46C00606D0C /* CreateNewPasswordController.swift in Sources */,
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
 				84B78AE71FF53DE50068C051 /* ConnectionsTableViewController.swift in Sources */,
 				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,

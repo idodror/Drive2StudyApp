@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Firebase
+import FirebaseAuth
 
 // To apply background color on stack view
 public extension UIView {
@@ -105,6 +109,20 @@ class MainTabScreenController: UIViewController {
     }
     
     @IBAction func SignoutButtonPressed(_ sender: UIButton) {
+        
+        if(Model.studentCurrent.LoginType == "FB"){
+            let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+            fbLoginManager.loginBehavior = FBSDKLoginBehavior.web
+            fbLoginManager.logOut()
+            
+        }
+        else{
+            do{
+            try Auth.auth().signOut()
+            }catch{
+                print("Error signing out from Firebase")
+            }
+        }
         Model.studentCurrent = Student()
         self.dismiss(animated: true, completion: nil)
         

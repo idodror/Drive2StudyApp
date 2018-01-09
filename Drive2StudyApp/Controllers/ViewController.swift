@@ -81,7 +81,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,Logi
                         Model.instance.addStudent(st: Student(st: st))
                         Model.studentCurrent = Student(st: st)
                     }
-                        self.goToNextPage(isRegisterd: "FBtrue")
+                        self.goToNextPage(page: "MoveToAfterFBSignIn")
                     }
                 }
             })
@@ -118,9 +118,9 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,Logi
                         // save to sqlite
                         Model.instance.addNewStudentToLocalDB(st: student!)
                         Model.studentCurrent = Student(st: student!)
-                        self.goToNextPage(isRegisterd: "true")
+                        self.goToNextPage(page: "moveToSignInPage")
                     } else {
-                        self.goToNextPage(isRegisterd: "false")
+                        self.goToNextPage(page: "moveToRegisterPage")
                     }
                 }
             } else {
@@ -135,16 +135,8 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,Logi
     
     
     
-    func goToNextPage(isRegisterd: String) {
-        if (isRegisterd == "true") {
-            performSegue(withIdentifier: "moveToSignInPage", sender: Any?.self)
-        }
-        else if(isRegisterd == "FBtrue"){
-            performSegue(withIdentifier: "MoveToAfterFBSignIn", sender: Any?.self)
-        }
-        else {
-            performSegue(withIdentifier: "moveToRegisterPage", sender: Any?.self)
-        }
+    func goToNextPage(page: String) {
+            performSegue(withIdentifier: page, sender: Any?.self)
     }
     
 }
