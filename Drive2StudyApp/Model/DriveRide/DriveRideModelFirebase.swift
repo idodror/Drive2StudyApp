@@ -24,35 +24,24 @@ class DriveRideModelFirebase {
         }
     }
     
-    static func getAllDriveRideAndObserve(_ lastUpdateDate:Date?, driveOrRide: String, callback:@escaping ([DriveRide])->Void){
-        print("FB: getAllDriveRides")
-        let handler = {(snapshot:DataSnapshot) in
-            var driverides = [DriveRide]()
-            for child in snapshot.children.allObjects{
-                if let childData = child as? DataSnapshot{
-                    if let json = childData.value as? Dictionary<String,Any>{
-                        let dr = DriveRide(json: json)
-                        driverides.append(dr)
-                    }
+    static func getAllDriveRideAndObserve(driveOrRide: String, callback:@escaping ([DriveRide]?)->Void){
+        var myRef = Database.database().reference().child("drive")
+        if driveOrRide == "r" {
+            myRef = Database.database().reference().child("ride")
+        }
+        
+        myRef.observe(.value, with: { (snapshot) in
+            if let values = snapshot.value as? [String:[String:Any]]{
+                var driveRideArray = [DriveRide]()
+                for drJson in values{
+                    let dr = DriveRide(json: drJson.value)
+                    driveRideArray.append(dr)
                 }
+                callback(driveRideArray)
+            }else{
+                callback(nil)
             }
-            callback(driverides)
-        }
-        
-        var ref = Database.database().reference()
-        if driveOrRide == "d" {
-            ref = ref.child("drive")
-        } else {
-            ref = ref.child("ride")
-        }
-        
-        if (lastUpdateDate != nil){
-            print("q starting at:\(lastUpdateDate!) \(lastUpdateDate!.toFirebase())")
-            let fbQuery = ref.queryOrdered(byChild:"lastUpdate").queryStarting(atValue:lastUpdateDate!.toFirebase())
-            fbQuery.observeSingleEvent(of: .value, with: handler)
-        } else {
-            ref.observeSingleEvent(of: .value, with: handler)
-        }
+        })
     }
     
 }

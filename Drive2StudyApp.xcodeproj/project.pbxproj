@@ -44,7 +44,6 @@
 		D16823581FEE712300A1527E /* Drive2StudyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823571FEE712300A1527E /* Drive2StudyAppUITests.swift */; };
 		D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */; };
 		D16823681FEE72EE00A1527E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823671FEE72EE00A1527E /* GoogleService-Info.plist */; };
-		D1FEADFB2000BB0F00716B8D /* DriveRide+sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEADFA2000BB0F00716B8D /* DriveRide+sql.swift */; };
 		D1FF9E69200026680075773C /* DriveRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E68200026680075773C /* DriveRide.swift */; };
 		D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6A2000289E0075773C /* DriveRideModel.swift */; };
 		D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */; };
@@ -115,7 +114,6 @@
 		D16823591FEE712300A1527E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithEmailContoller.swift; sourceTree = "<group>"; };
 		D16823671FEE72EE00A1527E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D1FEADFA2000BB0F00716B8D /* DriveRide+sql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriveRide+sql.swift"; sourceTree = "<group>"; };
 		D1FF9E68200026680075773C /* DriveRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRide.swift; sourceTree = "<group>"; };
 		D1FF9E6A2000289E0075773C /* DriveRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModel.swift; sourceTree = "<group>"; };
 		D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModelFirebase.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 				D1FF9E68200026680075773C /* DriveRide.swift */,
 				D1FF9E6A2000289E0075773C /* DriveRideModel.swift */,
 				D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */,
-				D1FEADFA2000BB0F00716B8D /* DriveRide+sql.swift */,
 			);
 			path = DriveRide;
 			sourceTree = "<group>";
@@ -620,7 +617,6 @@
 				D13E96231FF2D8F0000F5C34 /* ProfileEditController.swift in Sources */,
 				D149CC511FF40D8E006F57C1 /* Student.swift in Sources */,
 				47F212721FFAC6390066C8C7 /* LastUpdateTable.swift in Sources */,
-				D1FEADFB2000BB0F00716B8D /* DriveRide+sql.swift in Sources */,
 				D13F03C91FEEBB8400606D0C /* RegisterController.swift in Sources */,
 				84B78AE91FF540310068C051 /* NewMessageChatSectionViewController.swift in Sources */,
 				47F212741FFAC6390066C8C7 /* Date+firebase.swift in Sources */,

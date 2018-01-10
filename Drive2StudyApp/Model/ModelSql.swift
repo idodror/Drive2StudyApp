@@ -39,12 +39,6 @@ class ModelSql{
         if Student.createTable(database: database) == false{
             return nil
         }
-        if DriveRide.createTable(database: database, driveOrRideTable: "d") == false{
-            return nil
-        }
-        if DriveRide.createTable(database: database, driveOrRideTable: "r") == false{
-            return nil
-        }
         if LastUpdateTable.createTable(database: database) == false{
             return nil
         }
