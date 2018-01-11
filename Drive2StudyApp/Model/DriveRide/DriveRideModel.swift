@@ -34,5 +34,9 @@ class DriveRideModel {
         })
         
     }
+    
+    static func RemoveDriveRide(driver: DriveRide){
+        DriveRideModelFirebase.RemoveDriveRide(driver: driver)
+    }
 }
 

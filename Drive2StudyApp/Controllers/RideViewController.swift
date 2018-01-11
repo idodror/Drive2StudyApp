@@ -59,11 +59,21 @@ class RideViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let rideItem = rideList[indexPath.row]
+            DriveRideModel.RemoveDriveRide(driver: rideItem)
+            
+        }
+    }
+    
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
         //performSegue(withIdentifier: "showDetails", sender: self)
     }
+    
+
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
     }

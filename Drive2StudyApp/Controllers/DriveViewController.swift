@@ -26,7 +26,14 @@ class DriveViewController: UITableViewController {
             }
         }
         
-
+        ModelNotification.ImgURL.observe { (url) in
+            if url != nil && url != "" {
+                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                    //TODO: parsing the url and get the userName
+                    // update the image url per userName
+                })
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +74,14 @@ class DriveViewController: UITableViewController {
         
         return cell
 
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let driverItem = driveList[indexPath.row]
+            DriveRideModel.RemoveDriveRide(driver: driverItem)
+            
+        }
     }
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

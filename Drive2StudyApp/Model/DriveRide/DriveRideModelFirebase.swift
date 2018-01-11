@@ -44,6 +44,13 @@ class DriveRideModelFirebase {
         })
     }
     
+    static func RemoveDriveRide(driver: DriveRide){
+        var myRef = Database.database().reference().child("drive").child(driver.userName)
+        if driver.type == "r" {
+            myRef = Database.database().reference().child("ride").child(driver.userName)
+        }
+        myRef.removeValue()
+    }
     
     
 }
