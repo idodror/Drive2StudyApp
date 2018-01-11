@@ -34,6 +34,7 @@ class ModelNotification{
     static let Student = ModelNotificationBase<Student>(name: "StudentNotification")
     static let DriveList = ModelNotificationBase<[DriveRide]>(name: "DriveListNotification")
     static let RideList = ModelNotificationBase<[DriveRide]>(name: "RideListNotification")
+    static let ChatList = ModelNotificationBase<[ChatMessage]>(name: "ChatListNotification")
     static let ImgURL = ModelNotificationBase<String>(name: "ImageUrl")
     
     static func removeObserver(observer:Any){

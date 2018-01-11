@@ -12,17 +12,17 @@ class ChatTableViewController: UITableViewController{
 
     
     var selctedRow:Int?
-    var studentList = [Student]()
+    var chatList = [ChatMessage]()
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Model.instance.getAllStudentsAndObserve()
-        ModelNotification.StudentList.observe { (list) in
+        ChatModel.getAllChatByReceiveIdObserve(receiveName: Model.studentCurrent.userName)
+        ModelNotification.ChatList.observe { (list) in
             if list != nil {
-                self.studentList = list!
+                self.chatList = list!
                 self.tableView.reloadData()
             }
         }
@@ -45,20 +45,17 @@ class ChatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentList.count
+        
+        return chatList.count
+
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ChatRowCell = tableView.dequeueReusableCell(withIdentifier: "ChatRowCell", for: indexPath) as! ChatRowCell
+        let cell: ChatRowCell = tableView.dequeueReusableCell(withIdentifier: "chatRowCell", for: indexPath) as! ChatRowCell
         
-        let content = studentList[indexPath.row]
+        let content = chatList[indexPath.row]
         
-        cell.userNameLabel.text = content.userName
-        if(content.imageUrl != nil){
-            Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
-                cell.profilePicture.image = image
-                
-            })}
+        cell.userNameLabel.text = content.name
         
         return cell
         

@@ -27,3 +27,4 @@ class ChatRowCell: UITableViewCell {
     }
     
 }
+
