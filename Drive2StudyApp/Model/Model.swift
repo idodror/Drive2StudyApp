@@ -32,6 +32,7 @@ class ModelNotificationBase<T>{
 class ModelNotification{
     static let StudentList = ModelNotificationBase<[Student]>(name: "StudentListNotification")
     static let Student = ModelNotificationBase<Student>(name: "StudentNotification")
+    static let Driver = ModelNotificationBase<DriveRide>(name: "DriverNotification")
     static let DriveList = ModelNotificationBase<[DriveRide]>(name: "DriveListNotification")
     static let RideList = ModelNotificationBase<[DriveRide]>(name: "RideListNotification")
     static let ChatList = ModelNotificationBase<[ChatMessage]>(name: "ChatListNotification")
@@ -47,6 +48,7 @@ class Model {
     static var studentCurrent = Student()
     
     lazy var modelSql:ModelSql? = ModelSql()
+    var driveHandler = DriveHandler()
     
     private init(){
     }

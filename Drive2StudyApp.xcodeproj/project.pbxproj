@@ -32,6 +32,7 @@
 		84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AEF1FF555480068C051 /* ChooseLocationViewController.swift */; };
 		84CCABDF20079CBE00908A5E /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCABDE20079CBE00908A5E /* ChatMessage.swift */; };
 		84CCABE12007A01E00908A5E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCABE02007A01E00908A5E /* ChatModel.swift */; };
+		84CCABE42007BE2000908A5E /* DriveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCABE32007BE2000908A5E /* DriveHandler.swift */; };
 		D1202AE120041FE500A60841 /* DriveRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1202AE020041FE500A60841 /* DriveRowCell.swift */; };
 		D13D7E362004A33F00ACAEF1 /* RideRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13D7E352004A33F00ACAEF1 /* RideRowCell.swift */; };
 		D13E96201FF2D155000F5C34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */; };
@@ -96,6 +97,7 @@
 		84B78AEF1FF555480068C051 /* ChooseLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationViewController.swift; sourceTree = "<group>"; };
 		84CCABDE20079CBE00908A5E /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		84CCABE02007A01E00908A5E /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		84CCABE32007BE2000908A5E /* DriveHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveHandler.swift; sourceTree = "<group>"; };
 		8CDFD535662E3BA42561B8D5 /* Pods-Drive2StudyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppUITests/Pods-Drive2StudyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9E9E1C431F4087AE269F177A /* Pods-Drive2StudyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppTests/Pods-Drive2StudyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A732DC3940A7C2647A77B8C3 /* Pods_Drive2StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drive2StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,14 @@
 			path = IBDesignables;
 			sourceTree = "<group>";
 		};
+		84CCABE22007BDC800908A5E /* FireBase Event Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				84CCABE32007BE2000908A5E /* DriveHandler.swift */,
+			);
+			path = "FireBase Event Handlers";
+			sourceTree = "<group>";
+		};
 		D13F03C71FEEB47F00606D0C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 		D16823361FEE712200A1527E /* Drive2StudyApp */ = {
 			isa = PBXGroup;
 			children = (
+				84CCABE22007BDC800908A5E /* FireBase Event Handlers */,
 				84B78AEC1FF552600068C051 /* IBDesignables */,
 				D149CC4F1FF40D69006F57C1 /* Model */,
 				D13F03C71FEEB47F00606D0C /* Controllers */,
@@ -636,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D168233A1FEE712200A1527E /* ViewController.swift in Sources */,
+				84CCABE42007BE2000908A5E /* DriveHandler.swift in Sources */,
 				84B78AE71FF53DE50068C051 /* ConnectionsTableViewController.swift in Sources */,
 				84CCABE12007A01E00908A5E /* ChatModel.swift in Sources */,
 				47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */,
