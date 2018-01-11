@@ -13,13 +13,8 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, SigninWithEmailControllerDelegate/*,LoginButtonDelegate*/{
+class ViewController: UIViewController, SigninWithEmailControllerDelegate{
     
-    /*func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        
-    }*/
-    
-
     @IBOutlet weak var UserEmailLabel: UITextField!
     @IBOutlet weak var InvalidEmailLabel: UILabel!
     

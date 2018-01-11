@@ -919,45 +919,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="w8S-Tc-6tR">
-                                <rect key="frame" x="0.0" y="28" width="414" height="105"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="69" id="w8S-Tc-6tR" customClass="ChatRowCell" customModule="Drive2StudyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w8S-Tc-6tR" id="SIR-h4-ohu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="104.66666666666667"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w8S-Tc-6tR" id="SIR-h4-ohu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="68.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarBigPicture" translatesAutoresizingMaskIntoConstraints="NO" id="6ts-oV-9uJ">
-                                            <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="MKu-rB-PDq"/>
-                                                <constraint firstAttribute="height" constant="40" id="eP9-Wg-Vay"/>
-                                            </constraints>
-                                        </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." translatesAutoresizingMaskIntoConstraints="NO" id="Jp6-lW-ro0">
-                                            <rect key="frame" x="53" y="3" width="290" height="44"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebp-db-j7s" userLabel="AcceptButton">
-                                            <rect key="frame" x="62" y="55" width="101" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="101" id="eVD-cv-C3q"/>
-                                            </constraints>
-                                            <state key="normal" title="Accept" backgroundImage="GreenButtonBackground"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWl-yH-Df1" userLabel="DeclineButton">
-                                            <rect key="frame" x="201" y="55" width="114" height="22"/>
-                                            <state key="normal" title="Decline" backgroundImage="RedButtonBackground">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-aw-l2a" userLabel="XButton">
-                                            <rect key="frame" x="323" y="6" width="83" height="29"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-aw-l2a" userLabel="XButton">
+                                            <rect key="frame" x="311" y="0.0" width="83" height="34"/>
                                             <state key="normal" image="EXIT-Icon-App-29x29"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXG-xV-DsS" userLabel="&gt;Button">
-                                            <rect key="frame" x="323" y="48" width="83" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWU-4r-QLC">
+                                            <rect key="frame" x="73" y="28" width="157" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="157" id="wdB-SJ-Jci"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="AvatarBigPicture" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-5p-MIp">
+                                            <rect key="frame" x="25" y="18" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Nvb-Iu-Epu"/>
+                                                <constraint firstAttribute="width" constant="40" id="Q8K-m9-TVC"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXG-xV-DsS" userLabel="&gt;Button">
+                                            <rect key="frame" x="311" y="39" width="83" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="83" id="BAK-DL-Glo"/>
                                             </constraints>
@@ -965,34 +955,30 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dXG-xV-DsS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cWl-yH-Df1" secondAttribute="trailing" constant="8" symbolic="YES" id="29n-JR-kwi"/>
                                         <constraint firstItem="dXG-xV-DsS" firstAttribute="trailing" secondItem="jUi-aw-l2a" secondAttribute="trailing" id="3Cm-sX-UAQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Jp6-lW-ro0" secondAttribute="trailing" constant="51" id="3jR-74-19s"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="dXG-xV-DsS" secondAttribute="trailing" constant="-12" id="6c5-3v-pv0"/>
-                                        <constraint firstItem="cWl-yH-Df1" firstAttribute="leading" secondItem="ebp-db-j7s" secondAttribute="trailing" constant="38" id="7rk-wc-jOD"/>
-                                        <constraint firstItem="Jp6-lW-ro0" firstAttribute="leading" secondItem="6ts-oV-9uJ" secondAttribute="trailing" constant="8" id="IqJ-ZW-KQq"/>
-                                        <constraint firstItem="Jp6-lW-ro0" firstAttribute="centerY" secondItem="6ts-oV-9uJ" secondAttribute="centerY" id="JQ4-p5-OrW"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ebp-db-j7s" secondAttribute="bottom" constant="17" id="MIQ-Cv-t1R"/>
-                                        <constraint firstItem="6ts-oV-9uJ" firstAttribute="top" secondItem="SIR-h4-ohu" secondAttribute="top" constant="5" id="QDi-aZ-3PR"/>
+                                        <constraint firstItem="2UO-5p-MIp" firstAttribute="top" secondItem="SIR-h4-ohu" secondAttribute="top" constant="32" id="7Zi-8Q-kXo"/>
+                                        <constraint firstItem="tWU-4r-QLC" firstAttribute="top" secondItem="SIR-h4-ohu" secondAttribute="topMargin" constant="31" id="F6u-lC-dfY"/>
                                         <constraint firstItem="jUi-aw-l2a" firstAttribute="top" secondItem="SIR-h4-ohu" secondAttribute="topMargin" constant="-5" id="Y4N-9N-gVM"/>
-                                        <constraint firstItem="ebp-db-j7s" firstAttribute="top" secondItem="Jp6-lW-ro0" secondAttribute="bottom" constant="8" symbolic="YES" id="dHQ-IW-MQD"/>
-                                        <constraint firstItem="6ts-oV-9uJ" firstAttribute="leading" secondItem="SIR-h4-ohu" secondAttribute="leading" constant="5" id="fqi-Br-LUA"/>
-                                        <constraint firstItem="dXG-xV-DsS" firstAttribute="top" secondItem="Jp6-lW-ro0" secondAttribute="bottom" constant="1" id="j7u-fC-EEt"/>
+                                        <constraint firstItem="2UO-5p-MIp" firstAttribute="leading" secondItem="SIR-h4-ohu" secondAttribute="leading" constant="25" id="asZ-Mk-COO"/>
+                                        <constraint firstAttribute="bottom" secondItem="2UO-5p-MIp" secondAttribute="bottom" constant="32.666666666666671" id="bUg-tE-rmQ"/>
                                         <constraint firstItem="dXG-xV-DsS" firstAttribute="leading" secondItem="jUi-aw-l2a" secondAttribute="leading" id="lLF-VG-GTa"/>
-                                        <constraint firstItem="ebp-db-j7s" firstAttribute="leading" secondItem="SIR-h4-ohu" secondAttribute="leadingMargin" constant="42" id="nsJ-FR-dtv"/>
-                                        <constraint firstItem="cWl-yH-Df1" firstAttribute="top" secondItem="Jp6-lW-ro0" secondAttribute="bottom" constant="8" symbolic="YES" id="pJU-4m-QN9"/>
-                                        <constraint firstItem="ebp-db-j7s" firstAttribute="bottom" secondItem="cWl-yH-Df1" secondAttribute="bottom" id="tp7-VO-94A"/>
-                                        <constraint firstItem="Jp6-lW-ro0" firstAttribute="top" secondItem="SIR-h4-ohu" secondAttribute="top" constant="3" id="wWp-Zh-eBK"/>
                                         <constraint firstItem="dXG-xV-DsS" firstAttribute="top" secondItem="jUi-aw-l2a" secondAttribute="bottom" constant="13" id="zbz-lB-RzJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="ChatRowCell"/>
+                                <connections>
+                                    <outlet property="profilePicture" destination="2UO-5p-MIp" id="ePY-ZW-62E"/>
+                                    <outlet property="userNameLabel" destination="tWU-4r-QLC" id="Vpz-7k-o6J"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZDo-yO-5br">
                         <barButtonItem key="rightBarButtonItem" image="AddLogo" id="Upc-X6-WOm">
                             <connections>
-                                <segue destination="uJe-Jz-px3" kind="show" id="eyQ-CF-ahg"/>
+                                <action selector="OpenChatPressed:" destination="JLP-O1-nJp" id="3hC-MR-ILo"/>
+                                <segue destination="uJe-Jz-px3" kind="show" identifier="OpenChat" id="eyQ-CF-ahg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1032,9 +1018,6 @@
                                 <state key="normal" title="Send" backgroundImage="GreenButtonBackground">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="uJe-Jz-px3" eventType="touchUpInside" id="Bwm-hO-cnn"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvx-mI-YHe">
                                 <rect key="frame" x="115" y="86" width="148" height="35"/>
@@ -1054,10 +1037,6 @@
                         <viewLayoutGuide key="safeArea" id="ooB-a1-gPC"/>
                     </view>
                     <size key="freeformSize" width="414" height="626"/>
-                    <connections>
-                        <outlet property="chatContent" destination="OFa-gN-baU" id="wyT-Yr-GZJ"/>
-                        <outlet property="userName" destination="Xvx-mI-YHe" id="pS1-gK-TZ3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doW-HE-xw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1562,7 +1541,6 @@
         <image name="EXIT-Icon-App-29x29" width="29" height="29"/>
         <image name="GreenButtonBackground" width="266" height="35"/>
         <image name="LogoTitle" width="422" height="134"/>
-        <image name="RedButtonBackground" width="266" height="35"/>
         <image name="avatarPic" width="40" height="40"/>
         <image name="chatMarkerBlack" width="40" height="40"/>
         <image name="connectionsBlack" width="40" height="40"/>
@@ -1574,7 +1552,7 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pOX-ok-a3m"/>
+        <segue reference="E7b-yV-HrL"/>
         <segue reference="csd-u8-g2n"/>
     </inferredMetricsTieBreakers>
 </document>

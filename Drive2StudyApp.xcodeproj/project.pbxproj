@@ -10,6 +10,8 @@
 		04BA0E6033F84BB069474CC4 /* Pods_Drive2StudyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8946BBC88DD5E41363A32E /* Pods_Drive2StudyAppUITests.framework */; };
 		09EF0B9C918191338935C452 /* Pods_Drive2StudyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */; };
 		473F9B42200354BD00C1078A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823431FEE712200A1527E /* Info.plist */; };
+		4770D3802006E54A00043B9C /* ChatModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770D37F2006E54A00043B9C /* ChatModelFirebase.swift */; };
+		4770D38220071BE700043B9C /* ChatRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770D38120071BE700043B9C /* ChatRowCell.swift */; };
 		4795CE1B1FFAA06600BB54FE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */; };
 		47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A331FF1794000C4569D /* MainTabScreenController.swift */; };
 		47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A351FF187FE00C4569D /* MapViewController.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		1802073A40FDBBAD2E893C0A /* Pods-Drive2StudyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive2StudyAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drive2StudyAppUITests/Pods-Drive2StudyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4770D37F2006E54A00043B9C /* ChatModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModelFirebase.swift; sourceTree = "<group>"; };
+		4770D38120071BE700043B9C /* ChatRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRowCell.swift; sourceTree = "<group>"; };
 		4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		4795CE1C1FFAA10500BB54FE /* Drive2StudyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drive2StudyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		47B95A331FF1794000C4569D /* MainTabScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabScreenController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4770D37C2006E46E00043B9C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				4770D37F2006E54A00043B9C /* ChatModelFirebase.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		4C2286B047193DFC6FAAA503 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 				84B78AEF1FF555480068C051 /* ChooseLocationViewController.swift */,
 				D1202AE020041FE500A60841 /* DriveRowCell.swift */,
 				D13D7E352004A33F00ACAEF1 /* RideRowCell.swift */,
+				4770D38120071BE700043B9C /* ChatRowCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +209,7 @@
 		D149CC4F1FF40D69006F57C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4770D37C2006E46E00043B9C /* Chat */,
 				D1FEADF52000B75800716B8D /* DriveRide */,
 				D1FEADF42000B74900716B8D /* Student */,
 				47F2126E1FFAC6380066C8C7 /* Date+firebase.swift */,
@@ -485,6 +499,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -497,6 +513,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -637,9 +655,11 @@
 				47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */,
 				84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */,
 				47F2127D1FFF84940066C8C7 /* Student+sql.swift in Sources */,
+				4770D3802006E54A00043B9C /* ChatModelFirebase.swift in Sources */,
 				D1202AE120041FE500A60841 /* DriveRowCell.swift in Sources */,
 				84B78AEE1FF552A90068C051 /* DesignableView.swift in Sources */,
 				D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */,
+				4770D38220071BE700043B9C /* ChatRowCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

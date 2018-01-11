@@ -15,6 +15,7 @@ target 'Drive2StudyApp' do
         pod 'Firebase/Storage'
         pod 'FacebookCore'
         pod 'FacebookLogin'
+	pod 'JSQMessagesViewController'
 
 
   target 'Drive2StudyAppTests' do

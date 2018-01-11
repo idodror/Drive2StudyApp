@@ -10,5 +10,6 @@
 #define Drive2StudyApp_Bridging_Header_h
 
 #import <sqlite3.h>
+#import <JSQMessagesViewController/JSQMessages.h>
 
 #endif /* Drive2StudyApp_Bridging_Header_h */
