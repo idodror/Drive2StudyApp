@@ -16,7 +16,12 @@ class ChatModel{
         print("Model.getAllChatsByReceiveIDAndObserve")
         
         ChatModelFirebase.getAllChatByReceiveIdObserve(receiverID: receiveName, callback: { (list) in
+            if (list != nil){
               ModelNotification.ChatList.post(data: list!)
+            }
+            else{
+                print("No messages found for current student")
+            }
             })
         }
 }

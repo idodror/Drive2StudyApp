@@ -10,8 +10,15 @@ import UIKit
 import JSQMessagesViewController
 import FirebaseAuth
 
+protocol NewMessageChatSectionViewControllerDelegate {
+    
+}
+
 class NewMessageChatSectionViewController: JSQMessagesViewController {
     
+    var delegate: NewMessageChatSectionViewControllerDelegate?
+    //var receiver:String = ""
+    var receiver = "idodror10@gmail,com"
     var messages = [JSQMessage]()
 
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
@@ -42,7 +49,8 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
                 let text        = data["text"],
                 !text.isEmpty
             {
-                if let message = JSQMessage(senderId: id, displayName: name, text: text)
+                
+                if let message = JSQMessage(senderId: id,displayName: name, text: text)
                 {
                     self?.messages.append(message)
                     
@@ -91,8 +99,7 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
         let ref = ChatModelFirebase.refs.databaseChats.childByAutoId()
-        let toId = "Keren,nipo@gmail,com" //should come from previous window
-        let message = ["sender_id": senderId,"receiver_id": toId, "name": senderDisplayName, "text": text]
+        let message = ["sender_id": senderId,"receiver_id": receiver, "name": senderDisplayName, "text": text]
         
         ref.setValue(message)
         

@@ -54,7 +54,8 @@ class RideViewController: UITableViewController {
         
         let content = rideList[indexPath.row]
         
-        cell.userNameLabel.text = content.userName
+        let decodedID=content.userName.replacingOccurrences(of: ",", with: ".")
+        cell.userNameLabel.text = decodedID
         cell.fromWhereLabel.text = content.fromWhere
         return cell
     }

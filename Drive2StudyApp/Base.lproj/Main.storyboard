@@ -888,6 +888,14 @@
                                                 <constraint firstAttribute="width" constant="40" id="t7O-1Z-rhG"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCy-Ix-rco">
+                                            <rect key="frame" x="348" y="0.0" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="read"/>
+                                            <connections>
+                                                <action selector="enterChatButtonPressed:" destination="JLP-O1-nJp" eventType="touchUpInside" id="ryz-cG-OmU"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="tWU-4r-QLC" secondAttribute="bottom" constant="4" id="CDI-Mj-9IA"/>

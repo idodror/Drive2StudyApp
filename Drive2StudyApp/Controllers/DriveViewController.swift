@@ -64,7 +64,8 @@ class DriveViewController: UITableViewController {
         
         let content = driveList[indexPath.row]
         
-        cell.userNameLabel.text = content.userName
+        let decodedID=content.userName.replacingOccurrences(of: ",", with: ".")
+        cell.userNameLabel.text = decodedID
         cell.fromWhereLabel.text = content.fromWhere
         if(content.imageUrl != nil){
         Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in

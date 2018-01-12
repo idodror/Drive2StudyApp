@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ChatTableViewController: UITableViewController{
+class ChatTableViewController: UITableViewController, NewMessageChatSectionViewControllerDelegate{
 
     
-    var selctedRow:Int?
+    var selectedRow:Int?
     var chatList = [ChatMessage]()
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -26,14 +26,20 @@ class ChatTableViewController: UITableViewController{
                 self.tableView.reloadData()
             }
         }
+        // performSegue(withIdentifier: "OpenChat", sender: (Any).self)
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-       /* let destViewController = segue.destination as! ChooseLocationViewController
-        destViewController.type = "d"*/
-    }
+  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let content = chatList[selectedRow!]
+        //let sender = content.sender_id
+        //to check
+        let sender = "idodror10@gmail.com"
+        if segue.identifier == "openChat" {
+            let destViewController = segue.destination as! NewMessageChatSectionViewController
+            destViewController.receiver = sender
+            destViewController.delegate = self
+        }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,12 +69,11 @@ class ChatTableViewController: UITableViewController{
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
-        selctedRow = indexPath.row
+        selectedRow = indexPath.row
         //performSegue(withIdentifier: "showDetails", sender: self)
     }
 
-    @IBAction func OpenChatPressed(_ sender: UIBarButtonItem) {
-        
-        performSegue(withIdentifier: "OpenChat", sender: (Any).self)
+    @IBAction func enterChatButtonPressed(_ sender: UIButton) {
+               performSegue(withIdentifier: "OpenChat", sender: (Any).self)
     }
 }

@@ -107,7 +107,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
     @IBAction func continueWithEmailPressed(_ sender: UIButton) {
         let text = UserEmailLabel.text!
         if text != "" {
-            if text.contains("@") {
+            if (isValidEmail(testStr:text)) {
                 Model.instance.getStudentById(id: text) { (student) in
                     if (student != nil) {
                         // save to sqlite
@@ -119,7 +119,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
                     }
                 }
             } else {
-                InvalidEmailLabel!.text = "Email should contain @"
+                InvalidEmailLabel!.text = "Invalid Email"
                 InvalidEmailLabel!.isHidden = false
             }
         } else {
@@ -128,7 +128,12 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
         }
     }
     
-    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
     func goToNextPage(page: String) {
             performSegue(withIdentifier: page, sender: Any?.self)
