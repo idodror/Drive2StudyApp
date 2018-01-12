@@ -27,12 +27,11 @@ public extension UIView {
 class MainTabScreenController: UIViewController {
     
     var childControllersNames = [
-        "MapViewController",
+        "GoogleMapViewController",
         "DriveViewController",
         "RideViewController",
         "ChatNavigation",
-        "ProfileNavigation",
-        "ConnectionViewController"]
+        "ProfileNavigation",]
     
     var childControllers = Array<UIViewController>()
 
@@ -123,10 +122,6 @@ class MainTabScreenController: UIViewController {
     
     @IBAction func ProfileViewButtonPressed(_ sender: UIButton) {
         self.viewContainer.addSubview(childControllers[4].view)
-    }
-    
-    @IBAction func connectionButtonPressed(_ sender: Any) {
-        self.viewContainer.addSubview(childControllers[5].view)
     }
     
     @IBAction func SignoutButtonPressed(_ sender: UIButton) {

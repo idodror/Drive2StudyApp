@@ -81,7 +81,7 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
             Model.instance.addStudent(st: Model.studentCurrent) //
         }
         
-        print("read from st: \(Model.studentCurrent.imageUrl)")
+        print("read from st: \(String(describing: Model.studentCurrent.imageUrl))")
         
         navigationController?.popViewController(animated: true)
     }

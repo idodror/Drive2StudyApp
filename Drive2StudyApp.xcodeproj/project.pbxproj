@@ -14,7 +14,6 @@
 		4770D38220071BE700043B9C /* ChatRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770D38120071BE700043B9C /* ChatRowCell.swift */; };
 		4795CE1B1FFAA06600BB54FE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */; };
 		47B95A341FF1794000C4569D /* MainTabScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A331FF1794000C4569D /* MainTabScreenController.swift */; };
-		47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B95A351FF187FE00C4569D /* MapViewController.swift */; };
 		47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */; };
 		47ED74181FF2B0810040F2C2 /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED74171FF2B0810040F2C2 /* RideViewController.swift */; };
 		47F212721FFAC6390066C8C7 /* LastUpdateTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2126C1FFAC6380066C8C7 /* LastUpdateTable.swift */; };
@@ -48,6 +47,7 @@
 		D16823581FEE712300A1527E /* Drive2StudyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823571FEE712300A1527E /* Drive2StudyAppUITests.swift */; };
 		D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */; };
 		D16823681FEE72EE00A1527E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823671FEE72EE00A1527E /* GoogleService-Info.plist */; };
+		D1698B482008F8EB00C2AC14 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698B472008F8EB00C2AC14 /* GoogleMapViewController.swift */; };
 		D1FF9E69200026680075773C /* DriveRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E68200026680075773C /* DriveRide.swift */; };
 		D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6A2000289E0075773C /* DriveRideModel.swift */; };
 		D1FF9E6D20002A390075773C /* DriveRideModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */; };
@@ -77,7 +77,6 @@
 		4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		4795CE1C1FFAA10500BB54FE /* Drive2StudyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drive2StudyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		47B95A331FF1794000C4569D /* MainTabScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabScreenController.swift; sourceTree = "<group>"; };
-		47B95A351FF187FE00C4569D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
 		47ED74171FF2B0810040F2C2 /* RideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
 		47F2126C1FFAC6380066C8C7 /* LastUpdateTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastUpdateTable.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		D16823591FEE712300A1527E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16823651FEE718E00A1527E /* SigninWithEmailContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithEmailContoller.swift; sourceTree = "<group>"; };
 		D16823671FEE72EE00A1527E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1698B472008F8EB00C2AC14 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		D1FF9E68200026680075773C /* DriveRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRide.swift; sourceTree = "<group>"; };
 		D1FF9E6A2000289E0075773C /* DriveRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModel.swift; sourceTree = "<group>"; };
 		D1FF9E6C20002A390075773C /* DriveRideModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideModelFirebase.swift; sourceTree = "<group>"; };
@@ -196,7 +196,6 @@
 				D13F03C31FEEA72400606D0C /* ForgotPasswordController.swift */,
 				D13F03C81FEEBB8400606D0C /* RegisterController.swift */,
 				47B95A331FF1794000C4569D /* MainTabScreenController.swift */,
-				47B95A351FF187FE00C4569D /* MapViewController.swift */,
 				47ED74151FF2AF8F0040F2C2 /* DriveViewController.swift */,
 				47ED74171FF2B0810040F2C2 /* RideViewController.swift */,
 				D13E961F1FF2D155000F5C34 /* ProfileViewController.swift */,
@@ -208,6 +207,7 @@
 				D1202AE020041FE500A60841 /* DriveRowCell.swift */,
 				D13D7E352004A33F00ACAEF1 /* RideRowCell.swift */,
 				4770D38120071BE700043B9C /* ChatRowCell.swift */,
+				D1698B472008F8EB00C2AC14 /* GoogleMapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -655,10 +655,10 @@
 				47F2127F1FFF84A80066C8C7 /* Model.swift in Sources */,
 				84CCABDF20079CBE00908A5E /* ChatMessage.swift in Sources */,
 				D16823661FEE718E00A1527E /* SigninWithEmailContoller.swift in Sources */,
+				D1698B482008F8EB00C2AC14 /* GoogleMapViewController.swift in Sources */,
 				D1FF9E6B2000289E0075773C /* DriveRideModel.swift in Sources */,
 				848774CE20055F79006EA25C /* CircleObject.swift in Sources */,
 				47F212791FFF84550066C8C7 /* ModelFirebase.swift in Sources */,
-				47B95A361FF187FE00C4569D /* MapViewController.swift in Sources */,
 				84B78AF01FF555480068C051 /* ChooseLocationViewController.swift in Sources */,
 				47ED74161FF2AF8F0040F2C2 /* DriveViewController.swift in Sources */,
 				84B78AE51FF533140068C051 /* ChatTableViewController.swift in Sources */,
