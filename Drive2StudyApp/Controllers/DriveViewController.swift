@@ -12,7 +12,8 @@ class DriveViewController: UITableViewController {
     
     var selctedRow:Int?
     var driveList = [DriveRide]()
-
+    var selctedRowCell:DriveRowCell?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -37,13 +38,12 @@ class DriveViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*        if (segue.identifier == "showDetails"){
-         let studentViewController:StudentDetailsViewController = segue.destination as! StudentDetailsViewController
-         let content = data[selctedRow!];
-         studentViewController.studentNameText = content
-         }*/
-        let destViewController = segue.destination as! ChooseLocationViewController
+        
+        let destViewController = segue.destination as! DriveRideSelectionViewController
         destViewController.type = "d"
+        destViewController.selctedDriverRow = self.selctedRowCell
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +87,8 @@ class DriveViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
-        //performSegue(withIdentifier: "showDetails", sender: self)
+        self.selctedRowCell = tableView.cellForRow(at: indexPath) as! DriveRowCell
+
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {

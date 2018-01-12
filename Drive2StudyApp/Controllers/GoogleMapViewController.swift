@@ -11,10 +11,27 @@ import GoogleMaps
 
 class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     
+    var driveList = [DriveRide]()
+    var rideList = [DriveRide]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+
+        ModelNotification.DriveList.observe { (list) in
+            if list != nil {
+                self.driveList = list!
+                //create the marker and show in the map
+
+            }
+        }
+        ModelNotification.RideList.observe { (list) in
+            if list != nil {
+                self.rideList = list!
+                //create the marker and show in the map
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
