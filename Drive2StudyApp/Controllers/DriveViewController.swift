@@ -38,12 +38,15 @@ class DriveViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let destViewController = segue.destination as! DriveRideSelectionViewController
-        destViewController.type = "d"
-        destViewController.selctedDriverRow = self.selctedRowCell
-        
-        
+        if segue.identifier == "addNewDriveSegue" {
+            let destViewController = segue.destination as! ChooseLocationViewController
+            destViewController.type = "d"
+        }
+        if segue.identifier == "driverDetailsSegue" {
+            let destViewController = segue.destination as! DriveRideSelectionViewController
+            destViewController.type = "d"
+            destViewController.selctedDriverRow = self.selctedRowCell
+        }
     }
 
     override func didReceiveMemoryWarning() {

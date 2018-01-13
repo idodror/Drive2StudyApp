@@ -8,11 +8,18 @@
 
 import UIKit
 import GoogleMaps
+import Alamofire
+import SwiftyJSON
 
 class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     
+    var mapView = GMSMapView()
     var driveList = [DriveRide]()
     var rideList = [DriveRide]()
+    var markersList = [GMSMarker]()
+    
+    //A string array to save all the names
+    var nameArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +29,44 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
         ModelNotification.DriveList.observe { (list) in
             if list != nil {
                 self.driveList = list!
-                //create the marker and show in the map
-
+                self.addAllMarkersToMap()
             }
         }
         ModelNotification.RideList.observe { (list) in
             if list != nil {
                 self.rideList = list!
-                //create the marker and show in the map
+                self.addAllMarkersToMap()
+            }
+        }
+    }
+
+    func addAllMarkersToMap() {
+        for dr in self.driveList {
+            self.addMarkerToMap(dr: dr)
+        }
+        for dr in self.rideList {
+            self.addMarkerToMap(dr: dr)
+        }
+    }
+    
+    func getLatLangFromAddress(address: String, callback:@escaping ([Double])->Void) {
+        let postParameters:[String: Any] = [ "address": address]
+        let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
+        var cor = [Double]()
+        Alamofire.request(url, method: .get, parameters: postParameters, encoding: URLEncoding.default, headers: nil).responseJSON {  response in
+            
+            if let receivedResults = response.result.value
+            {
+                let resultParams = JSON(receivedResults)
+                print(resultParams["status"]) // OK, ERROR
+                //print(resultParams) // RESULT JSON
+                if resultParams["status"] == "OK" {
+                    cor.append(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue)
+                    cor.append(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)
+                    callback(cor)
+                    print("\(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue), ") // approximately latitude
+                    print("\(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)\n") // approximately longitude
+                }
             }
         }
     }
@@ -39,32 +76,30 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func addMarkerToMap(dr: DriveRide) {
+        markersList.append(GMSMarker())
+        getLatLangFromAddress(address: dr.fromWhere) { (corArray) in
+            self.markersList[self.markersList.count - 1].position = CLLocationCoordinate2D(latitude: corArray[0], longitude: corArray[1])
+            var markerIcon: String
+            if dr.type == "d" {
+                markerIcon = "carMarker"
+            } else {
+                markerIcon = "studentMarker"
+            }
+            self.markersList[self.markersList.count - 1].icon = UIImage(named: markerIcon)
+            
+        }
+        self.markersList[self.markersList.count - 1].map = self.mapView
+    }
+    
     override func loadView() {
         let camera = GMSCameraPosition.camera(withLatitude: 32.090882, longitude: 34.774359, zoom: 14.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         mapView.delegate = self
-
-        // Creates markers for the map
-        let myLatitude=32.090882
-        let myLongtitude=34.774359
-        let myMarker = GMSMarker()
-        myMarker.position = CLLocationCoordinate2D(latitude: myLatitude, longitude: myLongtitude)
-        myMarker.map = mapView
         
-        let carLatitude=32.096642
-        let carLongtitude=34.773158
-        let carMarker = GMSMarker()
-        carMarker.position = CLLocationCoordinate2D(latitude: carLatitude, longitude: carLongtitude)
-        carMarker.icon = UIImage(named:"carMarker")
-        carMarker.map = mapView
-        
-        let studentLatitude=32.075477
-        let studentLongtitude=34.775730
-        let studentMarker = GMSMarker()
-        studentMarker.position = CLLocationCoordinate2D(latitude: studentLatitude, longitude: studentLongtitude)
-        studentMarker.icon = UIImage(named:"studentMarker")
-        studentMarker.map = mapView
+        mapView.clear()
+        addAllMarkersToMap()
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {

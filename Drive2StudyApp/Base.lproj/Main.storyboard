@@ -523,7 +523,7 @@
                                     <state key="normal" image="AddLogo"/>
                                     <connections>
                                         <action selector="addButtonPressed:" destination="Q9K-Nw-BvR" eventType="touchUpInside" id="6jV-dW-GM7"/>
-                                        <segue destination="HiY-in-WXk" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="pOX-ok-a3m"/>
+                                        <segue destination="HiY-in-WXk" kind="presentation" identifier="addNewDriveSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="pOX-ok-a3m"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -580,7 +580,7 @@
                                     <outlet property="fromWhereLabel" destination="g14-bK-oHz" id="9m4-XO-yqL"/>
                                     <outlet property="profilePicture" destination="aih-hM-rei" id="8i8-kh-lbT"/>
                                     <outlet property="userNameLabel" destination="72U-nD-kV2" id="cPk-o9-7Re"/>
-                                    <segue destination="LnE-nG-NZY" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="lWX-hJ-uEm"/>
+                                    <segue destination="LnE-nG-NZY" kind="presentation" identifier="driverDetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="lWX-hJ-uEm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -708,7 +708,7 @@
                                     <state key="normal" image="AddLogo"/>
                                     <connections>
                                         <action selector="AddButtonPressed:" destination="Atm-EA-daU" eventType="touchUpInside" id="oWu-15-Y4g"/>
-                                        <segue destination="HiY-in-WXk" kind="presentation" identifier="addNewRide" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="E7b-yV-HrL"/>
+                                        <segue destination="HiY-in-WXk" kind="presentation" identifier="addNewRideSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="E7b-yV-HrL"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1478,8 +1478,8 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9oz-hy-qnd"/>
-        <segue reference="E7b-yV-HrL"/>
+        <segue reference="lWX-hJ-uEm"/>
+        <segue reference="pOX-ok-a3m"/>
         <segue reference="csd-u8-g2n"/>
     </inferredMetricsTieBreakers>
 </document>

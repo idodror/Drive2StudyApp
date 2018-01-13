@@ -16,6 +16,8 @@ target 'Drive2StudyApp' do
         pod 'FacebookCore'
         pod 'FacebookLogin'
 	pod 'JSQMessagesViewController'
+	pod 'Alamofire', '~> 4.5'
+	pod 'SwiftyJSON'
 
 
   target 'Drive2StudyAppTests' do

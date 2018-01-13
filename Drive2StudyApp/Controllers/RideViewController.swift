@@ -32,8 +32,10 @@ class RideViewController: UITableViewController {
          let content = data[selctedRow!];
          studentViewController.studentNameText = content
          }*/
-        let destViewController = segue.destination as! ChooseLocationViewController
-        destViewController.type = "r"
+        if segue.identifier == "addNewRideSegue" {
+            let destViewController = segue.destination as! ChooseLocationViewController
+            destViewController.type = "r"
+        }
     }
     
     override func didReceiveMemoryWarning() {
