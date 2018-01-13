@@ -17,6 +17,7 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     var driveList = [DriveRide]()
     var rideList = [DriveRide]()
     var markersList = [GMSMarker]()
+    var markerTappedDetails = String()
     
     //A string array to save all the names
     var nameArray = [String]()
@@ -58,14 +59,14 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
             if let receivedResults = response.result.value
             {
                 let resultParams = JSON(receivedResults)
-                print(resultParams["status"]) // OK, ERROR
+                //print(resultParams["status"]) // OK, ERROR
                 //print(resultParams) // RESULT JSON
                 if resultParams["status"] == "OK" {
                     cor.append(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue)
                     cor.append(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)
                     callback(cor)
-                    print("\(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue), ") // approximately latitude
-                    print("\(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)\n") // approximately longitude
+                    //print("\(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue), ") // approximately latitude
+                    //print("\(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)\n") // approximately longitude
                 }
             }
         }
@@ -84,10 +85,13 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
             var markerIcon: String
             if dr.type == "d" {
                 markerIcon = "carMarker"
+                self.markersList[self.markersList.count - 1].title = "d" + dr.userName
             } else {
                 markerIcon = "studentMarker"
+                self.markersList[self.markersList.count - 1].title = "r" + dr.userName
             }
             self.markersList[self.markersList.count - 1].icon = UIImage(named: markerIcon)
+
             self.markersList[self.markersList.count - 1].map = self.mapView
 
         }
@@ -105,7 +109,20 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("You tapped : \(marker.position.latitude),\(marker.position.longitude)")
+        markerTappedDetails = marker.title!
+        print("\(String(markerTappedDetails.dropFirst()))")
+        print("\(markerTappedDetails[markerTappedDetails.startIndex])")
+        performSegue(withIdentifier: "driveRideSelectionOnMap", sender: self)
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "driveRideSelectionOnMap" {
+            let destViewController = segue.destination as! DriveRideSelectionViewController
+            let firstChar = markerTappedDetails[markerTappedDetails.startIndex]
+            destViewController.username = String(markerTappedDetails.dropFirst())
+            destViewController.type = String(firstChar)
+        }
     }
     
 }

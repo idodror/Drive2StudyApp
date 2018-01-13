@@ -17,6 +17,7 @@ class DriveRideSelectionViewController: UIViewController {
     @IBOutlet weak var driverideButton: UIButton!
     
     var type: String?
+    var username: String?
     var selctedDriverRow:DriveRowCell?
     var selctedRiderRow:RideRowCell?
 
@@ -43,8 +44,13 @@ class DriveRideSelectionViewController: UIViewController {
             userNameLabel.text = selctedRiderRow?.userNameLabel.text
 
         }
+        
+        if (username != nil) {
+            userNameLabel.text = username
+        }
 
         if(userNameLabel.text != nil){
+            userNameLabel.text! = userNameLabel.text!.replacingOccurrences(of: ",", with: ".")
             Model.instance.getStudentById(id: userNameLabel.text!) { (student) in
                 if (student != nil) {
                     self.learningLabel.text = student?.study
