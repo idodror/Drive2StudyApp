@@ -67,6 +67,14 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let chatItem = chatList[indexPath.row]
+            ChatModel.RemoveMessage(chat: chatItem)
+            
+        }
+    }
+    
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selectedRow = indexPath.row

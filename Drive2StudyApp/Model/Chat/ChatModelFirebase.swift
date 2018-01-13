@@ -45,6 +45,11 @@ struct ChatModelFirebase
         })
     }
     
+    static func RemoveMessage(chat: ChatMessage){
+        var myRef = Database.database().reference().child("chats").childByAutoId().child(chat.receiver_id)
+        myRef.removeValue()
+    }
+    
     
 
 }

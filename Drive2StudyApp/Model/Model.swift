@@ -36,6 +36,7 @@ class ModelNotification{
     static let RideList = ModelNotificationBase<[DriveRide]>(name: "RideListNotification")
     static let ChatList = ModelNotificationBase<[ChatMessage]>(name: "ChatListNotification")
     static let ImgURL = ModelNotificationBase<String>(name: "ImageUrl")
+    static let FullName = ModelNotificationBase<String>(name: "FullName")
     
     static func removeObserver(observer:Any){
         NotificationCenter.default.removeObserver(observer)

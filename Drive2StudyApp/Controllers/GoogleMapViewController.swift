@@ -77,8 +77,9 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     func addMarkerToMap(dr: DriveRide) {
-        markersList.append(GMSMarker())
+        
         getLatLangFromAddress(address: dr.fromWhere) { (corArray) in
+            self.markersList.append(GMSMarker())
             self.markersList[self.markersList.count - 1].position = CLLocationCoordinate2D(latitude: corArray[0], longitude: corArray[1])
             var markerIcon: String
             if dr.type == "d" {
@@ -87,9 +88,9 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
                 markerIcon = "studentMarker"
             }
             self.markersList[self.markersList.count - 1].icon = UIImage(named: markerIcon)
-            
+            self.markersList[self.markersList.count - 1].map = self.mapView
+
         }
-        self.markersList[self.markersList.count - 1].map = self.mapView
     }
     
     override func loadView() {

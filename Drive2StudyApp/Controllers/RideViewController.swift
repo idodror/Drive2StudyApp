@@ -12,6 +12,7 @@ class RideViewController: UITableViewController {
     
     var selctedRow:Int?
     var rideList = [DriveRide]()
+        var selctedRowCell:RideRowCell?
 
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -24,17 +25,41 @@ class RideViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+        
+        ModelNotification.ImgURL.observe { (url) in
+            if url != nil && url != "" {
+                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                    //TODO: parsing the url and get the userName
+                    // update the image url per userName
+                    print("Url: \(url!)")
+                    var urltemp = url!
+                    urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
+                    var str = urltemp.split(separator: "?")
+                    var userName = str[0]
+                    let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
+                    print("New Url: \(finalUserName)")
+                    
+                    for drive in self.rideList{
+                        if drive.userName == userName{
+                            drive.imageUrl = url!
+                            self.tableView.reloadData()
+                            break
+                        }
+                    }
+                })
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*        if (segue.identifier == "showDetails"){
-         let studentViewController:StudentDetailsViewController = segue.destination as! StudentDetailsViewController
-         let content = data[selctedRow!];
-         studentViewController.studentNameText = content
-         }*/
         if segue.identifier == "addNewRideSegue" {
             let destViewController = segue.destination as! ChooseLocationViewController
             destViewController.type = "r"
+        }
+        if segue.identifier == "rideDetailsSegue" {
+            let destViewController = segue.destination as! DriveRideSelectionViewController
+            destViewController.type = "r"
+            destViewController.selctedRiderRow = self.selctedRowCell
         }
     }
     
@@ -73,7 +98,10 @@ class RideViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
-        //performSegue(withIdentifier: "showDetails", sender: self)
+        self.selctedRowCell = tableView.cellForRow(at: indexPath) as! RideRowCell
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        performSegue(withIdentifier: "rideDetailsSegue", sender: nil)
+
     }
     
 

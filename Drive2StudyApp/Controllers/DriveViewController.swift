@@ -32,6 +32,21 @@ class DriveViewController: UITableViewController {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     //TODO: parsing the url and get the userName
                     // update the image url per userName
+                    print("Url: \(url!)")
+                    var urltemp = url!
+                    urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
+                    var str = urltemp.split(separator: "?")
+                    var userName = str[0]
+                    let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
+                    print("New Url: \(finalUserName)")
+                    
+                    for drive in self.driveList{
+                        if drive.userName == userName{
+                            drive.imageUrl = url!
+                            self.tableView.reloadData()
+                            break
+                        }
+                    }
                 })
             }
         }
@@ -92,6 +107,8 @@ class DriveViewController: UITableViewController {
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
         self.selctedRowCell = tableView.cellForRow(at: indexPath) as! DriveRowCell
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        performSegue(withIdentifier: "driverDetailsSegue", sender: nil)
 
     }
     

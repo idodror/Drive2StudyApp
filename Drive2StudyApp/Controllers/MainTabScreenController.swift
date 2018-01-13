@@ -69,6 +69,9 @@ class MainTabScreenController: UIViewController {
                 })
             }
         }
+        ModelNotification.FullName.observe{ (fullName) in
+            self.userNameLabel.text = fullName
+        }
         super.viewDidLoad()
         for vcn in childControllersNames{
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:vcn)

@@ -67,6 +67,8 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
         Model.studentCurrent.fName = firstNameLabel.text!
         Model.studentCurrent.lName = lastNameLabel.text!
         Model.studentCurrent.study = iStudyLabel.text!
+        
+        
         saveDaysInCollegeNewStatus()
         
         if let image = self.selectedImage{
@@ -74,13 +76,17 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
                 self.imageUrl = url
                 Model.studentCurrent.imageUrl = self.imageUrl! //save url to current Student
                 Model.instance.addStudent(st: Model.studentCurrent) //+imageUrl
+                
             }
         }
         else {
             // to update the data in firebase and in the sqlite db
             Model.instance.addStudent(st: Model.studentCurrent) //
+            
         }
         
+        let fullNameUpdated = self.firstNameLabel.text! + " " + self.lastNameLabel.text!
+        ModelNotification.FullName.post(data: fullNameUpdated)
         print("read from st: \(String(describing: Model.studentCurrent.imageUrl))")
         
         navigationController?.popViewController(animated: true)

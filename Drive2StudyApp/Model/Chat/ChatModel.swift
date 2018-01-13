@@ -24,4 +24,8 @@ class ChatModel{
             }
             })
         }
+    
+    static func RemoveMessage(chat: ChatMessage){
+        ChatModelFirebase.RemoveMessage(chat: chat)
+    }
 }

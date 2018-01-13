@@ -580,7 +580,6 @@
                                     <outlet property="fromWhereLabel" destination="g14-bK-oHz" id="9m4-XO-yqL"/>
                                     <outlet property="profilePicture" destination="aih-hM-rei" id="8i8-kh-lbT"/>
                                     <outlet property="userNameLabel" destination="72U-nD-kV2" id="cPk-o9-7Re"/>
-                                    <segue destination="LnE-nG-NZY" kind="presentation" identifier="driverDetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="lWX-hJ-uEm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -594,6 +593,7 @@
                     <size key="freeformSize" width="414" height="626"/>
                     <connections>
                         <outlet property="searchBar" destination="S4g-EI-ZVe" id="hlB-IB-UFl"/>
+                        <segue destination="LnE-nG-NZY" kind="presentation" identifier="driverDetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="yyN-Ko-k0j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1p-qg-vka" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -764,7 +764,6 @@
                                     <outlet property="fromWhereLabel" destination="dxV-D4-tfO" id="htl-Ax-4tY"/>
                                     <outlet property="profilePicture" destination="0tx-In-Mv8" id="ivV-Au-Ahn"/>
                                     <outlet property="userNameLabel" destination="cco-9r-zoA" id="PjY-qI-ort"/>
-                                    <segue destination="LnE-nG-NZY" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="9oz-hy-qnd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -776,6 +775,7 @@
                     <size key="freeformSize" width="414" height="626"/>
                     <connections>
                         <outlet property="searchBar" destination="9i7-My-xrZ" id="oVO-f3-1SO"/>
+                        <segue destination="LnE-nG-NZY" kind="presentation" identifier="rideDetailsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="HII-2E-RxW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3g-Xf-4dB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -794,44 +794,98 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayy-8W-TIw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="431"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="LnE-nG-NZY" eventType="touchUpInside" id="6XY-iu-qPS"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TdT-KL-HIM" customClass="DesignableView" customModule="Drive2StudyApp" customModuleProvider="target">
-                                    <rect key="frame" x="87" y="193" width="240" height="240"/>
+                                    <rect key="frame" x="40" y="193" width="335" height="289"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjc-On-Iau">
+                                            <rect key="frame" x="225" y="246" width="54" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="envelope"/>
+                                            <connections>
+                                                <action selector="sendMessagebuttonPressed:" destination="LnE-nG-NZY" eventType="touchUpInside" id="l9b-Tp-sqX"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-CW-l3U">
+                                            <rect key="frame" x="127" y="8" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days in college:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN9-Lu-7rF">
+                                            <rect key="frame" x="32" y="174" width="122" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Learning:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w6-LA-VnE">
+                                            <rect key="frame" x="32" y="145" width="77" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAH-b3-cg0">
+                                            <rect key="frame" x="162" y="174" width="134" height="64"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwa-DS-ke0">
+                                            <rect key="frame" x="162" y="145" width="117" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tby-QG-nje">
+                                            <rect key="frame" x="55" y="104" width="241" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkk-Za-qS2">
+                                            <rect key="frame" x="32" y="246" width="77" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Text" backgroundImage="GreenButtonBackground">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="driveRideButtonPressed:" destination="LnE-nG-NZY" eventType="touchUpInside" id="Eeo-u1-GRW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mTF-Ge-X6h" customClass="DesignableView" customModule="Drive2StudyApp" customModuleProvider="target">
-                                    <rect key="frame" x="157" y="136" width="100" height="100"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5po-Rb-aeG">
+                                    <rect key="frame" x="0.0" y="490" width="414" height="246"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AvatarBigPicture" translatesAutoresizingMaskIntoConstraints="NO" id="3gi-Vm-3Ug">
-                                            <rect key="frame" x="18" y="25" width="64" height="61"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="50"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
+                                    <connections>
+                                        <action selector="dismissPopup:" destination="LnE-nG-NZY" eventType="touchUpInside" id="B1u-BN-MO9"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </view>
                         <blurEffect style="light"/>
                     </visualEffectView>
                     <connections>
-                        <outlet property="profilPicture" destination="3gi-Vm-3Ug" id="sqV-zS-VLi"/>
+                        <outlet property="daysLabel" destination="cAH-b3-cg0" id="HMG-i0-imP"/>
+                        <outlet property="driverideButton" destination="hkk-Za-qS2" id="gNW-Gy-P33"/>
+                        <outlet property="learningLabel" destination="Rwa-DS-ke0" id="x7f-wk-sKR"/>
+                        <outlet property="profilPicture" destination="jvz-CW-l3U" id="znn-7c-xYj"/>
+                        <outlet property="userNameLabel" destination="tby-QG-nje" id="K4Y-Le-dHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBk-UU-t6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1478,8 +1532,8 @@
         <image name="signout" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lWX-hJ-uEm"/>
-        <segue reference="pOX-ok-a3m"/>
+        <segue reference="HII-2E-RxW"/>
+        <segue reference="E7b-yV-HrL"/>
         <segue reference="csd-u8-g2n"/>
     </inferredMetricsTieBreakers>
 </document>
