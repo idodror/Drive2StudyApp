@@ -26,6 +26,35 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
                 self.tableView.reloadData()
             }
         }
+        
+        ModelNotification.ImgURL.observe { (url) in
+            if url != nil && url != "" {
+                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                    //TODO: parsing the url and get the userName
+                    // update the image url per userName
+                    print("Url: \(url!)")
+                    var urltemp = url!
+                    urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
+                    var str = urltemp.split(separator: "?")
+                    var userName = str[0]
+                    let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
+                    print("New Url: \(finalUserName)")
+                    let cells = self.tableView.visibleCells as! Array<ChatRowCell>
+                    
+                    for cell in cells {
+                        if cell.userNameLabel.text! == userName{
+                                Model.instance.getImage(urlStr: url! , callback: { (image) in
+                                        cell.profilePicture.image = image
+                                })
+                            
+                            self.tableView.reloadData()
+                            break
+                        }
+                    }
+
+                })
+            }
+        }
         // performSegue(withIdentifier: "OpenChat", sender: (Any).self)
     }
     
@@ -61,8 +90,18 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         
         let content = chatList[indexPath.row]
         
-        cell.userNameLabel.text = content.name
-        
+        cell.userNameLabel.text = content.sender_id
+        Model.instance.getStudentById(id: content.sender_id) { (student) in
+            if (student != nil) {
+                if(student!.imageUrl != nil && student!.imageUrl != ""){
+                    Model.instance.getImage(urlStr: student!.imageUrl! , callback: { (image) in
+                            cell.profilePicture.image = image
+                    })
+                }
+            }
+        };
+
+
         return cell
         
     }

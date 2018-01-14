@@ -84,6 +84,11 @@ class RideViewController: UITableViewController {
         let decodedID=content.userName.replacingOccurrences(of: ",", with: ".")
         cell.userNameLabel.text = decodedID
         cell.fromWhereLabel.text = content.fromWhere
+        if(content.imageUrl != nil){
+            Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
+                cell.profilePicture.image = image
+                
+            })}
         return cell
     }
     

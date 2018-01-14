@@ -30,12 +30,16 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
         ModelNotification.DriveList.observe { (list) in
             if list != nil {
                 self.driveList = list!
+                self.markersList.removeAll()
+                self.mapView.clear()
                 self.addAllMarkersToMap()
             }
         }
         ModelNotification.RideList.observe { (list) in
             if list != nil {
                 self.rideList = list!
+                self.markersList.removeAll()
+                self.mapView.clear()
                 self.addAllMarkersToMap()
             }
         }
@@ -122,6 +126,7 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
             let firstChar = markerTappedDetails[markerTappedDetails.startIndex]
             destViewController.username = String(markerTappedDetails.dropFirst())
             destViewController.type = String(firstChar)
+            destViewController.fromMap = 1
         }
     }
     

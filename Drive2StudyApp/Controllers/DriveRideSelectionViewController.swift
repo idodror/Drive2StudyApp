@@ -20,7 +20,7 @@ class DriveRideSelectionViewController: UIViewController {
     var username: String?
     var selctedDriverRow:DriveRowCell?
     var selctedRiderRow:RideRowCell?
-
+    var fromMap: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +50,7 @@ class DriveRideSelectionViewController: UIViewController {
         }
 
         if(userNameLabel.text != nil){
+
             userNameLabel.text! = userNameLabel.text!.replacingOccurrences(of: ",", with: ".")
             Model.instance.getStudentById(id: userNameLabel.text!) { (student) in
                 if (student != nil) {
@@ -62,6 +63,16 @@ class DriveRideSelectionViewController: UIViewController {
                             self.daysLabel.text?+=self.getDay(i) + "\n"
                             }
                         }
+                    }
+                    if self.fromMap == 1{
+                        if(student?.imageUrl != nil && student?.imageUrl != ""){
+                            Model.instance.getImage(urlStr: (student?.imageUrl)! , callback: { (image) in
+                                
+                                self.profilPicture.image = image
+                                
+                            })
+                        }
+                        self.fromMap = 0
                     }
                 }
             }
@@ -109,16 +120,14 @@ class DriveRideSelectionViewController: UIViewController {
     */
     @IBAction func driveRideButtonPressed(_ sender: UIButton) {
         if self.type == "d"{
-            /*var newRide = DriveRide(userName: Model.studentCurrent.userName, fromWhere: "GPS", type: "r", imageUrl: Model.studentCurrent.imageUrl)
-            DriveRideModel.addNewDriveRide(dr: newRide)*/
+            
             
             //TODO: send default chat from current to selected row user "Drive me please"
             self.dismiss(animated: true, completion: nil)
 
         }
         else{
-            /*var newRide = DriveRide(userName: Model.studentCurrent.userName, fromWhere: "GPS", type: "d", imageUrl: Model.studentCurrent.imageUrl)
-            DriveRideModel.addNewDriveRide(dr: newRide)*/
+            
             
             //TODO: send default chat from current to selected row user "i will pick you"
             self.dismiss(animated: true, completion: nil)
