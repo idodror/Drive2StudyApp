@@ -11,7 +11,7 @@ import GoogleMaps
 import Alamofire
 import SwiftyJSON
 
-class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
+class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     var mapView = GMSMapView()
     var driveList = [DriveRide]()
@@ -22,12 +22,19 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
     //A string array to save all the names
     var nameArray = [String]()
     
+    // for GPS location
+    let locationManager = CLLocationManager()
+    var camera = GMSCameraPosition()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-
-        ModelNotification.DriveList.observe { (list) in
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
+        _ = ModelNotification.DriveList.observe { (list) in
             if list != nil {
                 self.driveList = list!
                 self.markersList.removeAll()
@@ -35,7 +42,7 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
                 self.addAllMarkersToMap()
             }
         }
-        ModelNotification.RideList.observe { (list) in
+        _ = ModelNotification.RideList.observe { (list) in
             if list != nil {
                 self.rideList = list!
                 self.markersList.removeAll()
@@ -43,6 +50,29 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
                 self.addAllMarkersToMap()
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.showCurrentLocationAndMarkersOnMap()
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func showCurrentLocationAndMarkersOnMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 13)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+        mapView.settings.setAllGesturesEnabled(true)
+        
+        mapView.clear()
+        let marker = GMSMarker()
+        marker.position = camera.target
+        marker.snippet = "Current Location"
+        marker.title = "My Location"
+        marker.map = mapView
+        view = mapView
+        mapView.delegate = self
+        addAllMarkersToMap()
     }
 
     func addAllMarkersToMap() {
@@ -63,14 +93,10 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
             if let receivedResults = response.result.value
             {
                 let resultParams = JSON(receivedResults)
-                //print(resultParams["status"]) // OK, ERROR
-                //print(resultParams) // RESULT JSON
                 if resultParams["status"] == "OK" {
                     cor.append(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue)
                     cor.append(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)
                     callback(cor)
-                    //print("\(resultParams["results"][0]["geometry"]["location"]["lat"].doubleValue), ") // approximately latitude
-                    //print("\(resultParams["results"][0]["geometry"]["location"]["lng"].doubleValue)\n") // approximately longitude
                 }
             }
         }
@@ -106,17 +132,16 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         mapView.delegate = self
-        
-        mapView.clear()
-        addAllMarkersToMap()
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("You tapped : \(marker.position.latitude),\(marker.position.longitude)")
-        markerTappedDetails = marker.title!
-        print("\(String(markerTappedDetails.dropFirst()))")
-        print("\(markerTappedDetails[markerTappedDetails.startIndex])")
-        performSegue(withIdentifier: "driveRideSelectionOnMap", sender: self)
+        if marker.title! != "My Location" {
+            markerTappedDetails = marker.title!
+            print("\(String(markerTappedDetails.dropFirst()))")
+            print("\(markerTappedDetails[markerTappedDetails.startIndex])")
+            performSegue(withIdentifier: "driveRideSelectionOnMap", sender: self)
+        }
         return true
     }
     
@@ -129,6 +154,5 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate {
             destViewController.fromMap = 1
         }
     }
-    
 }
 

@@ -106,7 +106,7 @@ class DriveViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
-        self.selctedRowCell = tableView.cellForRow(at: indexPath) as! DriveRowCell
+        self.selctedRowCell = (tableView.cellForRow(at: indexPath) as! DriveRowCell)
         performSegue(withIdentifier: "driverDetailsSegue", sender: nil)
 
     }
