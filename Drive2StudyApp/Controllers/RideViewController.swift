@@ -19,14 +19,14 @@ class RideViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "r")
-        ModelNotification.RideList.observe { (list) in
+        _ = ModelNotification.RideList.observe { (list) in
             if list != nil {
                 self.rideList = list!
                 self.tableView.reloadData()
             }
         }
         
-        ModelNotification.ImgURL.observe { (url) in
+        _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     //TODO: parsing the url and get the userName
@@ -35,7 +35,7 @@ class RideViewController: UITableViewController {
                     var urltemp = url!
                     urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
                     var str = urltemp.split(separator: "?")
-                    var userName = str[0]
+                    let userName = str[0]
                     let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
                     print("New Url: \(finalUserName)")
                     
@@ -103,8 +103,7 @@ class RideViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
-        self.selctedRowCell = tableView.cellForRow(at: indexPath) as! RideRowCell
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        self.selctedRowCell = (tableView.cellForRow(at: indexPath) as! RideRowCell)
         performSegue(withIdentifier: "rideDetailsSegue", sender: nil)
 
     }

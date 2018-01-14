@@ -20,14 +20,14 @@ class DriveViewController: UITableViewController {
         super.viewDidLoad()
         
         DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "d")
-        ModelNotification.DriveList.observe { (list) in
+        _ = ModelNotification.DriveList.observe { (list) in
             if list != nil {
                 self.driveList = list!
                 self.tableView.reloadData()
             }
         }
         
-        ModelNotification.ImgURL.observe { (url) in
+        _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     //TODO: parsing the url and get the userName
@@ -36,7 +36,7 @@ class DriveViewController: UITableViewController {
                     var urltemp = url!
                     urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
                     var str = urltemp.split(separator: "?")
-                    var userName = str[0]
+                    let userName = str[0]
                     let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
                     print("New Url: \(finalUserName)")
                     
@@ -107,7 +107,6 @@ class DriveViewController: UITableViewController {
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
         self.selctedRowCell = tableView.cellForRow(at: indexPath) as! DriveRowCell
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         performSegue(withIdentifier: "driverDetailsSegue", sender: nil)
 
     }

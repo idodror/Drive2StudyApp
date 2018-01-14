@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		04BA0E6033F84BB069474CC4 /* Pods_Drive2StudyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8946BBC88DD5E41363A32E /* Pods_Drive2StudyAppUITests.framework */; };
 		09EF0B9C918191338935C452 /* Pods_Drive2StudyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3019924BAE5971AE2FA3F7 /* Pods_Drive2StudyAppTests.framework */; };
-		473F9B42200354BD00C1078A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D16823431FEE712200A1527E /* Info.plist */; };
 		4770D3802006E54A00043B9C /* ChatModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770D37F2006E54A00043B9C /* ChatModelFirebase.swift */; };
 		4770D38220071BE700043B9C /* ChatRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770D38120071BE700043B9C /* ChatRowCell.swift */; };
 		4795CE1B1FFAA06600BB54FE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795CE1A1FFAA06600BB54FE /* libsqlite3.0.tbd */; };
@@ -435,7 +434,6 @@
 				D16823421FEE712200A1527E /* LaunchScreen.storyboard in Resources */,
 				D16823681FEE72EE00A1527E /* GoogleService-Info.plist in Resources */,
 				D168233F1FEE712200A1527E /* Assets.xcassets in Resources */,
-				473F9B42200354BD00C1078A /* Info.plist in Resources */,
 				D168233D1FEE712200A1527E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

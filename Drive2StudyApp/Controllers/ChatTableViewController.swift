@@ -20,14 +20,14 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         super.viewDidLoad()
         
         ChatModel.getAllChatByReceiveIdObserve(receiveName: Model.studentCurrent.userName)
-        ModelNotification.ChatList.observe { (list) in
+        _ = ModelNotification.ChatList.observe { (list) in
             if list != nil {
                 self.chatList = list!
                 self.tableView.reloadData()
             }
         }
         
-        ModelNotification.ImgURL.observe { (url) in
+        _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     //TODO: parsing the url and get the userName
@@ -36,7 +36,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
                     var urltemp = url!
                     urltemp.removeSubrange(urltemp.startIndex..<urltemp.index(urltemp.startIndex, offsetBy: 84))
                     var str = urltemp.split(separator: "?")
-                    var userName = str[0]
+                    let userName = str[0]
                     let finalUserName = userName.replacingOccurrences(of: ",", with: ".")
                     print("New Url: \(finalUserName)")
                     let cells = self.tableView.visibleCells as! Array<ChatRowCell>
