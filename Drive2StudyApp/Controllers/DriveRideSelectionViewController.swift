@@ -134,8 +134,6 @@ class DriveRideSelectionViewController: UIViewController {
 
         }
     }
-    @IBAction func sendMessagebuttonPressed(_ sender: UIButton) {
-        
-    }
+
     
 }

@@ -55,20 +55,18 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
                 })
             }
         }
-        // performSegue(withIdentifier: "OpenChat", sender: (Any).self)
     }
     
-  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let content = chatList[selectedRow!]
-        //let sender = content.sender_id
-        //to check
-        let sender = "idodror10@gmail.com"
-        if segue.identifier == "openChat" {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       let content = chatList[selectedRow!]
+       let sender = content.sender_id.split(separator: "$")[0]
+
+        if segue.identifier == "OpenChat" {
             let destViewController = segue.destination as! NewMessageChatSectionViewController
-            destViewController.receiver = sender
+            destViewController.receiver = String(sender)
             destViewController.delegate = self
         }
-    }*/
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,8 +88,10 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         
         let content = chatList[indexPath.row]
         
-        cell.userNameLabel.text = content.sender_id
-        Model.instance.getStudentById(id: content.sender_id) { (student) in
+        cell.userNameLabel.text = content.name
+        let senderID = content.sender_id.split(separator: "$")
+        let finalsender = senderID[0]
+        Model.instance.getStudentById(id: String(finalsender)) { (student) in
             if (student != nil) {
                 if(student!.imageUrl != nil && student!.imageUrl != ""){
                     Model.instance.getImage(urlStr: student!.imageUrl! , callback: { (image) in
@@ -103,6 +103,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
 
 
         return cell
+        
         
     }
     
@@ -117,10 +118,9 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selectedRow = indexPath.row
-        //performSegue(withIdentifier: "showDetails", sender: self)
+        performSegue(withIdentifier: "OpenChat", sender: (Any).self)
+
     }
 
-    @IBAction func enterChatButtonPressed(_ sender: UIButton) {
-               performSegue(withIdentifier: "OpenChat", sender: (Any).self)
-    }
+    
 }

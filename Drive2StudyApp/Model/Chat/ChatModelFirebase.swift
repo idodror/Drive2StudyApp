@@ -20,7 +20,7 @@ struct ChatModelFirebase
     
     static func getAllChatByReceiveIdObserve(receiverID: String, callback:@escaping ([ChatMessage]?)->Void){
         let myRef = Database.database().reference().child("chats")
-
+        var str1: String?
         myRef.observe(.value, with: { (snapshot) in
             if let values = snapshot.value as? [String:[String:Any]]{
                 
@@ -30,7 +30,7 @@ struct ChatModelFirebase
                     for relevantJson in chatJson.value
                     {
                         print("\(relevantJson.value)")
-                        let str1 = String(describing: relevantJson.value)
+                        str1 = String(describing: relevantJson.value)
                         if(relevantJson.key == "receiver_id" && str1 == receiverID){
                             let chat = ChatMessage(json: chatJson.value)
                             chatArray.append(chat)
