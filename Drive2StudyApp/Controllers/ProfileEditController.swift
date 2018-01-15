@@ -8,7 +8,9 @@
 
 import UIKit
 
+
 class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
     
     @IBOutlet weak var firstNameLabel: UITextField!
     @IBOutlet weak var lastNameLabel: UITextField!

@@ -8,7 +8,7 @@
 
 import UIKit
 import FacebookLogin
-import FirebaseAuth
+import Firebase
 import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -46,6 +46,8 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
                 }
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
+                    let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                    Auth.auth().signIn(with: credential)
                     self.getFBUserData()
                 }
             }
@@ -72,9 +74,23 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
                     }
                     else{
                         let encodedUserEmail=email.replacingOccurrences(of: ".", with: ",")
+                        
+                        
                         let st = Student(userName: encodedUserEmail, fName: data["first_name"]! as! String, lName: data["last_name"]! as! String, study: "", imageUrl: "", LoginType: "FB") //register without image profile
                         Model.instance.addStudent(st: Student(st: st))
                         Model.studentCurrent = Student(st: st)
+                        
+                        
+                        //get profile image
+                        let FBid = data["id"] as? String
+                        let url = NSURL(string: "https://graph.facebook.com/\(FBid!)/picture?type=large&return_ssl_resources=1")
+                       let image = UIImage(data: NSData(contentsOf: url! as URL)! as Data)
+                        Model.instance.saveImage(image: image!, name:"image:user:"+Model.studentCurrent.userName){(url) in
+                                Model.studentCurrent.imageUrl = url //save url to current Student
+                                Model.instance.addStudent(st: Model.studentCurrent) //+imageUrl
+                                
+                            }
+                        
                     }
                         self.goToNextPage(page: "MoveToAfterFBSignIn")
                     }
@@ -128,6 +144,7 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
         }
     }
     
+    
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
@@ -139,5 +156,5 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
             performSegue(withIdentifier: page, sender: Any?.self)
     }
     
-}
 
+}

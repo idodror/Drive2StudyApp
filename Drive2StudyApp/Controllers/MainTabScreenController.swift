@@ -135,13 +135,12 @@ class MainTabScreenController: UIViewController {
             fbLoginManager.logOut()
             
         }
-        else{
             do{
             try Auth.auth().signOut()
             }catch{
                 print("Error signing out from Firebase")
             }
-        }
+        
         Model.studentCurrent = Student()
         self.dismiss(animated: true, completion: nil)
         
