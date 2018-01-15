@@ -468,7 +468,10 @@
                         <viewLayoutGuide key="safeArea" id="AQU-1j-Kfc"/>
                     </view>
                     <connections>
+                        <outlet property="chatButton" destination="YgU-Bm-TBI" id="Ufg-Ev-5WN"/>
+                        <outlet property="driveButton" destination="Uks-O5-Rgb" id="u1g-G4-qFW"/>
                         <outlet property="mapButton" destination="dfk-8v-EUJ" id="AYh-0x-E7h"/>
+                        <outlet property="rideButton" destination="swA-gN-g6O" id="iRL-TI-Bh3"/>
                         <outlet property="topStackView" destination="WSY-u1-of4" id="umR-5u-olk"/>
                         <outlet property="userAvatar" destination="HzH-cn-uMs" id="HzV-Ca-UDg"/>
                         <outlet property="userNameLabel" destination="no0-Lx-wLH" id="BSS-px-Zkf"/>

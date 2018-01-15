@@ -33,6 +33,11 @@ class ViewController: UIViewController, SigninWithEmailControllerDelegate{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.InvalidEmailLabel.text=""
+    }
+
+    
     
     @IBAction func ConnectWithFBButtonPressed(_ sender: UIButton) {
     

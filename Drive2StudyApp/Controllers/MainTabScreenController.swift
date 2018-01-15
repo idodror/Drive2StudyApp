@@ -37,6 +37,9 @@ class MainTabScreenController: UIViewController {
 
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var driveButton: UIButton!
+    @IBOutlet weak var rideButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
     @IBOutlet private weak var topStackView: UIStackView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userAvatar: UIButton!
@@ -78,6 +81,8 @@ class MainTabScreenController: UIViewController {
             childControllers.append(vc)
             addChildViewController(vc)
         }
+        
+        self.mapButton.setImage(UIImage(named: "mapMarkerBlue"), for: .normal)
         self.viewContainer.addSubview(childControllers[0].view)
         pinBackground(backgroundView, to: topStackView)
     }
@@ -107,19 +112,39 @@ class MainTabScreenController: UIViewController {
     }
     
     @IBAction func MapButtonPressed(_ sender: UIButton) {
+        self.mapButton.setImage(UIImage(named: "mapMarkerBlue"), for: .normal)
+        self.driveButton.setImage(UIImage(named: "driveMarkerBlack"), for: .normal)
+        self.rideButton.setImage(UIImage(named: "rideMarkerBlack"), for: .normal)
+        self.chatButton.setImage(UIImage(named: "chatMarkerBlack"), for: .normal)
+        
         self.viewContainer.addSubview(childControllers[0].view)
     }
     
     @IBAction func DriveButtonPressed(_ sender: UIButton) {
+        self.driveButton.setImage(UIImage(named: "driveMarkerBlue"), for: .normal)
+        self.mapButton.setImage(UIImage(named: "mapMarkerBlack"), for: .normal)
+        self.rideButton.setImage(UIImage(named: "rideMarkerBlack"), for: .normal)
+        self.chatButton.setImage(UIImage(named: "chatMarkerBlack"), for: .normal)
         
         self.viewContainer.addSubview(childControllers[1].view)
     }
-
+    
     @IBAction func RideButtonPressed(_ sender: UIButton) {
+        self.rideButton.setImage(UIImage(named: "rideMarkerBlue"), for: .normal)
+        self.mapButton.setImage(UIImage(named: "mapMarkerBlack"), for: .normal)
+        self.driveButton.setImage(UIImage(named: "driveMarkerBlack"), for: .normal)
+        self.chatButton.setImage(UIImage(named: "chatMarkerBlack"), for: .normal)
+        
         self.viewContainer.addSubview(childControllers[2].view)
     }
     
     @IBAction func ChatButtonPressed(_ sender: UIButton) {
+        self.chatButton.setImage(UIImage(named: "chatMarkerBlue"), for: .normal)
+        self.mapButton.setImage(UIImage(named: "mapMarkerBlack"), for: .normal)
+        self.driveButton.setImage(UIImage(named: "driveMarkerBlack"), for: .normal)
+        self.rideButton.setImage(UIImage(named: "rideMarkerBlack"), for: .normal)
+        
+        
         self.viewContainer.addSubview(childControllers[3].view)
     }
     
