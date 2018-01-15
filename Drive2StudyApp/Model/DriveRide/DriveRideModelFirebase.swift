@@ -18,7 +18,7 @@ class DriveRideModelFirebase {
             table = "ride"
         } else { table = "drive" }
         let ref = Database.database().reference().child(table).child(dr.userName)
-        ref.setValue(dr.toFirebase())
+        //ref.setValue(dr.toFirebase())
         ref.setValue(dr.toFirebase()){(error, dbref) in
             completionBlock(error)
         }

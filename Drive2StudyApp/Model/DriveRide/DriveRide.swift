@@ -15,7 +15,6 @@ class DriveRide {
     var imageUrl:String?
     var lastUpdate:Date?
     
-    
     init() {
         self.userName = ""
         self.fromWhere = ""

@@ -12,8 +12,8 @@ class RideViewController: UITableViewController {
     
     var selctedRow:Int?
     var rideList = [DriveRide]()
-        var selctedRowCell:RideRowCell?
-
+    var selctedRowCell:RideRowCell?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -51,6 +51,12 @@ class RideViewController: UITableViewController {
         }
     }
     
+    /*override func viewWillAppear(_ animated: Bool) {
+        self.records.removeAll()
+        self.UpdateCurrentVisibleCell()
+        
+    }*/
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewRideSegue" {
             let destViewController = segue.destination as! ChooseLocationViewController
@@ -84,18 +90,26 @@ class RideViewController: UITableViewController {
         let decodedID=content.userName.replacingOccurrences(of: ",", with: ".")
         cell.userNameLabel.text = decodedID
         cell.fromWhereLabel.text = content.fromWhere
-        if(content.imageUrl != nil){
+        if(content.imageUrl != nil && content.imageUrl != ""){
             Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
                 cell.profilePicture.image = image
-                
-            })}
+                print("************************Image for user name (Event): \(cell.userNameLabel.text!)")
+            })
+        }
+        
+        else{
+            cell.profilePicture.image = UIImage(named: "AvatarBigPicture")
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let rideItem = rideList[indexPath.row]
-            DriveRideModel.RemoveDriveRide(driver: rideItem)
+            if(rideItem.userName == Model.studentCurrent.userName){ //delete option possible only on current item
+                DriveRideModel.RemoveDriveRide(driver: rideItem)
+            }
             
         }
     }
@@ -107,8 +121,6 @@ class RideViewController: UITableViewController {
         performSegue(withIdentifier: "rideDetailsSegue", sender: nil)
 
     }
-    
-
     
     @IBAction func AddButtonPressed(_ sender: UIButton) {
     }

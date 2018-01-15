@@ -85,21 +85,26 @@ class DriveViewController: UITableViewController {
         let decodedID=content.userName.replacingOccurrences(of: ",", with: ".")
         cell.userNameLabel.text = decodedID
         cell.fromWhereLabel.text = content.fromWhere
-        if(content.imageUrl != nil){
-        Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
-            cell.profilePicture.image = image
+        if(content.imageUrl != nil && content.imageUrl != ""){
+            Model.instance.getImage(urlStr: content.imageUrl! , callback: { (image) in
+                cell.profilePicture.image = image
+                print("************************Image for user name (Event): \(cell.userNameLabel.text!)")
+            })
+        }
             
-        })}
+        else{
+            cell.profilePicture.image = UIImage(named: "AvatarBigPicture")
+        }
         
         return cell
-
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let driverItem = driveList[indexPath.row]
-            DriveRideModel.RemoveDriveRide(driver: driverItem)
-            
+            if (driverItem.userName == Model.studentCurrent.userName){
+                DriveRideModel.RemoveDriveRide(driver: driverItem)
+            }
         }
     }
     
