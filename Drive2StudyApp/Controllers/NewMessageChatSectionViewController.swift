@@ -42,32 +42,28 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
         let query = ChatModelFirebase.refs.databaseChats.queryLimited(toLast: 10)
         
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
-            
-            if  let data        = snapshot.value as? [String: String],
-                let id          = data["sender_id"],
-                let name        = data["name"],
-                let text        = data["text"],
-                !text.isEmpty
-            {
-                
-                if let message = JSQMessage(senderId: id,displayName: name, text: text)
-                {
-                   
-                    var str = message.senderId.split(separator: "$")
+            if self != nil {
+                if  let data        = snapshot.value as? [String: String],
+                    let id          = data["sender_id"],
+                    let name        = data["name"],
+                    let text        = data["text"],
+                    !text.isEmpty {
+                    if let message = JSQMessage(senderId: id,displayName: name, text: text) {
+                       
+                        var str = message.senderId.split(separator: "$")
 
-                    print("\(str[0])")
-                    print("\(str[1])")
-                    
-
-                    if(str[0] == self!.senderId && str[1] == self!.receiver){
-                        self?.messages.append(message)
-                        self?.finishReceivingMessage()
-                   }
-                    if(str[0] == self!.receiver && str[1] == self!.senderId){
-                        self?.messages.append(message)
-                        self?.finishReceivingMessage()
+                        print("\(str[0])")
+                        print("\(str[1])")
+                        
+                        if(String(str[0]) == self?.senderId && String(str[1]) == self?.receiver) {
+                            self?.messages.append(message)
+                            self?.finishReceivingMessage()
+                        }
+                        if(String(str[0]) == self?.receiver && String(str[1]) == self?.senderId) {
+                            self?.messages.append(message)
+                            self?.finishReceivingMessage()
+                        }
                     }
-                    
                 }
             }
         })
