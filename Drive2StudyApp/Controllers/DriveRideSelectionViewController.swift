@@ -46,6 +46,10 @@ class DriveRideSelectionViewController: UIViewController {
 
         }
         
+        if username == Model.studentCurrent.userName {
+            self.driverideButton.isEnabled = false
+        }
+        
         if (username != nil) {
             userNameLabel.text = username
         }

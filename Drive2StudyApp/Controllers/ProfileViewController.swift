@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userAvatar: UIImageView!
     
     override func viewDidLoad() {
-        ModelNotification.ImgURL.observe { (url) in
+        _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     self.userAvatar!.image = image
