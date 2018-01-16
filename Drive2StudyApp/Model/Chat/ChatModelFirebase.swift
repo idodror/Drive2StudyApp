@@ -16,7 +16,7 @@ struct ChatModelFirebase
         static let databaseChats = databaseRoot.child("chats")
     }
     
-
+    
     
     static func getAllChatByReceiveIdObserve(receiverID: String, callback:@escaping ([ChatMessage]?)->Void){
         let myRef = Database.database().reference().child("chats")
@@ -25,19 +25,28 @@ struct ChatModelFirebase
             if let values = snapshot.value as? [String:[String:Any]]{
                 
                 var chatArray = [ChatMessage]()
+                var receiverIDs = [String]()
+                var finalSenderID: String = ""
                 for chatJson in values{
                     print("-----------------------")
                     for relevantJson in chatJson.value
                     {
                         print("\(relevantJson.value)")
                         str1 = String(describing: relevantJson.value)
+                        if(relevantJson.key == "sender_id"){
+                            let senderID = str1?.split(separator: "$")
+                            finalSenderID = String(senderID![0])
+                        }
                         if(relevantJson.key == "receiver_id" && str1 == receiverID){
-                            let chat = ChatMessage(json: chatJson.value)
-                            chatArray.append(chat)
+                            if(receiverIDs.contains(finalSenderID) == false){
+                                let chat = ChatMessage(json: chatJson.value)
+                                chatArray.append(chat)
+                                receiverIDs.append(finalSenderID)
+                            }
                         }
                     }
                 }
-
+                
                 callback(chatArray)
             }else{
                 callback(nil)
@@ -49,7 +58,5 @@ struct ChatModelFirebase
         let myRef = Database.database().reference().child("chats").childByAutoId().child(chat.receiver_id)
         myRef.removeValue()
     }
-    
-    
-
 }
+
