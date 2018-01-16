@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
 class DriveRideSelectionViewController: UIViewController {
 
@@ -120,19 +121,23 @@ class DriveRideSelectionViewController: UIViewController {
     */
     @IBAction func driveRideButtonPressed(_ sender: UIButton) {
         if self.type == "d"{
-            
-            
-            //TODO: send default chat from current to selected row user "Drive me please"
-            self.dismiss(animated: true, completion: nil)
-
+            self.sendAutoMessage(text: "Hi! Can I have a ride to College?")
         }
         else{
-            
-            
-            //TODO: send default chat from current to selected row user "i will pick you"
-            self.dismiss(animated: true, completion: nil)
-
+             self.sendAutoMessage(text: "Hi! Would you like a ride to College?")
         }
+    }
+    
+    func sendAutoMessage(text: String){
+        let user = userNameLabel.text
+        let receiver = user?.replacingOccurrences(of: ".", with: ",")
+        let tempsender = Model.studentCurrent.userName
+        let sender = tempsender.replacingOccurrences(of: ",", with: ".")
+        let ref = ChatModelFirebase.refs.databaseChats.childByAutoId()
+        let message = ["sender_id": Model.studentCurrent.userName+"$"+receiver!,"receiver_id": receiver, "name": sender, "text": text]
+        ref.setValue(message)
+        
+        self.dismiss(animated: true, completion: nil)
     }
 
     

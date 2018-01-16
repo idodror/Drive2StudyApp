@@ -32,14 +32,14 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         senderId = Model.studentCurrent.userName
-        senderDisplayName = Model.studentCurrent.fName
+        senderDisplayName = senderId.replacingOccurrences(of: ",", with: ".")
         
         //Hide avatar and attachment button on the left of the chat text input field
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let query = ChatModelFirebase.refs.databaseChats.queryLimited(toLast: 10)
+        let query = ChatModelFirebase.refs.databaseChats.queryLimited(toLast: 100)
         
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if self != nil {
@@ -50,7 +50,8 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
                     !text.isEmpty {
                     if let message = JSQMessage(senderId: id,displayName: name, text: text) {
                        
-                        var str = message.senderId.split(separator: "$")
+                        let temp = message.senderId
+                        let str = temp!.split(separator: "$")
 
                         print("\(str[0])")
                         print("\(str[1])")
@@ -59,7 +60,7 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
                             self?.messages.append(message)
                             self?.finishReceivingMessage()
                         }
-                        if(String(str[0]) == self?.receiver && String(str[1]) == self?.senderId) {
+                        else if(String(str[0]) == self?.receiver && String(str[1]) == self?.senderId) {
                             self?.messages.append(message)
                             self?.finishReceivingMessage()
                         }
