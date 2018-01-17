@@ -56,7 +56,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                 self.moveToNextPage(string: "moveToAppAfterRegister")
             }
             else{
-                self.errorLabel.text! = "error creating new user"
+                self.errorLabel.text! = "At least 6 characters"
                 self.errorLabel.isHidden = false
             }
         })

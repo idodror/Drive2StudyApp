@@ -19,9 +19,6 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
     var markersList = [GMSMarker]()
     var markerTappedDetails = String()
     
-    //A string array to save all the names
-    var nameArray = [String]()
-    
     // for GPS location
     let locationManager = CLLocationManager()
     var camera = GMSCameraPosition()
@@ -65,9 +62,9 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         mapView.settings.myLocationButton = true
         mapView.isMyLocationEnabled = true
         mapView.settings.setAllGesturesEnabled(true)
-        
         mapView.clear()
-        // adds the current location marker (red pin)
+        
+        // adds the current location marker
         let marker = GMSMarker()
         marker.position = camera.target
         marker.snippet = "Current Location"

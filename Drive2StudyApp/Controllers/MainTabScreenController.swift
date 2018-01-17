@@ -64,7 +64,7 @@ class MainTabScreenController: UIViewController {
 
         CircleObject.circleButton(object: userAvatar)
 
-        ModelNotification.ImgURL.observe { (url) in
+        _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
                     
@@ -73,7 +73,7 @@ class MainTabScreenController: UIViewController {
                 })
             }
         }
-        ModelNotification.FullName.observe{ (fullName) in
+        _ = ModelNotification.FullName.observe{ (fullName) in
             self.userNameLabel.text = fullName
         }
         super.viewDidLoad()

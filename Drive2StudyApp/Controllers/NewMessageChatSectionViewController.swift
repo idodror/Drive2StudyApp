@@ -162,16 +162,16 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
         userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
         
-        // 1
+        
         usersTypingQuery.observe(.value, with: { (snapshot) in
             if ((snapshot.value as? String) != nil){
                 
-            // 2 You're the only one typing, don't show the indicator
+            //You're the only one typing, don't show the indicator
                 if snapshot.childrenCount == 1 && (self.isTyping) {
                 return
                 }
             
-            // 3 Are there others typing?
+            //Are there others typing?
                 if (snapshot.childrenCount > 0){
                     self.showTypingIndicator = true
                     self.scrollToBottom(animated: true)
