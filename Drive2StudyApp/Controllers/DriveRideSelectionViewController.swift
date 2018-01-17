@@ -35,11 +35,19 @@ class DriveRideSelectionViewController: UIViewController {
     
     func loadData() {
         if(self.type == "d"){
+            
+            if(self.selctedDriverRow?.userNameLabel.text! == Model.studentCurrent.userName.replacingOccurrences(of: ",", with: ".")){
+                self.driverideButton.isEnabled = false
+            }
             self.driverideButton.setTitle("Drive Me!", for: .normal)
             profilPicture.image = selctedDriverRow?.profilePicture.image
             userNameLabel.text = selctedDriverRow?.userNameLabel.text
         }
         else{
+            
+            if(self.selctedRiderRow?.userNameLabel.text! == Model.studentCurrent.userName.replacingOccurrences(of: ",", with: ".")){
+                self.driverideButton.isEnabled = false
+            }
             self.driverideButton.setTitle("Ride You!", for: .normal)
             profilPicture.image = selctedRiderRow?.profilePicture.image
             userNameLabel.text = selctedRiderRow?.userNameLabel.text
