@@ -24,6 +24,7 @@ public extension UIView {
     }
 }
 
+// this class rperesent the custom tabs view of the application
 class MainTabScreenController: UIViewController {
     
     var childControllersNames = [

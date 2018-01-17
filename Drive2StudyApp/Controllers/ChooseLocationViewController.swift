@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Popup style window for choose the location
 class ChooseLocationViewController: UIViewController, CLLocationManagerDelegate {
     
     // for GPS location

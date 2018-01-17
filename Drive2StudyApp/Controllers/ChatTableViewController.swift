@@ -13,13 +13,15 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
     
     var selectedRow:Int?
     var chatList = [ChatMessage]()
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Get all relevant chat for current user
         ChatModel.getAllChatByReceiveIdObserve(receiveName: Model.studentCurrent.userName)
+        
+        // set a listener for changes in the chat list from firebase
         _ = ModelNotification.ChatList.observe { (list) in
             if list != nil {
                 self.chatList = list!
@@ -27,6 +29,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
             }
         }
         
+        // set a listener for notification about image chnages
         _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
@@ -83,6 +86,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
 
     }
     
+    // return the all visible rows
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ChatRowCell = tableView.dequeueReusableCell(withIdentifier: "chatRowCell", for: indexPath) as! ChatRowCell
         
@@ -93,6 +97,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         let finalsender = senderID[0]
         Model.instance.getStudentById(id: String(finalsender)) { (student) in
             if (student != nil) {
+                // get image only for visible rows
                 if(student!.imageUrl != nil && student!.imageUrl != ""){
                     Model.instance.getImage(urlStr: student!.imageUrl! , callback: { (image) in
                             cell.profilePicture.image = image
@@ -106,6 +111,7 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
         
     }
     
+    // select row event
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selectedRow = indexPath.row

@@ -16,8 +16,7 @@ struct ChatModelFirebase
         static let databaseChats = databaseRoot.child("chats")
     }
     
-    
-    
+    //get all chats relevant for current student
     static func getAllChatByReceiveIdObserve(receiverID: String, callback:@escaping ([ChatMessage]?)->Void){
         let myRef = Database.database().reference().child("chats")
         var str1: String?

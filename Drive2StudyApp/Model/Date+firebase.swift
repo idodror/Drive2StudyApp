@@ -8,6 +8,8 @@
 
 import Foundation
 
+// extension to date class
+// uses to sync the data from local DB and firebase
 extension Date {
     
     func toFirebase()->Double{

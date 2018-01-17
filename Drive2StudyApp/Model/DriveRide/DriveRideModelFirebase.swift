@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class DriveRideModelFirebase {
     
+    // add new drive/ride object to the firebase
     static func addNewDriveRide(dr:DriveRide, completionBlock:@escaping (Error?)->Void){
         var table = "";
         if dr.type == "r" {
@@ -24,6 +25,7 @@ class DriveRideModelFirebase {
         }
     }
     
+    // get all te drive/rides (depend of the type) from the firebase and post notificaion to the relevant list
     static func getAllDriveRideAndObserve(driveOrRide: String, callback:@escaping ([DriveRide]?)->Void){
         var myRef = Database.database().reference().child("drive")
         if driveOrRide == "r" {
@@ -44,6 +46,7 @@ class DriveRideModelFirebase {
         })
     }
     
+    // Remove ride or drive object from the firebase
     static func RemoveDriveRide(driver: DriveRide){
         var myRef = Database.database().reference().child("drive").child(driver.userName)
         if driver.type == "r" {

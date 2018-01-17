@@ -52,11 +52,13 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         }
     }
     
+    // listen to the changes in the core location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.showCurrentLocationAndMarkersOnMap()
         self.locationManager.stopUpdatingLocation()
     }
     
+    // set the camera to the map by the current location and add all the other markers to the map (gets the data from drivelist and ridelist)
     func showCurrentLocationAndMarkersOnMap() {
         let camera = GMSCameraPosition.camera(withLatitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 13)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -65,6 +67,7 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         mapView.settings.setAllGesturesEnabled(true)
         
         mapView.clear()
+        // adds the current location marker (red pin)
         let marker = GMSMarker()
         marker.position = camera.target
         marker.snippet = "Current Location"
@@ -84,6 +87,8 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         }
     }
     
+    // Uses Alamofire pod to send http get request to googleapis to get lat/lng from address
+    // callback Double array (first val is lat, second val is lng)
     func getLatLangFromAddress(address: String, callback:@escaping ([Double])->Void) {
         let postParameters:[String: Any] = [ "address": address]
         let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
@@ -107,6 +112,8 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    // gets DriverRide object (with address) and gets the cooridinates of this address and put the marker on the map
+    // marker icon depends on the type value of the object (r for ride, d for drive)
     func addMarkerToMap(dr: DriveRide) {
         
         getLatLangFromAddress(address: dr.fromWhere) { (corArray) in
@@ -134,6 +141,7 @@ class GoogleMapViewController: UIViewController, GMSMapViewDelegate, CLLocationM
         mapView.delegate = self
     }
     
+    // check which maker tapped by the user and opens the relevant popup to ride/drive with him
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("You tapped : \(marker.position.latitude),\(marker.position.longitude)")
         if marker.title! != "My Location" {

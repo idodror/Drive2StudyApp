@@ -190,6 +190,13 @@
                                     <action selector="joinButtonPressed:" destination="coZ-7d-H5z" eventType="touchUpInside" id="e7p-LU-MV6"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy9-oL-94O">
+                                <rect key="frame" x="85" y="476" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -229,6 +236,7 @@
                     </view>
                     <connections>
                         <outlet property="UserEmailLabel" destination="N4X-lR-QXh" id="N3e-G2-Dsr"/>
+                        <outlet property="errorLabel" destination="dy9-oL-94O" id="Opj-rp-PmX"/>
                         <outlet property="fNameLabel" destination="0Mc-t5-oO7" id="4cQ-dc-NOt"/>
                         <outlet property="lNameLabel" destination="SLg-Ol-4wJ" id="3Ah-qr-OL6"/>
                         <outlet property="passwordLabel" destination="sq5-5e-Wyv" id="dth-gH-IKM"/>
@@ -238,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a59-gC-TYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="-329"/>
+            <point key="canvasLocation" x="900.00000000000011" y="-329.34782608695656"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="Sck-lF-F1V">

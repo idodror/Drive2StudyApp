@@ -14,6 +14,7 @@ import FirebaseStorage
 
 class ModelFirebase {
     
+    // add student to local firebase
     static func addStudent(st:Student, completionBlock:@escaping (Error?)->Void){
         let ref = Database.database().reference().child("students").child(st.userName)
         ref.setValue(st.toFirebase())
@@ -22,6 +23,7 @@ class ModelFirebase {
         }
     }
     
+    // gets an id of student and pull it from firebase
     static func getStudentById(id:String, callback:@escaping (Student?)->Void){
         let ref = Database.database().reference().child("students").child(id)
         
@@ -65,10 +67,7 @@ class ModelFirebase {
         ref.removeAllObservers()
     }
     
-    /*lazy var storageRef = FIRStorage.storage().reference(forURL:
-     "gs://drive2studyapp.appspot.com")*/
-    //i cahnged the saveImageToFirebase method to static, so i insert the storageRef in static method
-    
+    // opens communication with the firebase storage and write the image firebase and callback the url
     static func saveProfileImageToFirebase(image:UIImage, name:(String), callback:@escaping (String?)->Void){
         let storageRef = Storage.storage().reference(forURL:
             "gs://drive2studyapp.appspot.com/")
@@ -86,6 +85,7 @@ class ModelFirebase {
         }
     }
     
+    // gets url of image and callback the UIImage from firebase storage
     static func getImageFromFirebase(url:String, callback:@escaping (UIImage?)->Void){
         let ref = Storage.storage().reference(forURL: url)
         ref.getData(maxSize: 10000000, completion: {(data, error) in

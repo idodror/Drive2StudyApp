@@ -8,6 +8,8 @@
 
 import Foundation
 
+// This class represent all the drives and the rides by same object
+// type="d" for Drives, type="r" for Rides
 class DriveRide {
     var userName: String
     var fromWhere: String

@@ -21,6 +21,7 @@ extension String {
 }
 
 
+// Creates local DB and creates the relevant tables
 class ModelSql{
     var database: OpaquePointer? = nil
     

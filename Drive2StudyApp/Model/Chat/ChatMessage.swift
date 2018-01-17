@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// This object represent the chat messages
 class ChatMessage{
     
     var name: String

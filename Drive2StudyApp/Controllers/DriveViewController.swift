@@ -14,8 +14,6 @@ class DriveViewController: UITableViewController {
     var driveList = [DriveRide]()
     var selctedRowCell:DriveRowCell?
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +28,6 @@ class DriveViewController: UITableViewController {
         _ = ModelNotification.ImgURL.observe { (url) in
             if url != nil && url != "" {
                 Model.instance.getImage(urlStr: url! , callback: { (image) in
-                    //TODO: parsing the url and get the userName
                     // update the image url per userName
                     print("Url: \(url!)")
                     var urltemp = url!
@@ -99,6 +96,7 @@ class DriveViewController: UITableViewController {
         return cell
     }
     
+    // remove cell from the table
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let driverItem = driveList[indexPath.row]
@@ -108,6 +106,7 @@ class DriveViewController: UITableViewController {
         }
     }
     
+    // listens to select row click
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row

@@ -11,6 +11,7 @@ import UIKit
 
 class DriveRideModel {
     
+    // calls the add new drive/ride object to the firebase
     static func addNewDriveRide(dr: DriveRide) {
         DriveRideModelFirebase.addNewDriveRide(dr: dr) { (error) in
             //
@@ -18,6 +19,7 @@ class DriveRideModel {
         //ModelNotification.DriveList.post(data: [dr])
      }
     
+    // call to get all te drive/rides (depend of the type) from the firebase and post notificaion to the relevant list
     static func getAllDriveRideAndObserve(driveOrRideTable: String) {
         
         print("Model.getAllDriveRideAndObserve")

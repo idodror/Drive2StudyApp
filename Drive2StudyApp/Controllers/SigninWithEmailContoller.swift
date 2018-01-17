@@ -56,6 +56,7 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
         //dismiss(animated: true, completion: nil)
     }
     
+    // if sign in pressed, check by authentication the password and sign in the user (or not)
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         // Check if the password is correct
         password = PasswordLabel.text!
@@ -72,6 +73,7 @@ class SigninWithEmailContoller: UIViewController, ForgotPasswordControllerDelega
          })
         }
 
+    // moves to forgot password view controller
     @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {
         
         self.moveToNextPage(page: "moveToForgotPassword")

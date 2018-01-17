@@ -9,6 +9,7 @@
 import UIKit
 import JSQMessagesViewController
 
+// Popup style for show the selected row in the drive/ride tables and show option fro send automatically messages
 class DriveRideSelectionViewController: UIViewController {
 
     @IBOutlet weak var profilPicture: UIImageView!
@@ -122,15 +123,7 @@ class DriveRideSelectionViewController: UIViewController {
     @IBAction func dismissPopup(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func driveRideButtonPressed(_ sender: UIButton) {
         if self.type == "d"{
             self.sendAutoMessage(text: "Hi! Can I have a ride to College?")

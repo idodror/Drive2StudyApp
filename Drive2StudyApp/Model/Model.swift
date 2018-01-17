@@ -58,6 +58,7 @@ class Model {
         ModelFirebase.clearObservers()
     }
     
+    // calls the add new student function to the local DB and the firebase, post the imgUrl to the observer
     func addStudent(st:Student){
         ModelFirebase.addStudent(st: st){(error) in
             //st.addStudentToLocalDb(database: self.modelSql?.database)
@@ -66,10 +67,12 @@ class Model {
         ModelNotification.ImgURL.post(data: st.imageUrl!)
     }
     
+    // add new student to local DB
     func addNewStudentToLocalDB(st:Student){
         st.addStudentToLocalDb(database: self.modelSql?.database)
     }
     
+    // gets an id of student and pull the data from firebase
     func getStudentById(id:String, callback:@escaping (Student?)->Void){
         let encodedID=id.replacingOccurrences(of: ".", with: ",")
         ModelFirebase.getStudentById(id: encodedID) { (st) in
@@ -82,6 +85,7 @@ class Model {
         }
     }
     
+    // get the list of all students from local DB and synced with Firebase
     func getAllStudents(callback:@escaping ([Student])->Void){
         print("Model.getAllStudents")
         
@@ -151,6 +155,7 @@ class Model {
         })
     }
     
+    // saves the profile image to firebase (storage) and local DB
     func saveImage(image:UIImage, name:String, callback:@escaping (String?)->Void){
         //1. save image to Firebase
         ModelFirebase.saveProfileImageToFirebase(image: image, name: name, callback: {(url) in
@@ -163,6 +168,7 @@ class Model {
         })
     }
     
+    // gets the image url and try to pull pull the image from firebase
     func getImage(urlStr:String, callback:@escaping (UIImage?)->Void){
         //1. try to get the image from local store
         let url = URL(string: urlStr)
@@ -184,12 +190,15 @@ class Model {
         }
     }
     
+    // save image to local db
     private func saveImageToFile(image:UIImage, name:String){
         if let data = UIImageJPEGRepresentation(image, 0.8) {
             let filename = getDocumentsDirectory().appendingPathComponent(name)
             try? data.write(to: filename)
         }
     }
+    
+    // returns the path of the images in the local DB
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in:
             .userDomainMask)
@@ -197,6 +206,7 @@ class Model {
         return documentsDirectory
     }
     
+    // get the image from the local DB by name
     private func getImageFromFile(name:String)->UIImage?{
         let filename = getDocumentsDirectory().appendingPathComponent(name)
         return UIImage(contentsOfFile:filename.path)

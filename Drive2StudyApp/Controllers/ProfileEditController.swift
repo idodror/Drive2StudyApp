@@ -65,6 +65,7 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
         // Dispose of any resources that can be recreated.
     }
     
+    // collect all data from labels and save the student details
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         Model.studentCurrent.fName = firstNameLabel.text!
         Model.studentCurrent.lName = lastNameLabel.text!
@@ -105,7 +106,8 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
         if saturdaySwitch.isOn { days[6] = 1 } else { days[6] = 0 }
         Model.studentCurrent.daysInCollege = days
     }
-
+    
+    // show to user option to choose photo from libary or take photo from camera
     @IBAction func changeProfilPictureButtonPressed(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             let imagePicker = UIImagePickerController()
@@ -124,7 +126,7 @@ class ProfileEditController: UIViewController,UIImagePickerControllerDelegate,UI
         }
     }
     
-    
+    // when the user finish to choose or take a photo, this function calls and set the image to userAvatar
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         //let image = info["UIImagePickerControllerEditedImage"] as? UIImage
         selectedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage

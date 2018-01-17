@@ -11,6 +11,7 @@ import UIKit
 
 class ChatModel{
     
+    // runs the modelfirebase for get all chats and post notification for changes
     static func getAllChatByReceiveIdObserve(receiveName: String) {
         
         print("Model.getAllChatsByReceiveIDAndObserve")

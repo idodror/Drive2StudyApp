@@ -18,6 +18,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var UserEmailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var studyLabel: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             self.navigationController?.popToRootViewController(animated: true)
         }
         UserEmailLabel.text = userEmail
+        errorLabel.isHidden = true
     }
     
 
@@ -41,6 +43,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    // create user by the details the user entered in the register form
     @IBAction func joinButtonPressed(_ sender: UIButton) {
        
         Auth.auth().createUser(withEmail: userEmail, password: passwordLabel.text!, completion: {(user,error) in
@@ -53,7 +56,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                 self.moveToNextPage(string: "moveToAppAfterRegister")
             }
             else{
-                print("error creating new user")
+                self.errorLabel.text! = "error creating new user"
+                self.errorLabel.isHidden = false
             }
         })
     }

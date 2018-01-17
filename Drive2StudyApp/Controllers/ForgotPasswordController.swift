@@ -40,9 +40,7 @@ class ForgotPasswordController: UIViewController{
        UserEmailLabel.text = userEmail
     }
 
-    
-
-
+    // sends recover password email (from firebase database)
     @IBAction func SendNowButtonPressed(_ sender: UIButton) {
         Auth.auth().sendPasswordReset(withEmail: userEmail, completion:{(error) in
             if error == nil{

@@ -14,8 +14,6 @@ class RideViewController: UITableViewController {
     var rideList = [DriveRide]()
     var selctedRowCell:RideRowCell?
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         DriveRideModel.getAllDriveRideAndObserve(driveOrRideTable: "r")
@@ -104,6 +102,7 @@ class RideViewController: UITableViewController {
         return cell
     }
     
+    // listens to selecet row click
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let rideItem = rideList[indexPath.row]
@@ -114,6 +113,7 @@ class RideViewController: UITableViewController {
         }
     }
     
+    // listens to select row click
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("row \(indexPath.row) was selected")
         selctedRow = indexPath.row
