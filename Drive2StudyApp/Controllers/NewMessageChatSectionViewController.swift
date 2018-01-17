@@ -164,16 +164,15 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
         
         // 1
         usersTypingQuery.observe(.value, with: { (snapshot) in
-            if ((snapshot.value as? [String:[String:Any]]) != nil){
+            if ((snapshot.value as? String) != nil){
                 
-                var data = [String]()
             // 2 You're the only one typing, don't show the indicator
-                if data.count == 1 && (self.isTyping) {
+                if snapshot.childrenCount == 1 && (self.isTyping) {
                 return
                 }
             
             // 3 Are there others typing?
-                if (data.count != 0){
+                if (snapshot.childrenCount > 0){
                     self.showTypingIndicator = true
                     self.scrollToBottom(animated: true)
                 }
