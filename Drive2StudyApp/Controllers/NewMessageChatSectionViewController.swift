@@ -10,6 +10,7 @@ import UIKit
 import JSQMessagesViewController
 import FirebaseAuth
 
+
 protocol NewMessageChatSectionViewControllerDelegate {
     
 }
@@ -21,12 +22,34 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
     //Local property to store messages
     var messages = [JSQMessage]()
 
+    
+    //checking if user is typing
+    private lazy var usersTypingQuery = ChatModelFirebase.refs.databaseChats.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+    private lazy var userIsTypingRef =
+        ChatModelFirebase.refs.databaseChats.child("typingIndicator").child(self.senderId) // 1
+    private var localTyping = false // 2
+    var isTyping: Bool {
+        get {
+            return localTyping
+        }
+        set {
+            // 3
+            localTyping = newValue
+            userIsTypingRef.setValue(newValue)
+        }
+    }
+    
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
     
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.gray)
+    }()
+    
+    lazy var DriveRideBubble: JSQMessagesBubbleImage = {
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
     }()
     
     override func viewDidLoad() {
@@ -93,6 +116,9 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
         let sender = messages[indexPath.item].senderId
         let parsedSender = sender?.split(separator: "$")
         let mysender = senderId.split(separator: "$")
+        if(messages[indexPath.item].text == "Hi! Can I have a ride to College?" || messages[indexPath.item].text == "Hi! Would you like a ride to College?"){
+            return DriveRideBubble
+        }
         return parsedSender![0] == mysender[0] ? outgoingBubble : incomingBubble
     }
     
@@ -121,7 +147,49 @@ class NewMessageChatSectionViewController: JSQMessagesViewController {
         let message = ["sender_id": senderId+"$"+receiver,"receiver_id": receiver, "name": senderDisplayName, "text": text]
         
         ref.setValue(message)
-        
+        isTyping = false
         finishSendingMessage()
     }
+    
+    //Checking if the text changed to show user typing
+    override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
+        isTyping = textView.text != ""
+    }
+    
+    private func observeTyping() {
+        let typingIndicatorRef = ChatModelFirebase.refs.databaseChats.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(senderId)
+        userIsTypingRef.onDisconnectRemoveValue()
+        
+        // 1
+        usersTypingQuery.observe(.value, with: { (snapshot) in
+            if ((snapshot.value as? [String:[String:Any]]) != nil){
+                
+                var data = [String]()
+            // 2 You're the only one typing, don't show the indicator
+                if data.count == 1 && (self.isTyping) {
+                return
+                }
+            
+            // 3 Are there others typing?
+                if (data.count != 0){
+                    self.showTypingIndicator = true
+                    self.scrollToBottom(animated: true)
+                }
+                else{
+                    self.showTypingIndicator = false
+                }
+                
+            }
+        })
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        observeTyping()
+    }
+    
+    
 }

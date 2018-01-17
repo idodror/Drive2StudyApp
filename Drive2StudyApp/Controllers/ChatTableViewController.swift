@@ -101,7 +101,6 @@ class ChatTableViewController: UITableViewController, NewMessageChatSectionViewC
             }
         };
 
-
         return cell
         
         
